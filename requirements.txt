@@ -1,0 +1,15 @@
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-openai
+langsmith
+openai
+anthropic
+requests
+httpx
+pydantic>=2.0
+pymupdf
+python-dotenv
+fastapi
+uvicorn
+networkx
+pandas

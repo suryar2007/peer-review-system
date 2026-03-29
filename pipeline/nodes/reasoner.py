@@ -64,7 +64,7 @@ def reasoner_node(state: PipelineState) -> dict[str, Any]:
     supported_claims = sum(1 for v in verification_results if v.verdict == "supported")
     flagged_claims = sum(
         1 for v in verification_results
-        if v.verdict in ("overstated", "contradicted", "out_of_scope")
+        if v.verdict in ("overstated", "contradicted", "out_of_scope", "paper_mill_journal")
     )
 
     result: dict[str, Any] = {
@@ -99,6 +99,32 @@ def _extract_claim_context(claim_text: str, paper_text: str, window: int = 600) 
     return paper_text[start:end]
 
 
+_PAPER_MILL_JOURNALS: set[str] = {
+    "evidence-based complementary and alternative medicine",
+    "journal of healthcare engineering",
+    "bioengineered",
+    "international wound journal",
+    "international journal of environmental research and public health",
+    "journal of personalized medicine",
+    "oncology reports",
+    "molecular medicine reports",
+    "foundations and trends\u00ae in privacy and security",
+    "foundations and trends in privacy and security",
+    "siam j. comput.",
+    "siam journal on computing",
+}
+
+
+def _check_paper_mill_journals(claim, resolved_citations: list) -> str | None:
+    """Return the matched journal name if any cited source is from a flagged venue."""
+    for idx in claim.supporting_citation_indices:
+        if 0 <= idx < len(resolved_citations):
+            journal = (resolved_citations[idx].journal or "").strip().lower()
+            if journal in _PAPER_MILL_JOURNALS:
+                return resolved_citations[idx].journal
+    return None
+
+
 def _build_sources_for_claim(claim, resolved_citations: list) -> tuple[list[dict], bool]:
     """
     Build cited_sources for a claim. Returns (sources_list, has_resolved_source).
@@ -117,6 +143,7 @@ def _build_sources_for_claim(claim, resolved_citations: list) -> tuple[list[dict
                 resolved_sources.append({
                     "title": cit.title or cit.raw_text[:100],
                     "source_text": cit.source_text,
+                    "journal": cit.journal,
                     "year": cit.year,
                     "resolved": True,
                 })
@@ -127,6 +154,7 @@ def _build_sources_for_claim(claim, resolved_citations: list) -> tuple[list[dict
                     fallback_sources.append({
                         "title": title or raw[:100],
                         "source_text": f"[Unresolved citation — only bibliographic info available] {raw}",
+                        "journal": cit.journal,
                         "year": cit.year,
                         "resolved": False,
                     })
@@ -147,6 +175,19 @@ def _verify_claims_concurrent(
     """Run claim verification with concurrency limit."""
 
     def _verify_one(claim) -> VerificationResult:
+        # Deterministic paper mill journal check
+        flagged_journal = _check_paper_mill_journals(claim, resolved_citations)
+        if flagged_journal:
+            return VerificationResult(
+                claim_text=claim.text,
+                verdict="paper_mill_journal",
+                confidence=1.0,
+                explanation=f"Cited source published in '{flagged_journal}', "
+                "a journal commonly flagged as a paper mill venue.",
+                relevant_passage=None,
+                citation_indices=list(claim.supporting_citation_indices),
+            )
+
         cited_sources, has_resolved = _build_sources_for_claim(claim, resolved_citations)
         context = _extract_claim_context(claim.text, paper_text)
 

@@ -20,6 +20,7 @@ _VERDICT_COLORS = {
     "contradicted": "#ef4444",
     "out_of_scope": "#a855f7",
     "unverifiable": "#6b7280",
+    "paper_mill_journal": "#f97316",
 }
 
 _VERDICT_EMOJI = {
@@ -28,6 +29,7 @@ _VERDICT_EMOJI = {
     "contradicted": "&#10007;",
     "out_of_scope": "&#8631;",
     "unverifiable": "?",
+    "paper_mill_journal": "&#9873;",
 }
 
 
@@ -193,7 +195,7 @@ def reporter_node(state: PipelineState) -> dict[str, Any]:
     flagged_claims = sum(
         1
         for v in verification_results
-        if v.verdict in ("overstated", "contradicted", "out_of_scope")
+        if v.verdict in ("overstated", "contradicted", "out_of_scope", "paper_mill_journal")
     )
 
     summary = {

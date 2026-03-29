@@ -250,6 +250,14 @@ async def index(request: Request):
     )
 
 
+@app.get("/logo.jpg")
+async def serve_logo():
+    path = PROJECT_ROOT / "logo.jpg"
+    if not path.exists():
+        return HTMLResponse("Not found", status_code=404)
+    return FileResponse(path, media_type="image/jpeg")
+
+
 @app.get("/pdf/{directory}/{stem}")
 async def serve_pdf(directory: str, stem: str):
     """Serve a PDF file for the in-browser viewer."""

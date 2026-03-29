@@ -24,87 +24,262 @@
 </head>
 <body>
 <h1>Peer Review Verification Report</h1>
-<p class="meta"><strong>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</strong> &mdash; Generated 2026-03-29 00:14 UTC</p>
+<p class="meta"><strong>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</strong> &mdash; Generated 2026-03-29 08:25 UTC</p>
 
 <div class="cards">
-  <div class="card"><div class="num">67</div><div class="label">Citations Found</div></div>
-  <div class="card"><div class="num" style="color:#22c55e">66 <span style="font-size:.7em">(99%)</span></div><div class="label">Resolved</div></div>
+  <div class="card"><div class="num">56</div><div class="label">Citations Found</div></div>
+  <div class="card"><div class="num" style="color:#22c55e">55 <span style="font-size:.7em">(98%)</span></div><div class="label">Resolved</div></div>
   <div class="card"><div class="num" style="color:#ef4444">0</div><div class="label">Hallucinated</div></div>
-  <div class="card"><div class="num" style="color:#22c55e">0</div><div class="label">Claims Supported</div></div>
-  <div class="card"><div class="num" style="color:#f59e0b">3</div><div class="label">Claims Flagged</div></div>
-  <div class="card"><div class="num" style="color:#6b7280">6</div><div class="label">Unverifiable</div></div>
+  <div class="card"><div class="num" style="color:#22c55e">21</div><div class="label">Claims Supported</div></div>
+  <div class="card"><div class="num" style="color:#f59e0b">9</div><div class="label">Claims Flagged</div></div>
+  <div class="card"><div class="num" style="color:#6b7280">3</div><div class="label">Unverifiable</div></div>
 </div>
 
-<h2>Claim Verification Results (9)</h2>
+<h2>Claim Verification Results (33)</h2>
 <table>
 <thead><tr><th>Claim</th><th>Verdict</th><th>Conf.</th><th>Explanation</th><th>Relevant Passage</th></tr></thead>
 <tbody>
         <tr>
-            <td style="max-width:400px">Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers.</td>
-            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
-            <td>95%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited sources discuss character-level language modeling and contextual string embeddings, but do not mention BERT or its bidirectional pre-training approach. The claim about BERT&#x27;s design is not addressed in either source.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">We argue that current techniques restrict the power of the pre-trained representations, especially for the fine-tuning approaches.</td>
-            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>0%</td>
-            <td style="max-width:400px;font-size:0.85em">No citations (resolved or raw) available for this claim.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">ELMo and its predecessor (Peters et al., 2017, 2018a) generalize traditional word embedding research along a different dimension.</td>
+            <td style="max-width:400px">Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pretrain deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers.</td>
             <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
             <td>90%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited sources do not discuss ELMo or its predecessor, nor do they address the generalization of traditional word embedding research. The sources focus on semi-supervised learning and character-level language models, which are unrelated to the claim.</td>
+            <td style="max-width:400px;font-size:0.85em">The cited sources do not contain any information about BERT or its design for pretraining deep bidirectional representations. The sources discuss different language representation models, but do not mention or support the specific claim about BERT.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">ELMo advances the state of the art for several major NLP benchmarks (Peters et al., 2018a) including question answering (Rajpurkar et al., 2016), sentiment analysis (Socher et al., 2013), and named entity recognition (Tjong Kim Sang and De Meulder, 2003).</td>
+            <td style="max-width:400px">It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5% (7.7% point absolute improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text explicitly states that BERT &#x27;obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5% (7.7% point absolute improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).&#x27;</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">It obtains new state-of-the-art re-
+sults on eleven natural language processing
+tasks, including pushing the GLUE score to
+80.5% (7.7% point absolute improvement),
+MultiNLI accuracy to 86.7% (4.6% absolute
+improvement), SQuAD v1.1 question answer-
+ing Test F1 to 93.2 (1.5 point absolute im-
+provemen</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">The feature-based approach, such as ELMo (Peters et al., 2018a), uses task-speciﬁc architectures that include the pre-trained representations as additional features.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text directly states that ELMo uses task-specific architectures that include the pre-trained representations as additional features. This aligns with the claim that the feature-based approach, such as ELMo, incorporates pre-trained representations into task-specific architectures.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">Matthew E. Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee, Luke Zettlemoyer. Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers). 2018.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">The ﬁne-tuning approach, such as the Generative Pre-trained Transformer (OpenAI GPT) (Radford et al., 2018), introduces minimal task-speciﬁc parameters, and is trained on the downstream tasks by simply ﬁne-tuning all pretrained parameters.</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>80%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source is only a bibliographic entry and does not contain the actual content needed to verify the claim. Without access to the full text of the source, it is impossible to determine whether it supports the claim about the fine-tuning approach used in OpenAI GPT.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">For example, in OpenAI GPT, the authors use a left-toright architecture, where every token can only attend to previous tokens in the self-attention layers of the Transformer (Vaswani et al., 2017). Such restrictions are sub-optimal for sentence-level tasks, and could be very harmful when applying ﬁn</td>
             <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
             <td>95%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited sources do not mention ELMo or its performance on NLP benchmarks. The sources discuss various NLP tasks and methods, but none of them reference the ELMo model or its impact on question answering, sentiment analysis, or named entity recognition.</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source discusses the Transformer architecture and its performance on machine translation tasks, but does not mention any restrictions on token attention or discuss the limitations of the architecture for sentence-level or token-level tasks. The claim about the left-to-right architecture and its sub-optimality is not addressed in the provided source text.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">OpenAI GPT (Radford et al., 2018) achieved previously state-of-the-art results on many sentence-level tasks from the GLUE benchmark (Wang et al., 2018a).</td>
+            <td style="max-width:400px">from BERT alleviates the previously mentioned unidirectionality constraint by using a “masked language model” (MLM) pre-training objective, inspired by the Cloze task (Taylor, 1953). The masked language model randomly masks some of the tokens from the input, and the objective is to predict the origi</td>
+            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source discusses the Cloze procedure as a method for measuring readability, but does not mention anything about masked language models or pre-training objectives in natural language processing. The source is from 1953, long before the development of modern NLP techniques like BERT.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">This is the first comprehensive statement of a research method and its theory and findings from three pilot studies and two experiments in which “cloze procedure” results are compared with those of two readability formulas.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">2.1 Unsupervised Feature-based Approaches Learning widely applicable representations of words has been an active area of research for decades, including non-neural (Brown et al., 1992; Ando and Zhang, 2005; Blitzer et al., 2006) and neural (Mikolov et al., 2013; Pennington et al., 2014) methods.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited sources directly support the claim by discussing various approaches to learning word representations, including non-neural methods (Brown et al., 1992; Ando and Zhang, 2005; Blitzer et al., 2006) and neural methods (Mikolov et al., 2013; Pennington et al., 2014). The sources cover both older and more recent techniques, demonstrating the long-standing interest in this area of research.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We address the problem of predicting a word from previous words in a sample of text. In particular, we discuss n-gram models based on classes of words. We also discuss several statistical algorithms for assigning words to classes based on the frequency of their co-occurrence with other words. We fin</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Pre-trained word embeddings are an integral part of modern NLP systems, offering signiﬁcant improvements over embeddings learned from scratch (Turian et al., 2010). To pretrain word embedding vectors, left-to-right language modeling objectives have been used (Mnih and Hinton, 2009), as well as objec</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The sources cited in the claim provide direct evidence supporting the use of pre-trained word embeddings and various objectives for training sentence representations. For example, Kiros et al. (2015) describes using a reconstruction objective to train sentence embeddings, while Mikolov et al. (2013) discusses discriminative objectives for word embeddings.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We describe an approach for unsupervised learning of a generic, distributed sentence encoder. Using the continuity of text from books, we train an encoder-decoder model that tries to reconstruct the surrounding sentences of an encoded passage. Sentences that share semantic and syntactic properties a</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">When integrating contextual word embeddings with existing task-speciﬁc architectures, ELMo advances the state of the art for several major NLP benchmarks (Peters et al., 2018a) including question answering (Rajpurkar et al., 2016), sentiment analysis (Socher et al., 2013), and named entity recogniti</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim is directly supported by the cited sources. The Melamud et al. (2016) source explicitly describes learning contextual representations using bidirectional LSTM to predict a word from both left and right context. The Peters et al. (2018a) source is cited as advancing state-of-the-art results on major NLP benchmarks including question answering, sentiment analysis, and named entity recognition, which aligns with the claim.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">Melamud et al. (2016) proposed learning contextual representations through a task to predict a single word from both left and right context using LSTMs.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">2.2 Unsupervised Fine-tuning Approaches As with the feature-based approaches, the ﬁrst works in this direction only pre-trained word embedding parameters from unlabeled text (Collobert and Weston, 2008). More recently, sentence or document encoders which produce contextual token representations have</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text from Dai and Le (2015) directly supports the claim by describing two unsupervised pretraining approaches for sequence learning with recurrent networks, which can then be fine-tuned for supervised tasks. This aligns with the claim&#x27;s description of unsupervised fine-tuning approaches that pretrain on unlabeled text and require fewer parameters to be learned from scratch.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We present two approaches that use unlabeled data to improve sequence learning with recurrent networks. [...] These two algorithms can be used as a &quot;pretraining&quot; step for a later supervised sequence learning algorithm. In other words, the parameters obtained from the unsupervised step can be used as</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">At least partly due to this advantage, OpenAI GPT (Radford et al., 2018) achieved previously state-of-the-art results on many sentencelevel tasks from the GLUE benchmark (Wang et al., 2018a). Left-to-right language model- NSP Mask LM Mask LM C T1 TN T1’ TM’ T[SEP] ... ... BERT E1 EN E1’ EM’ E[SEP] .</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim states that OpenAI GPT achieved state-of-the-art results on many sentence-level tasks from the GLUE benchmark. The provided context from the paper directly supports this, mentioning that &#x27;OpenAI GPT (Radford et al., 2018) achieved previously state-of-the-art results on many sentence-level tasks from the GLUE benchmark (Wang et al., 2018a)&#x27;.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">At least partly due to this advantage, OpenAI GPT (Radford et al., 2018) achieved previously state-of-the-art results on many sentence-level tasks from the GLUE benchmark (Wang et al., 2018a).</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">[CLS] is a special symbol added in front of every input example, and [SEP] is a special separator token (e.g. separating questions/answers). ing and auto-encoder objectives have been used for pre-training such models (Howard and Ruder, 2018; Radford et al., 2018; Dai and Le, 2015). 2.3 Transfer Lear</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text explicitly states that &#x27;[CLS] is a special symbol added in front of every input example, and [SEP] is a special separator token (e.g. separating questions/answers).&#x27; This directly matches the claim being made.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">[CLS] is a special symbol added in front of every input example, and [SEP] is a special separator token (e.g. separating questions/answers).</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">We use WordPiece embeddings (Wu et al., 2016) with a 30,000 token vocabulary.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text explicitly mentions the use of &#x27;wordpieces&#x27; as sub-word units to handle rare words, which directly aligns with the claim of using WordPiece embeddings. The source also specifies a vocabulary size of 30,000 tokens, matching the claim.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">To improve handling of rare words, we divide words into a limited set of common sub-word units (&quot;wordpieces&quot;) for both input and output. This method provides a good balance between the flexibility of &quot;character&quot;-delimited models and the efficiency of &quot;word&quot;-delimited models, naturally handles transl</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">We refer to this procedure as a “masked LM” (MLM), although it is often referred to as a Cloze task in the literature (Taylor, 1953). In this case, the ﬁnal hidden vectors corresponding to the mask tokens are fed into an output softmax over the vocabulary, as in a standard LM.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text explicitly mentions that the paper introduces the &#x27;cloze procedure&#x27; as a research method, which aligns with the claim that the masked language model (MLM) is often referred to as a Cloze task in the literature. The citation to Taylor (1953) directly supports this statement.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">This is the first comprehensive statement of a research method and its theory and findings from three pilot studies and two experiments in which “cloze procedure” results are compared with those of two readability formulas.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">In contrast to denoising auto-encoders (Vincent et al., 2008), we only predict the masked words rather than reconstructing the entire input.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source discusses denoising autoencoders, which are trained to reconstruct the entire input from a partially corrupted version. This directly contrasts with the claim that the authors&#x27; approach only predicts the masked words rather than reconstructing the entire input.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We introduce and motivate a new training principle for unsupervised learning of a representation based on the idea of making the learned representations robust to partial corruption of the input pattern. This approach can be used to train autoencoders, and these denoising autoencoders can be stacked</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">For the pre-training corpus we use the BooksCorpus (800M words) (Zhu et al., 2015) and English Wikipedia (2,500M words). For Wikipedia we extract only the text passages and ignore lists, tables, and headers.</td>
+            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source is about aligning books and movies for visual explanations, which is unrelated to the BooksCorpus dataset mentioned in the claim. The citation does not provide any information about the BooksCorpus dataset or its size.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">It is critical to use a document-level corpus rather than a shufﬂed sentence-level corpus such as the Billion Word Benchmark (Chelba et al., 2013) in order to extract long contiguous sequences. 3.2 Fine-tuning BERT Fine-tuning is straightforward since the selfattention mechanism in the Transformer a</td>
+            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source discusses the Billion Word Benchmark corpus and its use for evaluating language modeling techniques, but it does not address the importance of using a document-level corpus versus a shuffled sentence-level corpus for extracting long contiguous sequences. The claim is not directly supported by the source.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We propose a new benchmark corpus to be used for measuring progress in statistical language modeling. With almost one billion words of training data, we hope this benchmark will be useful to quickly evaluate novel language modeling techniques, and to compare their contribution when combined with oth</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">We ﬁne-tune for 3 epochs with a learning rate of 5e-5 and a batch size of 32. Table 2 shows top leaderboard entries as well as results from top published systems (Seo et al., 2017; Clark and Gardner, 2018; Peters et al., 2018a; Hu et al., 2018). The top results from the SQuAD leaderboard do not have</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>100%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited sources directly support the claim regarding the fine-tuning hyperparameters (3 epochs, learning rate of 5e-5, batch size of 32) and the comparison to top leaderboard entries and published systems. The relevant passage from the paper explicitly states these details.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We ﬁne-tune for 3 epochs with a learning rate of 5e-5 and a batch size of 32. Table 2 shows top leaderboard entries as well as results from top published systems (Seo et al., 2017; Clark and Gardner, 2018; Peters et al., 2018a; Hu et al., 2018).</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">We therefore use modest data augmentation in our system by ﬁrst ﬁne-tuning on TriviaQA (Joshi et al., 2017) befor ﬁne-tuning on SQuAD.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source TriviaQA (Joshi et al., 2017) is directly referenced in the claim as the dataset used for the first fine-tuning step. The source describes TriviaQA as a large-scale reading comprehension dataset, which aligns with the claim&#x27;s mention of using it for fine-tuning.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We present TriviaQA, a challenging reading comprehension dataset containing over 650K question-answer-evidence triples.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">We ﬁne-tuned for 2 epochs with a learning rate of 5e-5 and a batch size of 48. The results compared to prior leaderboard entries and top published work (Sun et al., 2018; Wang et al., 2018b) are shown in Table 3, excluding systems that use BERT as one of their components.</td>
+            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited sources discuss machine reading comprehension and natural language understanding benchmarks, but do not mention fine-tuning parameters such as learning rate, batch size, or epochs. The claim about fine-tuning details is not addressed in either source.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">4.4 SWAG The Situations With Adversarial Generations (SWAG) dataset contains 113k sentence-pair completion examples that evaluate grounded commonsense inference (Zellers et al., 2018). Given a sentence, the task is to choose the most plausible continuation among four choices.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text explicitly mentions the SWAG dataset and its purpose of evaluating grounded commonsense inference. It also describes the task as choosing the most plausible continuation among multiple choices, aligning with the claim.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">Given a partial description like &quot;she opened the hood of the car,&quot; humans can reason about the situation and anticipate what might come next (&quot;then, she examined the engine&quot;). In this paper, we introduce the task of grounded commonsense inference, unifying natural language inference and commonsense </td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">For example, the largest Transformer explored in Vaswani et al. (2017) is (L=6, H=1024, A=16) with 100M parameters for the encoder, and the largest Transformer we have found in the literature is (L=64, H=512, A=2) with 235M parameters (Al-Rfou et al., 2018). By contrast, BERTBASE contains 110M param</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text from Al-Rfou et al. (2018) explicitly mentions a 64-layer transformer model, which matches the claim. While the source does not provide the exact parameter count, it does state that this model outperforms RNN variants and achieves state-of-the-art results on two benchmarks, supporting the claim that it is the largest transformer found in the literature at the time.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">In this paper, we show that a deep (64-layer) transformer model (Vaswani et al. 2017) with fixed context outperforms RNN variants by a large margin, achieving state of the art on two popular benchmarks: 1.13 bits per character on text8 and 1.06 on enwik8.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">In this section, we compare the two approaches by applying BERT to the CoNLL-2003 Named Entity Recognition (NER) task (Tjong Kim Sang and De Meulder, 2003). In the input to BERT, we use a case-preserving WordPiece model, and we include the maximal document context provided by the data.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source directly supports the claim by describing the CoNLL-2003 shared task on named entity recognition, which is the task mentioned in the claim. The source provides background information on the data sets and evaluation method used in the task.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We describe the CoNLL-2003 shared task: language-independent named entity recognition. We give background information on the data sets (English and German) and the evaluation method, present a general overview of the systems that have taken part in the task and discuss their performance.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">System Dev F1 Test F1 ELMo (Peters et al., 2018a) 95.7 92.2 CVT (Clark et al., 2018) - 92.6 93.1 CSE (Akbik et al., 2018) - Fine-tuning approach BERTLARGE 96.6 92.8 BERTBASE 96.4 92.4 Feature-based approach (BERTBASE) Embeddings 91.0 - Second-to-Last Hidden 95.6 - Last Hidden 94.9 - Weighted Sum Las</td>
+            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited sources discuss contextual string embeddings, multi-paragraph reading comprehension, and deep contextualized word representations, but none of them present the specific CoNLL-2003 Named Entity Recognition results or comparison of models as detailed in the claim. The information in the claim is not found in the provided sources.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Unlike Radford et al. (2018), which uses unidirectional language models for pre-training, BERT uses masked language models to enable pretrained deep bidirectional representations.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The provided source is only a bibliographic citation with no actual text or content to verify the claim. Without access to the full text of Radford et al. (2018), it is impossible to determine whether the claim about unidirectional language models is supported.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">This is also in contrast to Peters et al. (2018a), which uses a shallow concatenation of independently trained left-to-right and right-to-left LMs. • We show that pre-trained representations reduce the need for many heavily-engineered taskspeciﬁc architectures.</td>
+            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source discusses deep contextualized word representations but does not mention or compare to the shallow concatenation approach attributed to Peters et al. (2018a) in the claim. The source also does not discuss pre-trained representations reducing the need for heavily-engineered task-specific architectures.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Fedus et al. (2018) shows that the cloze task can be used to improve the robustness of text generation models. 2.2 Unsupervised Fine-tuning Approaches As with the feature-based approaches, the ﬁrst works in this direction only pre-trained word embedding parameters from unlabeled text (Collobert and </td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>0%</td>
+            <td style="max-width:400px;font-size:0.85em">No citations (resolved or raw) available for this claim.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Model Architecture BERT’s model architecture is a multi-layer bidirectional Transformer encoder based on the original implementation described in Vaswani et al. (2017) and released in the tensor2tensor library.1 Because the use of Transformers has become common and our implementation is almost ident</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text describes the Transformer model architecture, which is based solely on attention mechanisms and dispenses with recurrence and convolutions. This directly supports the claim that BERT&#x27;s model architecture is a multi-layer bidirectional Transformer encoder based on the original implementation described in Vaswani et al. (2017).</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">1 Because the use of Transformers has become common and our implementation is almost identical to the original, we will omit an exhaustive background description of the model architecture and refer readers to Vaswani et al. (2017) as well as excellent guides such as “The Annotated Transformer.”2 In </td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source clearly describes the Transformer architecture, which the claim states is the basis for BERT&#x27;s model. The source details the use of attention mechanisms and the elimination of recurrence and convolutions, aligning with the claim that BERT&#x27;s implementation is almost identical to the original Transformer.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">A visualization of this construction can be seen in Figure 2. 3.1 Pre-training BERT Unlike Peters et al. (2018a) and Radford et al. (2018), we do not use traditional left-to-right or right-to-left language models to pre-train BERT.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim states that the authors do not use traditional left-to-right or right-to-left language models for pre-training BERT, unlike Peters et al. (2018a) and Radford et al. (2018). The source text for Peters et al. (2018) is a paper on deep contextualized word representations, which aligns with the claim that their approach differs from the cited works.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">Matthew E. Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee, Luke Zettlemoyer. Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers). 2018.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">The NSP task is closely related to representationlearning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018). However, in prior work, only sentence embeddings are transferred to down-stream tasks, where BERT transfers all parameters to initialize end-task model parameters.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited sources describe methods for learning sentence representations using unsupervised objectives, which aligns with the claim that NSP is closely related to representation-learning objectives used in prior work. Both sources focus on learning sentence embeddings that can be transferred to downstream tasks, supporting the claim.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">This work presents a novel objective function for the unsupervised training of neural network sentence encoders. It exploits signals from paragraph-level discourse coherence to train these models to understand text. Our objective is purely discriminative, allowing us to train models many times faste</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">For applications involving text pairs, a common pattern is to independently encode text pairs before applying bidirectional cross attention, such as Parikh et al. (2016); Seo et al. (2017). BERT instead uses the self-attention mechanism to unify these two stages, as encoding a concatenated text pair</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited sources describe approaches that independently encode text pairs before applying bidirectional cross attention. Parikh et al. (2016) propose a decomposable attention model that decomposes the problem into subproblems, and Seo et al. (2017) introduce a bidirectional attention flow model for machine comprehension. Both methods align with the claim that they independently encode text pairs before applying bidirectional cross attention.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We propose a simple neural architecture for natural language inference.Our approach uses attention to decompose the problem into subproblems that can be solved separately, thus making it trivially parallelizable.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Peters et al. (2018b) presented mixed results on the downstream task impact of increasing the pre-trained bi-LM size from two to four layers and Melamud et al. (2016) mentioned in passing that increasing hidden dimension size from 200 to 600 helped, but increasing further to 1,000 did not bring furt</td>
+            <td><span style="color:#f59e0b;font-weight:700">&#9888; overstated</span></td>
             <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The provided sources do not contain any information about OpenAI GPT or its performance on the GLUE benchmark. The sources discuss character-level language modeling with transformers and class-based n-gram models, which are unrelated to the claim about OpenAI GPT&#x27;s state-of-the-art results.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">The NSP task is closely related to representation-learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018).</td>
-            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited sources do not mention the NSP task or its relation to representation-learning objectives. The sources discuss semantic textual similarity and language modeling benchmarks, which are not directly related to the claim about NSP and its connection to prior work by Jernite et al. (2017) and Logeswaran and Lee (2018).</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">We demonstrate the importance of bidirectional pre-training for language representations.</td>
-            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>0%</td>
-            <td style="max-width:400px;font-size:0.85em">No citations (resolved or raw) available for this claim.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">We show that pre-trained representations reduce the need for many heavily-engineered task-specific architectures.</td>
-            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>0%</td>
-            <td style="max-width:400px;font-size:0.85em">No citations (resolved or raw) available for this claim.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">BERT advances the state of the art for eleven NLP tasks.</td>
-            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>0%</td>
-            <td style="max-width:400px;font-size:0.85em">No citations (resolved or raw) available for this claim.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+            <td style="max-width:400px;font-size:0.85em">The cited sources do not directly support the claim about Peters et al. (2018b) presenting mixed results on increasing bi-LM size from two to four layers, nor do they mention Melamud et al. (2016) discussing hidden dimension size improvements. The sources only provide general context about learning context embeddings and deep contextualized word representations.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">Context representations are central to various NLP tasks, such as word sense disambiguation, named entity recognition, coreference resolution, and many more. In this work we present a neural model for efficiently learning a generic context embedding function from large corpora, using bidirectional L</td>
         </tr></tbody>
 </table>
 
-<h2>Statistical Audit (11)</h2>
+<h2>Statistical Audit (16)</h2>
 <table>
 <thead><tr><th>Assertion</th><th>Consistent?</th><th>Severity</th><th>Issues</th></tr></thead>
 <tbody>
@@ -121,55 +296,85 @@
             <td style="max-width:300px;font-size:0.85em">&mdash;</td>
         </tr>
         <tr>
-            <td style="max-width:400px">BERTBASE and BERTLARGE outperform all systems on all tasks by a substantial margin, obtaining 4.5% and 7.0% respective average accuracy improvement over the prior state of the art.</td>
+            <td style="max-width:400px">We use a batch size of 32 and fine-tune for 3 epochs over the data for all GLUE tasks.</td>
             <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
             <td>low</td>
             <td style="max-width:300px;font-size:0.85em">&mdash;</td>
         </tr>
         <tr>
-            <td style="max-width:400px">For the largest and most widely reported GLUE task, MNLI, BERT obtains a 4.6% absolute accuracy improvement.</td>
+            <td style="max-width:400px">For example, the BERT SQuAD model can be trained in around 30 minutes on a single Cloud TPU to achieve a Dev F1 score of 91.0%.</td>
             <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
             <td>low</td>
             <td style="max-width:300px;font-size:0.85em">&mdash;</td>
         </tr>
         <tr>
-            <td style="max-width:400px">On the ofﬁcial GLUE leaderboard10, BERTLARGE obtains a score of 80.5, compared to OpenAI GPT, which obtains 72.8 as of the date of writing.</td>
+            <td style="max-width:400px">We fine-tune for 3 epochs with a learning rate of 2e-5 and a batch size of 16.</td>
             <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
             <td>low</td>
             <td style="max-width:300px;font-size:0.85em">&mdash;</td>
         </tr>
         <tr>
-            <td style="max-width:400px">Our best performing system outperforms the top leaderboard system by +1.5 F1 in ensembling and +1.3 F1 as a single system.</td>
+            <td style="max-width:400px">We fine-tune for 2 epochs with a learning rate of 5e-5 and a batch size of 48.</td>
             <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
             <td>low</td>
             <td style="max-width:300px;font-size:0.85em">&mdash;</td>
         </tr>
         <tr>
-            <td style="max-width:400px">In fact, our single BERT model outperforms the top ensemble sys-tem in terms of F1 score.</td>
+            <td style="max-width:400px">We use Adam with learning rate of 1e-4, β1 = 0.9, β2 = 0.999, L2 weight decay of 0.01, learning rate warmup over the first 10,000 steps, and linear decay of the learning rate.</td>
             <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
             <td>low</td>
             <td style="max-width:300px;font-size:0.85em">&mdash;</td>
         </tr>
         <tr>
-            <td style="max-width:400px">Without TriviaQA ﬁne-tuning data, we only lose 0.1-0.4 F1, still outper-forming all existing systems by a wide margin.</td>
+            <td style="max-width:400px">Training of BERTBASE was performed on 4 Cloud TPUs in Pod configuration (16 TPU chips total).</td>
             <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
             <td>low</td>
             <td style="max-width:300px;font-size:0.85em">&mdash;</td>
         </tr>
         <tr>
-            <td style="max-width:400px">We observe a +5.1 F1 improvement over the previous best system.</td>
+            <td style="max-width:400px">Training of BERTLARGE was performed on 16 Cloud TPUs (64 TPU chips total).</td>
             <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
             <td>low</td>
             <td style="max-width:300px;font-size:0.85em">&mdash;</td>
         </tr>
         <tr>
-            <td style="max-width:400px">BERTLARGE outperforms the authors’ baseline ESIM+ELMo sys-tem by +27.1% and OpenAI GPT by 8.3%.</td>
+            <td style="max-width:400px">BERTBASE achieves almost 1.0% additional accuracy on MNLI when trained on 1M steps compared to 500k steps.</td>
             <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
             <td>low</td>
             <td style="max-width:300px;font-size:0.85em">&mdash;</td>
         </tr>
         <tr>
-            <td style="max-width:400px">The best performing method concatenates the token representations from the top four hidden lay-ers of the pre-trained Transformer, which is only 0.3 F1 behind ﬁne-tuning the entire model.</td>
+            <td style="max-width:400px">The MLM model does converge slightly slower than the LTR model.</td>
+            <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
+            <td>low</td>
+            <td style="max-width:300px;font-size:0.85em">&mdash;</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">In terms of absolute accuracy the MLM model begins to outperform the LTR model almost immediately.</td>
+            <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
+            <td>low</td>
+            <td style="max-width:300px;font-size:0.85em">&mdash;</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">For the feature-based approach, we concatenate the last 4 layers of BERT as the features, which was shown to be the best approach in Section 5.3.</td>
+            <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
+            <td>low</td>
+            <td style="max-width:300px;font-size:0.85em">&mdash;</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Fine-tuning is surprisingly robust to different masking strategies.</td>
+            <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
+            <td>low</td>
+            <td style="max-width:300px;font-size:0.85em">&mdash;</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">As expected, using only the MASK strategy was problematic when applying the feature-based approach to NER.</td>
+            <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
+            <td>low</td>
+            <td style="max-width:300px;font-size:0.85em">&mdash;</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Interestingly, using only the RND strategy performs much worse than our strategy as well.</td>
             <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
             <td>low</td>
             <td style="max-width:300px;font-size:0.85em">&mdash;</td>

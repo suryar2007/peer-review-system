@@ -251,6 +251,8 @@ class PaperParser:
             if ref_idx is not None:
                 main_lines = flat_lines[:ref_idx]
                 ref_lines = flat_lines[ref_idx + 1 :]
+                # Trim appendix / supplemental content that follows the bibliography
+                ref_lines = _trim_post_bibliography(ref_lines)
                 references_raw = "\n".join(text for text, _ in ref_lines)
             else:
                 main_lines = list(flat_lines)
@@ -321,6 +323,33 @@ def _find_reference_heading_line_index(flat_lines: list[tuple[str, float]]) -> i
         if _REFERENCE_HEADING_RE.match(text.strip()):
             return i
     return None
+
+
+_APPENDIX_HEADING_RE = re.compile(
+    r"(?i)^\s*("
+    r"appendix(?:\s|:|\b)"
+    r"|supplementar(?:y|ies)\b"
+    r"|[A-Z]\s+(?:Details|Additional|Implementation|Training|Experimental|Hyperparameter)"
+    r"|A\.1\b"
+    r")\s*"
+)
+
+
+def _trim_post_bibliography(ref_lines: list[tuple[str, float]]) -> list[tuple[str, float]]:
+    """Cut off appendix / supplemental material that follows the bibliography.
+
+    Many PDFs have 'Appendix' or 'A Details of ...' sections right after the
+    references with no separate heading that the parser would recognise as a
+    section break.  We detect these headings and trim the list.
+    """
+    min_bib_lines = 20
+    for i, (text, font_size) in enumerate(ref_lines):
+        if i < min_bib_lines:
+            continue
+        stripped = text.strip()
+        if _APPENDIX_HEADING_RE.match(stripped):
+            return ref_lines[:i]
+    return ref_lines
 
 
 def _extract_title(doc: fitz.Document) -> str:

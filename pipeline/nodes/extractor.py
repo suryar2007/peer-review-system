@@ -2,11 +2,15 @@
 
 from __future__ import annotations
 
+import logging
 from typing import Any
 
 from agents.hermes import HermesAgent
 from pipeline.state import Citation, Claim, PipelineState, StatisticalAssertion
+from utils.citation_detector import CitationMention, detect_all_citations
 from utils.pdf_parser import PaperParser
+
+logger = logging.getLogger(__name__)
 
 
 def _coerce_citation(obj: dict[str, Any]) -> Citation | None:
@@ -56,6 +60,28 @@ def _coerce_statistical(obj: dict[str, Any]) -> StatisticalAssertion | None:
         return None
 
 
+def _mentions_to_claim_dicts(
+    mentions: list[CitationMention],
+    num_bib: int,
+) -> list[dict]:
+    """Convert detector output into the dict format expected by classify/coerce.
+
+    Keeps mentions even when no bibliography index could be resolved — the
+    sentence still references *something* and should be analysed.
+    """
+    out: list[dict] = []
+    for m in mentions:
+        valid_indices = [i for i in m.citation_indices if 0 <= i < num_bib]
+        out.append({
+            "text": m.sentence,
+            "section": m.section,
+            "sentence": m.sentence,
+            "supporting_citation_indices": valid_indices,
+            "claim_type": "empirical",
+        })
+    return out
+
+
 def extractor_node(state: PipelineState) -> dict[str, Any]:
     paper_path = state.get("paper_path")
     if not paper_path:
@@ -69,38 +95,12 @@ def extractor_node(state: PipelineState) -> dict[str, Any]:
     agent = HermesAgent()
     errors: list[str] = []
 
-    # Citation extraction must finish first (claims reference citation indices).
-    # Claims + stats extraction are independent and run concurrently.
+    # ── Phase 1a: Extract bibliography from references section (LLM) ──
     try:
         raw_citations = agent.extract_citations(references_raw)
     except Exception as exc:
         raw_citations = []
         errors.append(f"extractor_node: citation extraction failed: {exc}")
-
-    from concurrent.futures import ThreadPoolExecutor, Future
-
-    raw_claims: list[dict] = []
-    raw_stats: list[dict] = []
-
-    def _extract_claims() -> list[dict]:
-        return agent.extract_claims(paper_text, sections, citations=raw_citations)
-
-    def _extract_stats() -> list[dict]:
-        return agent.extract_statistical_assertions(paper_text)
-
-    with ThreadPoolExecutor(max_workers=2) as pool:
-        claim_future: Future = pool.submit(_extract_claims)
-        stats_future: Future = pool.submit(_extract_stats)
-
-        try:
-            raw_claims = claim_future.result(timeout=180)
-        except Exception as exc:
-            errors.append(f"extractor_node: claim extraction failed: {exc}")
-
-        try:
-            raw_stats = stats_future.result(timeout=180)
-        except Exception as exc:
-            errors.append(f"extractor_node: statistical assertion extraction failed: {exc}")
 
     citations: list[Citation] = []
     for item in raw_citations:
@@ -109,12 +109,53 @@ def extractor_node(state: PipelineState) -> dict[str, Any]:
             if c is not None:
                 citations.append(c)
 
+    # ── Phase 1b: Detect in-text citations deterministically ──
+    try:
+        mentions = detect_all_citations(sections, raw_citations)
+    except Exception as exc:
+        mentions = []
+        errors.append(f"extractor_node: citation detection failed: {exc}")
+
+    mention_dicts = _mentions_to_claim_dicts(mentions, len(citations))
+    logger.info("Deterministic detection found %d citation mentions", len(mention_dicts))
+
+    # ── Phase 1c: Classify mentions + extract stats (concurrent) ──
+    from concurrent.futures import Future, ThreadPoolExecutor
+
+    classified_claims: list[dict] = []
+    raw_stats: list[dict] = []
+
+    def _classify() -> list[dict]:
+        return agent.classify_citation_mentions(mention_dicts)
+
+    def _extract_stats() -> list[dict]:
+        return agent.extract_statistical_assertions(paper_text)
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        claim_future: Future = pool.submit(_classify)
+        stats_future: Future = pool.submit(_extract_stats)
+
+        try:
+            classified_claims = claim_future.result(timeout=180)
+        except Exception as exc:
+            errors.append(f"extractor_node: claim classification failed: {exc}")
+
+        try:
+            raw_stats = stats_future.result(timeout=180)
+        except Exception as exc:
+            errors.append(f"extractor_node: statistical assertion extraction failed: {exc}")
+
+    # ── Coerce and deduplicate claims ──
     claims: list[Claim] = []
-    for item in raw_claims:
+    seen_claim_texts: set[str] = set()
+    for item in classified_claims:
         if isinstance(item, dict):
             c = _coerce_claim(item)
             if c is not None and c.text.strip():
-                claims.append(c)
+                normalised = c.text.strip().lower()
+                if normalised not in seen_claim_texts:
+                    seen_claim_texts.add(normalised)
+                    claims.append(c)
 
     statistical_assertions: list[StatisticalAssertion] = []
     for item in raw_stats:
@@ -122,6 +163,11 @@ def extractor_node(state: PipelineState) -> dict[str, Any]:
             s = _coerce_statistical(item)
             if s is not None and s.text.strip():
                 statistical_assertions.append(s)
+
+    logger.info(
+        "Extractor: %d citations, %d claims (from %d mentions), %d stats",
+        len(citations), len(claims), len(mentions), len(statistical_assertions),
+    )
 
     result = {
         "paper_text": paper_text,

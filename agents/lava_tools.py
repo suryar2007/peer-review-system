@@ -210,7 +210,7 @@ class LavaKnowledgeTools:
                 try:
                     resp = self._s2_post(
                         "/paper/batch",
-                        params={"fields": "title,abstract,year,url,tldr"},
+                        params={"fields": "title,abstract,year,url,tldr,openAccessPdf"},
                         json_body={"ids": ids},
                     )
                     if resp.status_code == 200:
@@ -222,11 +222,14 @@ class LavaKnowledgeTools:
                                 tldr_obj = paper.get("tldr")
                                 if isinstance(tldr_obj, dict):
                                     tldr = tldr_obj.get("text") or ""
+                                oa_pdf = paper.get("openAccessPdf")
+                                oa_url = oa_pdf.get("url") if isinstance(oa_pdf, dict) else None
                                 results[idx] = {
                                     "exists": True,
                                     "abstract": abstract or tldr,
                                     "year": paper.get("year"),
                                     "url": paper.get("url") or "",
+                                    "open_access_pdf_url": oa_url,
                                 }
                         break
                     if resp.status_code == 429:
@@ -252,7 +255,7 @@ class LavaKnowledgeTools:
             try:
                 resp = self._s2_get(
                     "/paper/search",
-                    params={"query": query, "limit": "3", "fields": "title,abstract,year,url,tldr"},
+                    params={"query": query, "limit": "3", "fields": "title,abstract,year,url,tldr,openAccessPdf"},
                 )
                 if resp.status_code == 200:
                     data = resp.json()
@@ -273,14 +276,16 @@ class LavaKnowledgeTools:
         """Single-citation S2 lookup for resolve_citation()."""
         if doi:
             try:
-                resp = self._s2_get(f"/paper/DOI:{doi}", params={"fields": "title,abstract,year,url,tldr"})
+                resp = self._s2_get(f"/paper/DOI:{doi}", params={"fields": "title,abstract,year,url,tldr,openAccessPdf"})
                 if resp.status_code == 200:
                     paper = resp.json()
                     if paper and paper.get("title"):
                         abstract = paper.get("abstract") or ""
                         tldr_obj = paper.get("tldr")
                         tldr = tldr_obj.get("text") if isinstance(tldr_obj, dict) else ""
-                        return {"exists": True, "abstract": abstract or tldr, "year": paper.get("year"), "url": paper.get("url") or ""}
+                        oa_pdf = paper.get("openAccessPdf")
+                        oa_url = oa_pdf.get("url") if isinstance(oa_pdf, dict) else None
+                        return {"exists": True, "abstract": abstract or tldr, "year": paper.get("year"), "url": paper.get("url") or "", "open_access_pdf_url": oa_url}
             except Exception:
                 pass
 
@@ -289,12 +294,14 @@ class LavaKnowledgeTools:
 
         for attempt in range(2):
             try:
-                resp = self._s2_get("/paper/search", params={"query": title, "limit": "1", "fields": "title,abstract,year,url"})
+                resp = self._s2_get("/paper/search", params={"query": title, "limit": "1", "fields": "title,abstract,year,url,openAccessPdf"})
                 if resp.status_code == 200:
                     papers = (resp.json().get("data") or [])
                     if papers:
                         p = papers[0]
-                        return {"exists": True, "abstract": p.get("abstract") or "", "year": p.get("year"), "url": p.get("url") or ""}
+                        oa_pdf = p.get("openAccessPdf")
+                        oa_url = oa_pdf.get("url") if isinstance(oa_pdf, dict) else None
+                        return {"exists": True, "abstract": p.get("abstract") or "", "year": p.get("year"), "url": p.get("url") or "", "open_access_pdf_url": oa_url}
                     return None
                 if resp.status_code == 429:
                     time.sleep(2.0 + attempt * 3.0)
@@ -427,7 +434,9 @@ class LavaKnowledgeTools:
                 abstract = p.get("abstract") or ""
                 tldr_obj = p.get("tldr")
                 tldr = tldr_obj.get("text") if isinstance(tldr_obj, dict) else ""
-                return {"exists": True, "abstract": abstract or tldr, "year": p.get("year"), "url": p.get("url") or ""}
+                oa_pdf = p.get("openAccessPdf")
+                oa_url = oa_pdf.get("url") if isinstance(oa_pdf, dict) else None
+                return {"exists": True, "abstract": abstract or tldr, "year": p.get("year"), "url": p.get("url") or "", "open_access_pdf_url": oa_url}
             return None
 
         best_paper = None
@@ -444,7 +453,9 @@ class LavaKnowledgeTools:
             abstract = best_paper.get("abstract") or ""
             tldr_obj = best_paper.get("tldr")
             tldr = tldr_obj.get("text") if isinstance(tldr_obj, dict) else ""
-            return {"exists": True, "abstract": abstract or tldr, "year": best_paper.get("year"), "url": best_paper.get("url") or ""}
+            oa_pdf = best_paper.get("openAccessPdf")
+            oa_url = oa_pdf.get("url") if isinstance(oa_pdf, dict) else None
+            return {"exists": True, "abstract": abstract or tldr, "year": best_paper.get("year"), "url": best_paper.get("url") or "", "open_access_pdf_url": oa_url}
 
         return None
 
@@ -544,6 +555,8 @@ class LavaKnowledgeTools:
                     "exists": True,
                     "source_text": source_text,
                 }
+                if result.get("open_access_pdf_url"):
+                    update["open_access_pdf_url"] = result["open_access_pdf_url"]
                 if result.get("doi") and not cit.doi:
                     update["doi"] = result["doi"]
                 out.append(cit.model_copy(update=update))

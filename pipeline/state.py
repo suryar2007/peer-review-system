@@ -22,6 +22,7 @@ class Citation(BaseModel):
     resolved: bool = False
     source_text: Optional[str] = None
     exists: Optional[bool] = None
+    open_access_pdf_url: Optional[str] = None
 
 
 class Claim(BaseModel):

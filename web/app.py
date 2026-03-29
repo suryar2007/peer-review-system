@@ -180,7 +180,7 @@ async def review(request: Request, directory: str, filename: str):
     if not title:
         title = stem.replace("_", " ").replace("-", " ").title()
 
-    score = compute_score(annotations)
+    score = compute_score(data)
     verdict_counts: dict[str, int] = {}
     for ann in annotations:
         v = ann["verdict"]

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Peer Review Report — Efficient semantic uncertainty quantification in language models via diversity-steered sampling</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:#f8fafc;color:#1e293b;line-height:1.5;padding:2rem}
+  h1{font-size:1.5rem;margin-bottom:.25rem}
+  h2{font-size:1.15rem;margin:2rem 0 .75rem;border-bottom:2px solid #e2e8f0;padding-bottom:.25rem}
+  .meta{color:#64748b;font-size:.85rem;margin-bottom:1.5rem}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:2rem}
+  .card{background:#fff;border-radius:.5rem;padding:1rem;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+  .card .num{font-size:1.8rem;font-weight:700}
+  .card .label{font-size:.8rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:.5rem;overflow:hidden;
+         box-shadow:0 1px 3px rgba(0,0,0,.1);margin-bottom:1.5rem}
+  th{background:#f1f5f9;padding:.6rem .75rem;text-align:left;font-size:.8rem;
+      text-transform:uppercase;letter-spacing:.04em;color:#475569}
+  td{padding:.5rem .75rem;border-top:1px solid #e2e8f0;vertical-align:top;font-size:.9rem}
+  tr:hover{background:#f8fafc}
+</style>
+</head>
+<body>
+<h1>Peer Review Verification Report</h1>
+<p class="meta"><strong>Efficient semantic uncertainty quantification in language models via diversity-steered sampling</strong> &mdash; Generated 2026-03-29 03:24 UTC</p>
+
+<div class="cards">
+  <div class="card"><div class="num">65</div><div class="label">Citations Found</div></div>
+  <div class="card"><div class="num" style="color:#22c55e">53 <span style="font-size:.7em">(82%)</span></div><div class="label">Resolved</div></div>
+  <div class="card"><div class="num" style="color:#ef4444">0</div><div class="label">Hallucinated</div></div>
+  <div class="card"><div class="num" style="color:#22c55e">3</div><div class="label">Claims Supported</div></div>
+  <div class="card"><div class="num" style="color:#f59e0b">6</div><div class="label">Claims Flagged</div></div>
+  <div class="card"><div class="num" style="color:#6b7280">3</div><div class="label">Unverifiable</div></div>
+</div>
+
+<h2>Claim Verification Results (12)</h2>
+<table>
+<thead><tr><th>Claim</th><th>Verdict</th><th>Conf.</th><th>Explanation</th><th>Relevant Passage</th></tr></thead>
+<tbody>
+        <tr>
+            <td style="max-width:400px">Semantic entropy [1] offers an unsupervised method that clusters multiple outputs into semantic equivalence classes based on bidirectional entailment and then computes entropy on these clusters.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source [1] directly describes semantic entropy as an unsupervised method that clusters multiple outputs into semantic equivalence classes based on bidirectional entailment and then computes entropy on these clusters. This matches the claim exactly.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">Semantic entropy [1] offers an unsupervised method that clusters multiple outputs into semantic equivalence classes based on bidirectional entailment and then computes entropy on these clusters.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Complementary strategies, such as conformal prediction, can provide bounds on hallucinations under stronger theoretical assumptions [35, 36].</td>
+            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The first source discusses distinguishing epistemic and aleatoric uncertainty in language models but does not mention conformal prediction or bounds on hallucinations. The second source is unresolved and cannot be evaluated. Neither source directly supports the claim about conformal prediction providing bounds on hallucinations.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Recent work, however, suggests that one can probe it with a single fixed network by measuring the consistency of multiple answers it produces to the same query [37, 38, 2].</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim is directly supported by the cited sources. Source [37] discusses using a model&#x27;s ability to &#x27;cheat&#x27; by observing one response while predicting another as a way to probe its knowledge gaps. Source [2] introduces nucleus sampling, which involves sampling from the dynamic nucleus of the probability distribution to generate diverse outputs. Both methods align with the claim of probing uncertainty through multiple answers from a single fixed network.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">Remarkably, we prove that being good at cheating (i.e. cheating whenever it improves your prediction) is equivalent to being second-order calibrated... By sampling text from the dynamic nucleus of the probability distribution, which allows for diversity while effectively truncating the less reliable</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Diverse beam search (DBS) introduces diversity heuristics within beam search optimization [39].</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>80%</td>
+            <td style="max-width:400px;font-size:0.85em">The provided source text does not contain any mention of &#x27;diverse beam search&#x27; or &#x27;DBS&#x27;. The title and authors suggest it is about contrastive decoding for text generation, but without the full text, it is impossible to determine if the claim is supported.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Contrastive decoding enlists a secondary, weaker language model whose output tokens are penalized to encourage diverse token selection by the primary model [40].</td>
+            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source discusses a diversity-promoting objective function for neural conversation models, but it does not mention contrastive decoding or the use of a secondary, weaker language model to penalize output tokens. The claim is not addressed in the provided source text.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Cluster-based beam search methods apply semantic clustering to prune beam candidates and diversify subsequent selections [41, 42], but this heavily depends on initial candidate diversity.</td>
+            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The first source discusses mapping word embeddings between languages and does not mention beam search or clustering. The second source is unresolved and only provides bibliographic information, so it cannot be verified. Neither source supports the claim about cluster-based beam search methods.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Semantically Diverse Language Generation (SDLG) substitutes the most informative token in a fully generated sample and allows standard sampling to proceed from that token onward [4].</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source discusses DiffuSeq, a diffusion model for sequence-to-sequence text generation, but does not mention Semantically Diverse Language Generation (SDLG) or any method of substituting the most informative token in a fully generated sample. The claim appears to be about a different approach not covered in this source.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">It does not, however, explicitly account for diversity within a running sample set and, because the token scoring involves a gradient of the NLI loss with respect to the NLI token space, requires additional implementation [e.g., 43] if the base LLM does not share the tokenization scheme or vocabular</td>
+            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source discusses diverse decoding methods for conditional language models but does not mention the specific limitations or implementation requirements of the Semantically Diverse Language Generation (SDLG) method described in the claim. The source is tangentially related to the broader topic of diversity in language generation but does not directly address the claim&#x27;s specific points.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Casting semantic equivalence as bidirectional entailment dates back to early linguistics work [45] and was later adopted in NLP [46, 47].</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source [46] explicitly states that &#x27;Paraphrasing can be seen as bidirectional textual entailment&#x27; and discusses the relationship between paraphrasing and textual entailment methods. This directly supports the claim that casting semantic equivalence as bidirectional entailment was adopted in NLP.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">Paraphrasing can be seen as bidirectional textual entailment and methods from the two areas are often similar.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Early methods relied on lexical overlap [48, 49] or vector embedding similarities [50, 51].</td>
+            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The first source discusses a BERT-based method for paraphrase identification, the second describes a recursive autoencoder approach, the third focuses on knowledge-augmented question answering, and the fourth is an unresolved citation. None of these sources mention early methods relying on lexical overlap or vector embedding similarities.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Recent systems employ BERT-style encoders to build binary “paraphrases” vs. “not paraphrases” classifiers [12, 52, 53].</td>
+            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">None of the provided sources discuss BERT-style encoders being used to build binary paraphrase classifiers. The first source focuses on the GLUE benchmark for NLU tasks, the second discusses prompt-based learning paradigms, and the third examines uncertainty quantification for black-box language models. None of these directly address the claim about BERT-based paraphrase classifiers.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">The entailment probability from NLI models has been used to cluster LLM generations into meaning-equivalent sets, enabling unsupervised uncertainty estimation [1, 4, 54].</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>80%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim refers to sources [1, 4, 54], but the provided sources do not include these references. The available sources discuss uncertainty quantification, diffusion models, and conversational QA, but none directly address using NLI entailment probabilities for clustering LLM generations. Without access to the cited sources, the claim cannot be verified.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr></tbody>
+</table>
+
+<h2>Statistical Audit (2)</h2>
+<table>
+<thead><tr><th>Assertion</th><th>Consistent?</th><th>Severity</th><th>Issues</th></tr></thead>
+<tbody>
+        <tr>
+            <td style="max-width:400px">The AUROC of SE [1] computed on generations from various sampling schemes. Each scheme uses N=16 sequences. The correctness metric Rouge-L (F1 score) was thresholded at 0.3. All numbers are mean±std o</td>
+            <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
+            <td>low</td>
+            <td style="max-width:300px;font-size:0.85em">&mdash;</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">The AUROC of MI [2] computed on generations from various sampling schemes. Each scheme uses N=8 pairs of iteratively generated answers. The correctness metric Rouge-L (F1 score) was thresholded at 0.2</td>
+            <td><span style="color:#22c55e;font-weight:700">Yes</span></td>
+            <td>low</td>
+            <td style="max-width:300px;font-size:0.85em">&mdash;</td>
+        </tr></tbody>
+</table>
+
+<h2>Unresolved Citations (12)</h2>
+<table>
+<thead><tr><th>#</th><th>Title</th><th>Raw Text</th></tr></thead>
+<tbody><tr><td>3</td><td>Semantically diverse language generation</td><td style='font-size:0.8em;color:#888'>[4] Franz Aichberger, Lily Chen, and John Smith. Semantically diverse language generation. In
+International Conference on Learning Representations (ICLR), 2025.</td></tr><tr><td>5</td><td>Dsp: Diffusion-based span prediction for masked text modeling</td><td style='font-size:0.8em;color:#888'>[6] Nuo Lou and et al. Dsp: Diffusion-based span prediction for masked text modeling. arXiv
+preprint arXiv:2305.XXXX, 2023.</td></tr><tr><td>6</td><td>Maskgpt: Uniform denoising diffusion for language</td><td style='font-size:0.8em;color:#888'>[7] Sheng Shi and et al. Maskgpt: Uniform denoising diffusion for language. arXiv preprint
+arXiv:2401.XXXX, 2024.</td></tr><tr><td>7</td><td>inatk: Iterative noise aware text denoising</td><td style='font-size:0.8em;color:#888'>[8] A. Sahoo and et al. inatk: Iterative noise aware text denoising. arXiv preprint arXiv:2402.XXXX,
+2024.</td></tr><tr><td>8</td><td>Tuqdm: Token unmasking with quantized diffusion models</td><td style='font-size:0.8em;color:#888'>[9] X. Ou and et al. Tuqdm: Token unmasking with quantized diffusion models. In ACL, 2024.</td></tr><tr><td>23</td><td>Teaching language models to script their confidence</td><td style='font-size:0.8em;color:#888'>[24] Jason Lin, Stephen Roller, Ashwin Stewart, and Luke Zettlemoyer. Teaching language models
+to script their confidence. In Proceedings of the 2022 Conference on Empirical Methods in
+Natural Languag</td></tr><tr><td>26</td><td>Learning to predict confidence for language models</td><td style='font-size:0.8em;color:#888'>[27] Mohit Jain, Ethan Perez, and James Glass. Learning to predict confidence for language models.
+In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing
+(EMNLP), pp</td></tr><tr><td>35</td><td>Well-calibrated language models can be produced with small calibration sets</td><td style='font-size:0.8em;color:#888'>Shauli Ravfogel, Shachar Zalmanski, and Yoav Goldberg. Well-calibrated language models
+are produced with small calibration sets. In Findings of the Association for Computational
+Linguistics: ACL 2023,</td></tr><tr><td>47</td><td>Semantic similarity based on lexical substitution</td><td style='font-size:0.8em;color:#888'>Shyam Fernando and Mark Stevenson. Semantic similarity based on lexical substitution. In
+Proceedings of ACL-08: HLT, pp. 756–764, 2008.</td></tr><tr><td>48</td><td>Paraphrase identification using deep contextualized representations</td><td style='font-size:0.8em;color:#888'>Asma Issa, George Mohler, and John Johnson. Paraphrase identification using deep contextual-
+ized representations. In Proceedings of the 2018 Conference on Empirical Methods in Natural
+Language Proces</td></tr><tr><td>59</td><td>Llama 3 model card</td><td style='font-size:0.8em;color:#888'>AI@Meta. Llama 3 model card. 2024. URL https://github.com/meta-llama/llama3/
+ blob/main/MODEL_CARD.md.</td></tr><tr><td>60</td><td>A note on importance sampling using standardized weights</td><td style='font-size:0.8em;color:#888'>[61] Augustine Kong. A note on importance sampling using standardized weights. University of
+Chicago, Dept. of Statistics, Tech. Rep, 348:14, 1992.</td></tr></tbody>
+</table>
+
+
+</body></html>

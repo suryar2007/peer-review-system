@@ -14,20 +14,39 @@ import fitz
 
 logger = logging.getLogger(__name__)
 
-_VERDICT_PENALTY = {
-    "contradicted": 15,
-    "overstated": 8,
-    "out_of_scope": 5,
-    "unverifiable": 3,
-    "statistical_issue": 8,
-}
 
+def compute_score(data: dict[str, Any]) -> int:
+    """Compute an integrity score from the full pipeline results.
 
-def compute_score(annotations: list[dict]) -> int:
-    score = 100
-    for ann in annotations:
-        score -= _VERDICT_PENALTY.get(ann.get("verdict", ""), 0)
-    return max(0, min(100, score))
+    Uses ALL verification results (not just PDF-matched annotations) so the
+    score accurately reflects the paper's citation integrity.
+    """
+    vr = data.get("verification_results", [])
+    total = len(vr)
+    if total == 0:
+        return 50
+
+    verdict_scores = {
+        "supported": 100,
+        "overstated": 30,
+        "unverifiable": 50,
+        "out_of_scope": 20,
+        "contradicted": 0,
+    }
+    claim_score = sum(
+        verdict_scores.get(v.get("verdict", "unverifiable"), 50) for v in vr
+    ) / total
+
+    audits = data.get("statistical_audit_results", [])
+    inconsistent = sum(
+        1 for a in audits if not a.get("is_internally_consistent", True)
+    )
+    stat_penalty = min(20, inconsistent * 5)
+
+    hallucinated = data.get("summary", {}).get("hallucinated_count", 0)
+    hall_penalty = min(15, hallucinated * 5)
+
+    return max(0, min(100, round(claim_score - stat_penalty - hall_penalty)))
 
 
 def _search_pdf(doc: fitz.Document, text: str) -> list[dict]:
@@ -61,10 +80,8 @@ def _search_pdf(doc: fitz.Document, text: str) -> list[dict]:
             if attempt_len == len(text):
                 return results
 
-            # For prefix matches, also grab subsequent lines that are part
-            # of the full claim by searching for the tail.
             if len(text) > attempt_len:
-                tail = text[-min(40, len(text) - attempt_len) :]
+                tail = text[-min(40, len(text) - attempt_len):]
                 tail_rects = page.search_for(tail)
                 for r in tail_rects:
                     results.append({
@@ -80,7 +97,13 @@ def _search_pdf(doc: fitz.Document, text: str) -> list[dict]:
 
 
 def build_pdf_annotations(pdf_path: str, data: dict[str, Any]) -> list[dict]:
-    """Build annotation list with PDF coordinates from pipeline results."""
+    """Build annotation list with PDF coordinates from pipeline results.
+
+    Every verification result gets an annotation entry. If the claim text
+    can be located in the PDF, the annotation includes ``rects`` for
+    highlighting; otherwise ``rects`` is empty but the annotation still
+    appears in the sidebar so no findings are hidden.
+    """
     doc = fitz.open(pdf_path)
     annotations: list[dict] = []
 
@@ -90,9 +113,6 @@ def build_pdf_annotations(pdf_path: str, data: dict[str, Any]) -> list[dict]:
             if not claim:
                 continue
             rects = _search_pdf(doc, claim)
-            if not rects:
-                logger.debug("No PDF match for claim %d: %.60s...", i, claim)
-                continue
             annotations.append({
                 "id": f"claim-{i}",
                 "text": claim[:200],
@@ -113,8 +133,6 @@ def build_pdf_annotations(pdf_path: str, data: dict[str, Any]) -> list[dict]:
             if not text:
                 continue
             rects = _search_pdf(doc, text)
-            if not rects:
-                continue
             annotations.append({
                 "id": f"stat-{i}",
                 "text": text[:200],

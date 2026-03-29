@@ -108,6 +108,11 @@ body {
 .badge-supported { background: var(--green); color: #fff; }
 .badge-statistical_issue { background: var(--blue); color: #fff; }
 
+.issue-item.no-pdf-match { opacity: 0.6; }
+.issue-item.no-pdf-match .issue-text::after {
+  content: ' (not located in PDF)'; font-style: italic; color: var(--sidebar-muted);
+}
+
 .issue-item[data-verdict="contradicted"] { border-left-color: var(--red); }
 .issue-item[data-verdict="overstated"] { border-left-color: var(--orange); }
 .issue-item[data-verdict="unverifiable"] { border-left-color: var(--gray); }
@@ -258,7 +263,7 @@ body {
     <div class="issue-list-section">
       <div class="issue-list-label">Findings ({{ annotations|length }})</div>
       {% for ann in annotations %}
-      <div class="issue-item" data-target="{{ ann.id }}" data-verdict="{{ ann.verdict }}" data-page="{{ ann.rects[0].page if ann.rects else 0 }}">
+      <div class="issue-item {{ '' if ann.rects else 'no-pdf-match' }}" data-target="{{ ann.id }}" data-verdict="{{ ann.verdict }}" data-page="{{ ann.rects[0].page if ann.rects else -1 }}">
         <span class="issue-badge badge-{{ ann.verdict }}">{{ ann.verdict.replace('_',' ') }}</span>
         <div class="issue-text">{{ ann.explanation[:120] }}</div>
       </div>

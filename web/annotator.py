@@ -8,11 +8,23 @@ The frontend uses these to draw highlight overlays on the rendered PDF pages.
 from __future__ import annotations
 
 import logging
+import re
 from typing import Any
 
 import fitz
 
 logger = logging.getLogger(__name__)
+
+_CITATION_PREFIX_RE = re.compile(
+    r"^(?:[A-Z][a-zA-Z\-]+(?:\s+(?:et\s+al\.|and\s+[A-Z][a-zA-Z\-]+))?"
+    r"(?:\s*\([^)]*\))?[\s,;]+(?:and\s+)?)+",
+)
+_VERBAL_CONNECTOR_RE = re.compile(
+    r"^(?:showed|demonstrated|found|noted|concluded|discovered|reported|"
+    r"argued|identified|observed|indicated|revealed|established|determined)"
+    r"\s+that\s+",
+    re.IGNORECASE,
+)
 
 
 def compute_score(data: dict[str, Any]) -> int:
@@ -49,48 +61,68 @@ def compute_score(data: dict[str, Any]) -> int:
     return max(0, min(100, round(claim_score - stat_penalty - hall_penalty)))
 
 
-def _search_pdf(doc: fitz.Document, text: str) -> list[dict]:
-    """Search for *text* across all pages, returning rect dicts.
-
-    Tries the full text first, then progressively shorter prefixes.
-    PyMuPDF's ``search_for`` handles hyphenated line breaks internally.
-    """
-    text = text.strip()
-    if not text:
-        return []
-
-    for attempt_len in (len(text), 100, 60, 40):
-        query = text[:attempt_len]
-        for page_num in range(len(doc)):
-            page = doc[page_num]
-            rects = page.search_for(query)
-            if not rects:
-                continue
-
-            results = []
-            for r in rects:
-                results.append({
+def _try_search(doc: fitz.Document, query: str) -> list[dict]:
+    """Search every page for *query*, return rect dicts on first hit."""
+    for page_num in range(len(doc)):
+        rects = doc[page_num].search_for(query)
+        if rects:
+            return [
+                {
                     "page": page_num,
                     "x0": round(r.x0, 1),
                     "y0": round(r.y0, 1),
                     "x1": round(r.x1, 1),
                     "y1": round(r.y1, 1),
-                })
+                }
+                for r in rects
+            ]
+    return []
 
-            if attempt_len == len(text):
+
+def _search_pdf(doc: fitz.Document, text: str) -> list[dict]:
+    """Search for *text* across all pages, returning rect dicts.
+
+    Strategy:
+      1. Try full text, then progressively shorter prefixes.
+      2. If the text looks like an LLM-paraphrased claim starting with
+         citation info (e.g. "Author et al. (Year) showed that …"), strip
+         that prefix and re-try with the substantive content.
+      3. As a last resort, try 5-word sliding windows from the claim to
+         locate any matching fragment.
+    """
+    text = text.strip()
+    if not text:
+        return []
+
+    # --- Pass 1: verbatim prefixes (original strategy) ---
+    for attempt_len in (len(text), 100, 60, 40):
+        query = text[:attempt_len]
+        results = _try_search(doc, query)
+        if results:
+            if attempt_len < len(text):
+                tail = text[-min(40, len(text) - attempt_len):]
+                results.extend(_try_search(doc, tail))
+            return results
+
+    # --- Pass 2: strip citation prefix and search substantive content ---
+    stripped = _CITATION_PREFIX_RE.sub("", text)
+    stripped = _VERBAL_CONNECTOR_RE.sub("", stripped).strip()
+    if stripped and len(stripped) > 20 and stripped != text:
+        for attempt_len in (min(len(stripped), 100), 60, 40, 30):
+            if attempt_len > len(stripped):
+                continue
+            results = _try_search(doc, stripped[:attempt_len])
+            if results:
                 return results
 
-            if len(text) > attempt_len:
-                tail = text[-min(40, len(text) - attempt_len):]
-                tail_rects = page.search_for(tail)
-                for r in tail_rects:
-                    results.append({
-                        "page": page_num,
-                        "x0": round(r.x0, 1),
-                        "y0": round(r.y0, 1),
-                        "x1": round(r.x1, 1),
-                        "y1": round(r.y1, 1),
-                    })
+    # --- Pass 3: sliding 5-word fragment windows ---
+    words = text.split()
+    for start in range(0, max(1, len(words) - 5), 3):
+        frag = " ".join(words[start : start + 6])
+        if len(frag) < 20:
+            continue
+        results = _try_search(doc, frag)
+        if results:
             return results
 
     return []

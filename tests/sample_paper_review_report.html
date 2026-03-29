@@ -24,229 +24,362 @@
 </head>
 <body>
 <h1>Peer Review Verification Report</h1>
-<p class="meta"><strong>Veriﬁable Fully Homomorphic Encryption</strong> &mdash; Generated 2026-03-29 07:32 UTC</p>
+<p class="meta"><strong>Veriﬁable Fully Homomorphic Encryption</strong> &mdash; Generated 2026-03-29 12:04 UTC</p>
 
 <div class="cards">
-  <div class="card"><div class="num">37</div><div class="label">Citations Found</div></div>
-  <div class="card"><div class="num" style="color:#22c55e">30 <span style="font-size:.7em">(81%)</span></div><div class="label">Resolved</div></div>
+  <div class="card"><div class="num">77</div><div class="label">Citations Found</div></div>
+  <div class="card"><div class="num" style="color:#22c55e">66 <span style="font-size:.7em">(86%)</span></div><div class="label">Resolved</div></div>
   <div class="card"><div class="num" style="color:#ef4444">0</div><div class="label">Hallucinated</div></div>
-  <div class="card"><div class="num" style="color:#22c55e">0</div><div class="label">Claims Supported</div></div>
+  <div class="card"><div class="num" style="color:#22c55e">5</div><div class="label">Claims Supported</div></div>
   <div class="card"><div class="num" style="color:#f59e0b">6</div><div class="label">Claims Flagged</div></div>
-  <div class="card"><div class="num" style="color:#6b7280">24</div><div class="label">Unverifiable</div></div>
+  <div class="card"><div class="num" style="color:#6b7280">38</div><div class="label">Unverifiable</div></div>
 </div>
 
-<h2>Claim Verification Results (30)</h2>
+<h2>Claim Verification Results (49)</h2>
 <table>
 <thead><tr><th>Claim</th><th>Verdict</th><th>Conf.</th><th>Explanation</th><th>Relevant Passage</th></tr></thead>
 <tbody>
         <tr>
-            <td style="max-width:400px">Modern FHE schemes are frequently used in leveled mode, where they support a parameter-dependent ﬁxed depth of computation before the noise overﬂows into the message.</td>
-            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
-            <td>90%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited source discusses the first fully homomorphic encryption scheme and its applications, but it does not mention the concept of &#x27;leveled mode&#x27; or parameter-dependent fixed depth of computation. The claim is not addressed in the provided source text.</td>
+            <td style="max-width:400px">Thanks to theoretical improvements, and optimizations in both software [1]–[3] and hardware implementations [4]–[6], it is starting to see use in real-world deployments (e.g., the Microsoft Edge Password Monitor [7]). Computing on encrypted data inherently requires malleable ciphertexts (e.g., the a</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim cites multiple sources to support the assertion that FHE is seeing real-world use due to optimizations in software and hardware. However, the provided source texts for these citations are only bibliographic stubs or too short to evaluate whether they actually describe such optimizations or real-world deployments. Therefore, the claim cannot be verified with the given information.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">Li et al. construct such an EaM scheme using multilinear maps, assuming a generic FHE scheme [41].</td>
+            <td style="max-width:400px">This has obvious implications for correctness but can also have more severe consequences: a malicious server can exploit the malleability of FHE to carry out key-recovery attacks [8]–[12], undermining the conﬁdentiality of FHE.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited sources [8]–[12] collectively substantiate the claim that malicious servers can exploit FHE malleability to carry out key-recovery attacks. Source [8] discusses IND-CCA1 security vulnerabilities in FHE schemes, source [9] (despite being unresolved) is cited as describing reaction attacks, source [11] explicitly details a practical key recovery attack via decryption errors, and source [12] (also unresolved) is cited as describing fault injection attacks. These sources directly support t</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">It is shown that it is possible for adversaries to inject perturbations in the ciphertexts stored in the cloud to result in decryption errors, and that when the client reports of such aberrations to the cloud service provider the complete secret key can be extracted in few attempts.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Historically, the FHE research community has extensively made use of the assumption that the server running an FHE application would be honest-but-curious, rather than actively malicious [13]–[16]. This assumption may be reasonable in some deployment scenarios (e.g., when FHE is used only to ensure </td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>0%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim asserts that the FHE research community has historically relied on the honest-but-curious server assumption, citing four sources. However, none of the cited sources provide any actual text to evaluate; they are only bibliographic stubs. Without the source content, it is impossible to verify whether these papers discuss the honest-but-curious model or support the claim&#x27;s assertion.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Practical key-recovery attacks have been developed for all major FHE schemes [8]–[12]. Therefore, there is an urgent need to strengthen FHE to maintain strong guarantees in the context of these attacks.</td>
+            <td><span style="color:#f59e0b;font-weight:700">&#9888; overstated</span></td>
+            <td>85%</td>
+            <td style="max-width:400px;font-size:0.85em">The first source states that all acknowledged FHE schemes are susceptible to key recovery attacks, either known or proposed. However, the claim that practical key-recovery attacks have been developed for all major FHE schemes is overstated because the source indicates some attacks are proposed rather than fully developed, and it does not explicitly confirm that all major schemes have practical attacks. The other sources are either unresolved or provide limited support.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">For each category, we show that the SHE schemes are susceptible to either known adaptive key recovery attacks, a natural extension of known attacks, or our proposed attacks.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">In order to remediate these attacks, a line of research has emerged that constructs more robust FHE schemes [17]–[24] that achieve indistinguishability against chosen ciphertext attacks (IND-CCA1). These schemes remain secure even in the presence of decryption oracles.</td>
+            <td><span style="color:#f97316;font-weight:700">&#9873; paper_mill_journal</span></td>
+            <td>100%</td>
+            <td style="max-width:400px;font-size:0.85em">Cited source published in &#x27;SIAM J. Comput.&#x27;, a journal commonly flagged as a paper mill venue.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">A different line of research focuses on achieving integrity for FHE; guaranteeing a function was correctly executed on the ciphertext while preserving the conﬁdentiality of inputs [25]–[32]. While these are more concretely efﬁcient than the constructions mentioned above, there is a signiﬁcant gap be</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim discusses a line of research on FHE integrity, but only one of the cited sources (source 25) has sufficient text to evaluate. The other sources (26-32) are unresolved citations with only bibliographic information available. Without the full text of these sources, it is impossible to determine whether they support the claim&#x27;s assertion about the gap between assumptions and practical FHE usage.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">For example, maliciously-secure secure Multi-Party Computation (MPC) has been studied extensively [33]. However, most techniques do not transfer to the FHE setting since they rely on the interactive nature of MPC 1 (e.g., cut-and-choose protocols). In addition, there has been work studying how to co</td>
+            <td><span style="color:#f97316;font-weight:700">&#9873; paper_mill_journal</span></td>
+            <td>100%</td>
+            <td style="max-width:400px;font-size:0.85em">Cited source published in &#x27;Foundations and Trends® in Privacy and Security&#x27;, a journal commonly flagged as a paper mill venue.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">For example, in an additively homomorphic encryption scheme, Dec(Enc(x + y)) = Dec(Enc(x)) ⊕Dec(Enc(y)). Fully Homomorphic Encryption [35] offers both additive and multiplicative homomorphism.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
             <td>90%</td>
-            <td style="max-width:400px;font-size:0.85em">The citation [41] is mentioned in the claim, but the provided source text only includes bibliographic information for citation [42]. Without access to the actual content of [41], it is impossible to verify whether Li et al. construct an EaM scheme using multilinear maps as claimed.</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source is only a bibliographic reference to Craig Gentry&#x27;s PhD thesis. Without access to the actual content of the thesis, it is impossible to verify whether it supports the claim that Fully Homomorphic Encryption offers both additive and multiplicative homomorphism.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">Fiore et al. make use of this paradigm in [28], instantiating their MAC using pairings.</td>
-            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited source discusses Bulletproofs, a non-interactive zero-knowledge proof protocol, but does not mention Fiore et al. or their use of pairings for instantiating a MAC. The source is focused on range proofs and efficient verification, not MACs or pairings.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+            <td style="max-width:400px">Modern FHE schemes are based on the Learning with Errors (LWE) [36] or Ring Learning with Errors (RLWE) [37] hardness assumptions.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source [36] introduces the Learning with Errors (LWE) problem and its cryptographic applications, while [37] extends LWE to the ring setting (RLWE) and demonstrates its hardness guarantees. Both sources establish the foundational hardness assumptions that modern FHE schemes are based on, directly supporting the claim.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">[36] &#x27;Our main result is a reduction from worst-case lattice problems such as GapSVP and SIVP to a certain learning problem. [...] We also present a (classical) public-key cryptosystem whose security is based on the hardness of the learning problem.&#x27; [37] &#x27;The “learning with errors” (LWE) problem is</td>
         </tr>
         <tr>
-            <td style="max-width:400px">Gennaro and Wichs [26] provided one of the ﬁrst FHE integrity con-struction based on this paradigm.</td>
+            <td style="max-width:400px">TEEs are commercially available in commodity hardware provided by all major hardware vendors [38]–[40]. TEEs are frequently used to provide conﬁdentiality from either the server operators or other VMs running on the same hardware, but they can also provide integrity through code attestation, which g</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
             <td>90%</td>
-            <td style="max-width:400px;font-size:0.85em">The provided source is a citation to a paper by Xie et al. titled &#x27;Libra: Succinct Zero-Knowledge proofs with optimal prover computation&#x27;. However, the actual content of the paper is not available, making it impossible to verify if it supports the claim about Gennaro and Wichs providing one of the first FHE integrity constructions.</td>
+            <td style="max-width:400px;font-size:0.85em">The claim asserts that TEEs are commercially available in commodity hardware from all major vendors and describes their use for confidentiality and integrity. However, the provided sources are only bibliographic stubs without the actual content needed to verify these claims. The URLs point to documentation pages, but without the source text, the claim cannot be verified.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">Catalano and Fiore [27] addressed the veriﬁcation efﬁciency, but in turn their con-struction is limited to arithmetic circuits of a bounded depth.</td>
+            <td style="max-width:400px">Li et al. construct such an EaM scheme using multilinear maps, assuming a generic FHE scheme [41]. While it describes how to support addition and multiplication operations, it is not clear how this scheme can be extended to handle the complex ciphertext maintenance operations (e.g, relinearization) </td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The provided source text is only a citation and does not contain any actual content from the paper by Catalano and Fiore. Without access to the full text of the cited paper, it is impossible to verify whether it supports the claim about addressing verification efficiency while being limited to arithmetic circuits of bounded depth.</td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is available. Without the actual content of the cited paper, it is impossible to verify whether it supports the claim that Li et al.&#x27;s scheme does not clearly extend to handle complex ciphertext maintenance operations like relinearization.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">More recently, Chatel et al. [32] have generalized these two approaches, providing the ﬁrst FHE integrity scheme that can efﬁciently support arbitrary circuits and modern state-of-the-art schemes.</td>
+            <td style="max-width:400px">This removes the need for the MAC to preserve conﬁdentiality, but the MAC does still need to be homomorphic with respect to operations on ciphertexts (including ciphertext maintenance operations). Fiore et al. make use of this paradigm in [28], instantiating their MAC using pairings.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited source [32] is referenced in the claim, but the provided source text is only a bibliographic entry and does not contain any actual content from the paper. Without access to the full text of Chatel et al. [32], it is impossible to verify whether the paper indeed provides the first FHE integrity scheme that efficiently supports arbitrary circuits and modern state-of-the-art schemes.</td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text for Fiore et al. [28] is missing, consisting only of bibliographic information. Without access to the actual content of the cited paper, it is impossible to verify whether it supports the claim that Fiore et al. used the described paradigm and instantiated their MAC using pairings.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">One line of work uses (homomorphic) hashing to bring the size of FHE ciphertexts down into a range that can be handled more efﬁciently with ZKP techniques.</td>
+            <td style="max-width:400px">In order to achieve efﬁcient veriﬁcation, they also rely on amortized closed-form efﬁcient PRFs [43]. However, the combination of these primitives limits the expressiveness of the resulting construction.</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is available. Without access to the content of the cited paper, it is impossible to verify whether it supports the claim about relying on amortized closed-form efficient PRFs and the resulting limitations on expressiveness.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Gennaro and Wichs [26] provided one of the ﬁrst FHE integrity construction based on this paradigm.</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is available. Without access to the actual content of the paper by Gennaro and Wichs, it is impossible to verify whether they provided one of the first FHE integrity constructions based on the mentioned paradigm.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Catalano and Fiore [27] addressed the veriﬁcation efﬁciency, but in turn their construction is limited to arithmetic circuits of a bounded depth.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
             <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited source is only a bibliographic reference and does not contain any actual content that can be analyzed to verify the claim. Without access to the full text of the source, it is impossible to determine whether it supports the claim about using homomorphic hashing to reduce FHE ciphertext sizes for ZKP techniques.</td>
+            <td style="max-width:400px;font-size:0.85em">The source text for Catalano and Fiore [27] is missing, consisting only of a bibliographic stub. Without access to the actual content of the paper, it is impossible to verify whether it supports the claim that their construction addresses verification efficiency but is limited to arithmetic circuits of bounded depth.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">More recently, Chatel et al. [32] have generalized these two approaches, providing the ﬁrst FHE integrity scheme that can efﬁciently support arbitrary circuits and modern stateof-the-art schemes.</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The citation [32] is provided only as a bibliographic reference without any accompanying source text. Without access to the actual content of the paper by Chatel et al., it is impossible to verify whether it supports the claim that it provides the first FHE integrity scheme that efficiently supports arbitrary circuits and modern state-of-the-art schemes.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">This includes the ﬁrst SNARK for FHE presented by Fiore et al. [29] and follow-up work by Bois et al. [30]. However, the homomorphic hashing requirement limits this approach to simple schemes such as the BV scheme [44] which does not feature the complex ciphertext maintenance operations that are nec</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim references three sources (Fiore et al. [29], Bois et al. [30], and Brakerski and Vaikuntanathan [44]) to support its assertions about SNARKs for FHE and the limitations of the BV scheme. However, the provided source texts are only bibliographic stubs and do not contain any content to evaluate whether they actually support the claim&#x27;s conclusions.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
             <td style="max-width:400px">An alternative approach by Ganesh et al. [31] instead focuses on constructing a generic ZKP system that natively operates on the rings used in FHE schemes.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
             <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The source text provided is only a bibliographic citation and does not contain any actual content from the paper. Without access to the full text of the paper, it is impossible to verify whether it supports the claim about an alternative approach focusing on constructing a generic ZKP system that natively operates on the rings used in FHE schemes.</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is provided. Without access to the actual content of the cited paper, it is impossible to verify whether it supports the claim about Ganesh et al.&#x27;s approach to constructing a generic ZKP system for rings used in FHE schemes.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">Natarajan et al. [42] present an FEE-in-TEE design and implementation, that, because of the ability of TEEs to express arbitrary computations, can easily support modern state-of-the-art FHE schemes with little to no required modiﬁcations.</td>
+            <td style="max-width:400px">Trusted Execution Environments (TEEs) such as Intel SGX [38] can be used to provide conﬁdentiality, but a series of attacks [45], [46] has put their suitability for this task in question.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The source [38] describes Intel SGX as a TEE that creates an isolated environment to provide run-time protection for security-critical code and data. The source [45] (though unresolved) is cited as evidence of attacks on Intel SGX, which the claim references. The claim accurately reflects the content of the available source [38] and the citation of [45] for attacks.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">Intel Software Guard Extensions (SGX) is one of the most representative TEEs that creates an isolated environment on an untrusted operating system, thus providing run-time protection for the execution of security-critical code and data.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">However, their integrity protections, i.e., their ability to attest to the program running in the enclave, have so far mostly resisted practical attacks [47]. Therefore, it is natural to augment the conﬁdentiality properties of FHE with the integrity protections of TEEs by running FHE inside an encl</td>
+            <td><span style="color:#ef4444;font-weight:700">&#10007; contradicted</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source describes Plundervolt, a practical attack that corrupts the integrity of Intel SGX enclave computations by manipulating voltage scaling. This directly contradicts the claim that TEE integrity protections have &#x27;mostly resisted practical attacks&#x27;. The source explicitly demonstrates a practical attack undermining enclave integrity.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We present the Plundervolt attack, in which a privileged software adversary abuses an undocumented Intel Core voltage scaling interface to corrupt the integrity of Intel SGX enclave computations.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Natarajan et al. [42] present an FEEin-TEE design and implementation, that, because of the ability of TEEs to express arbitrary computations, can easily support modern state-of-the-art FHE schemes with little to no required modiﬁcations.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The provided source text is only a bibliographic citation and does not contain any actual content from the paper. Therefore, it is impossible to determine whether the source supports the claim about Natarajan et al.&#x27;s FEE-in-TEE design and implementation.</td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text provided is only a bibliographic citation and does not contain any actual content from the paper. Without access to the full text of Natarajan et al. [42], it is impossible to verify whether the paper presents an FEE-in-TEE design and implementation that can easily support modern state-of-the-art FHE schemes with little to no modifications.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">For example, we briëy outline a simple key recovery attack by Chenal and Tang [11] against the BV scheme [44].</td>
+            <td style="max-width:400px">Nevertheless, even public inputs prevent the use of some integrity approaches, such as MAC-based solutions [26]–[28], [32], [41]. This is inherent in the concept of MACs, which only the client can generate for fresh messages.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The source text provided is only a bibliographic citation and does not contain any actual content from the paper. Without access to the full text, it is impossible to verify whether the paper by Chenal and Tang indeed outlines a key recovery attack against the BV scheme.</td>
+            <td>0%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim discusses limitations of MAC-based solutions in the context of public inputs and fresh messages. However, the provided source texts are only bibliographic stubs and do not contain any actual content from the cited papers. Without access to the full text of the cited sources, it is impossible to verify whether they support the claim.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">When decrypting the special ciphertext ct = (0, 1), one trivially recovers the secret key Decsk(ct) = [0 + 1 · sk]t = [sk]t = sk (under some assumptions on the parameters; we refer to [11] for the details).</td>
+            <td style="max-width:400px">Nevertheless, the FHE community has also developed techniques to achieve more formal circuit privacy guarantees, which use either bootstrapping [51]–[53] or noise ﬂooding [54] to essentially ‘standardize’ the ciphertext before returning it to the client.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The first source explicitly discusses the use of randomized bootstrapping to achieve circuit privacy by sanitizing ciphertexts. The second source, while brief, describes a bootstrappable FHE scheme. The claim is directly supported by the first source and the second source provides additional context on bootstrapping in FHE.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">We give an extensive analysis, propose parameters, and provide a C++ implementation of our scheme. Our bootstrapping can sanitize a ciphertext to achieve circuit privacy at an 80-bit statistical security level in between 1.3 and 0.9 seconds, depending which Gaussian sampling algorithm is used, and w</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">For example, we brieﬂy outline a simple key recovery attack by Chenal and Tang [11] against the BV scheme [44]. In BV, decryption is deﬁned as Decsk(ct) = [ct0 + ct1 · sk]t, where the inner operations are performed over Rq (see [44] for details). When decrypting the special ciphertext ct = (0, 1), o</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The claim refers to a specific key recovery attack by Chenal and Tang [11] against the BV scheme, but the provided source is only a bibliographic citation without the actual content. Without access to the full text of [11], it is impossible to verify whether the source supports the claim about decrypting the special ciphertext ct = (0, 1) to recover the secret key.</td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim references two sources: [11] and [44]. Source [11] is available and discusses key recovery attacks, but the claim specifically attributes a detailed attack against the BV scheme to it, which is not present in the provided text. Source [44] is only a bibliographic stub and cannot be evaluated. Therefore, the claim cannot be verified with the given information.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
             <td style="max-width:400px">We recall that BGV [14] uses a relinearization key rk = (a · sk + t · e + sk2, −a), which is a valid encryption of sk2 under sk.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited source is a bibliographic reference to a paper titled &#x27;How to run turing machines on encrypted data&#x27; by Goldwasser et al. However, the actual source text is not provided, making it impossible to verify whether the paper contains the specific claim about the BGV relinearization key being a valid encryption of sk2 under sk.</td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is provided. Without access to the actual content of the cited paper, it is impossible to verify whether the claim about the BGV relinearization key is supported.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">However, more sophisticated attacks [10] do not require such strong oracles and instead target decryption failure ora-cles.</td>
+            <td style="max-width:400px">However, more sophisticated attacks [10] do not require such strong oracles and instead target decryption failure oracles.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
             <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited source is only a bibliographic reference and does not contain the actual content needed to verify the claim. Without access to the full text of the cited paper, it is impossible to determine whether it supports the claim about sophisticated attacks targeting decryption failure oracles.</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is provided. Without access to the actual content of the cited paper, it is impossible to verify whether it supports the claim about sophisticated attacks targeting decryption failure oracles.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
             <td style="max-width:400px">Although some provide what appear to be strong guarantees of input privacy [29], [30] that one might expect to exclude such attacks, even these do not prevent such attacks.</td>
-            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
             <td>90%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited sources discuss Bulletproofs and pairing-based non-interactive arguments, but do not address the specific claim about input privacy guarantees failing to prevent certain attacks in FHE applications. The sources are not relevant to the claim being made.</td>
+            <td style="max-width:400px;font-size:0.85em">The cited sources [29] and [30] are only bibliographic stubs with no actual content provided. Without the full text of these sources, it is impossible to verify whether they support the claim that their privacy guarantees do not prevent the described attacks.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Existing notions are usually a Frankensteinian combination of an existing integrity notion (e.g., MAC unforgeability [41] or Veriﬁable Computation [28]) and adhoc conﬁdentiality properties.</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>80%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim asserts that existing integrity notions are typically a combination of existing integrity notions and ad-hoc confidentiality properties. However, the cited sources [28] and [41] are only bibliographic stubs without any source text to evaluate the claim against. Therefore, the claim cannot be verified.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">For example, we are the ﬁrst to extend integrity notions to approximate FHE [55], where correctness holds only approximately (Dec(Enc(m)) ≈m). Because we split correctness and completeness, changing between veriﬁable FHE and veriﬁable approximate FHE has no knock-on-effects on the remainder of the n</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>80%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source [55] is only provided as a bibliographic stub and does not include any actual text to evaluate the claim. Without the full source text, it is impossible to determine whether the claim that the authors are the first to extend integrity notions to approximate FHE is supported by the citation.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">While some amount of possible deviation is inherent in any 2-party computation, a rich history of MPC and ZKP applications has shown how to use input checks to ensure that a computation achieves higher-level properties [33]. For example, in Machine Learning as a Service (MLaaS), a client can run sev</td>
+            <td><span style="color:#f97316;font-weight:700">&#9873; paper_mill_journal</span></td>
+            <td>100%</td>
+            <td style="max-width:400px;font-size:0.85em">Cited source published in &#x27;Foundations and Trends® in Privacy and Security&#x27;, a journal commonly flagged as a paper mill venue.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
             <td style="max-width:400px">Comparatively few IND-CCA1 FHE schemes are known [19], [22], [56] and the existing schemes are computationally much more expensive than IND-CPA schemes.</td>
-            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
-            <td>95%</td>
-            <td style="max-width:400px;font-size:0.85em">The first source discusses Arm TrustZone technology and its applications in security, but does not mention FHE schemes or their computational costs. The second source is an unresolved citation and cannot be verified. Therefore, neither source supports the claim about IND-CCA1 FHE schemes.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">This is because exist-ing IND-CCA1 schemes either already explicitly include integrity protections [56] or rely on powerful primitives that, in turn, would require integrity-like protections [19], [22] to realize.</td>
-            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
             <td>90%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited sources do not discuss IND-CCA1 schemes or integrity protections. The first source is about Arm TrustZone technology and its applications, while the second is an unresolved citation. Neither source addresses the claim about IND-CCA1 schemes requiring integrity protections.</td>
+            <td style="max-width:400px;font-size:0.85em">The claim requires evaluating whether the cited sources support the assertion that there are few IND-CCA1 FHE schemes and that they are computationally more expensive than IND-CPA schemes. However, the provided source texts are only bibliographic stubs and do not contain any actual content to verify the claim.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">Note that constructing a scheme for the core vFHE dënition is comparatively straightforward, as this setting only features public server inputs: for any f (which includes the public inputs) that results in a valid ciphertext for any freshly encrypted client inputs, we can combine an IND-CPA secure </td>
+            <td style="max-width:400px">This is because existing IND-CCA1 schemes either already explicitly include integrity protections [56] or rely on powerful primitives that, in turn, would require integrity-like protections [19], [22] to realize.</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>0%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim attributes properties to IND-CCA1 schemes based on sources [19], [22], and [56]. However, the provided source texts for all three citations are only bibliographic stubs, lacking the actual content needed to verify the claim. Therefore, the claim cannot be substantiated or refuted with the given information.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Note that constructing a scheme for the core vFHE deﬁnition is comparatively straightforward, as this setting only features public server inputs: for any f (which includes 9 the public inputs) that results in a valid ciphertext for any freshly encrypted client inputs, we can combine an IND-CPA secur</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
             <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited source is only a bibliographic reference and does not contain the actual content needed to verify the claim. The claim discusses combining an IND-CPA secure FHE scheme with a MAC-then-Encrypt scheme, but without access to the full text of the cited paper, it is impossible to determine if this specific claim is supported.</td>
+            <td style="max-width:400px;font-size:0.85em">The citation [32] refers to a paper titled &#x27;Verïable encodings for secure homomorphic analytics&#x27;, but the source text is unavailable. Without access to the content of this paper, it is impossible to verify whether it supports the claim that a MAC-then-Encrypt scheme such as Chatel et al. can be combined with an IND-CPA secure FHE scheme to construct a core vFHE scheme.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">As a result, previous work on FHE integrity frequently chose to use simple schemes such as the BV scheme [44] to avoid this complexity.</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited source [44] is only provided as a bibliographic reference without any accompanying text. Therefore, it is impossible to verify whether the source actually supports the claim that previous work on FHE integrity frequently chose to use simple schemes such as the BV scheme to avoid complexity.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
             <td style="max-width:400px">FHE schemes fall into two main families, with the LWE-based FHEW [16] and TFHE [15] schemes focusing primarily on evaluating binary circuits, while RLWE-based schemes such as BGV [14], B/FV [58] [13] and CKKS [55]) focus on arithmetic circuits.</td>
-            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The cited sources [13], [14], [15], [16], [55], and [58] are only provided as bibliographic stubs without any actual source text. Without access to the content of these papers, it is impossible to verify whether they support the claim about LWE-based and RLWE-based FHE schemes focusing on binary and arithmetic circuits, respectively.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">The RLWE schemes, in turn, feature larger ciphertexts but also offer a powerful form of data parallelism [59] that is at the core of most state-of-theart FHE results.</td>
+            <td><span style="color:#22c55e;font-weight:700">&#10003; supported</span></td>
+            <td>80%</td>
+            <td style="max-width:400px;font-size:0.85em">The source describes how SIMD operations enable parallel recryption, which is a form of data parallelism. This aligns with the claim that RLWE schemes offer a powerful form of data parallelism that is central to state-of-the-art FHE results.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">It is shown that the SIMD operations can be used to perform the recrypt procedure in parallel, resulting in a substantial speed-up, and this somewhat homomorphic scheme can be made fully homomorphic in a naive way by recrypting all data elements separately.</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">We propose to use R1CS [60], one of the most widespread arithmetization approaches, which converts circuits into a system of Rank-1 constraints.</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is available. Without access to the actual content of the cited paper, it is impossible to verify whether it supports the claim about R1CS being a widespread arithmetization approach that converts circuits into Rank-1 constraints.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">While PLONK-like systems [61] extend R1CS with support for custom gates that can model commonly recurring sub-circuits, this is only efﬁcient for low-degree sub-circuits6 In our setting, the only candidate for such extraction would be the modulo sub-circuit, but this is not a low-degree circuit.</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>80%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is available. Without access to the actual content of the cited paper, it is impossible to verify whether it supports the claim about PLONK-like systems extending R1CS with support for custom gates that are only efficient for low-degree sub-circuits.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Beyond R1CS, STARKs [63] present an alternative way to express computations not as circuits but as a series of data manipulations.</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
             <td>95%</td>
-            <td style="max-width:400px;font-size:0.85em">The provided sources do not contain any information about FHE schemes being divided into LWE-based and RLWE-based families, nor do they discuss binary versus arithmetic circuit evaluation. The sources focus on different aspects of homomorphic encryption and lattice-based cryptography without addressing the specific classification mentioned in the claim.</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is available. Without access to the actual content of the cited paper, it is impossible to verify whether it supports the claim about STARKs expressing computations as data manipulations rather than circuits.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">We select four candidate approaches that are especially suitable for veri­able FHE: First, we consider Groth16 [65], which represented a major breakthrough in practical ZKP research, showing that zkSNARKs can be achieved with good concrete ef­ciency.</td>
+            <td style="max-width:400px">Recent work [64] can also forgo explicit arithmetization and instead directly express arithmetic circuits.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>0%</td>
-            <td style="max-width:400px;font-size:0.85em">No citations (resolved or raw) available for this claim.</td>
+            <td>80%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is provided. Without access to the actual content of the cited paper, it is impossible to verify whether it supports the claim that recent work can forgo explicit arithmetization and directly express arithmetic circuits.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">Here, we consider Bulletproofs [66] which is part of a generation of zkSNARKS without trusted setup that brings them into the same realm of performance as traditional ef­cient constructions that require (universal or per-circuit) setup.</td>
+            <td style="max-width:400px">We select four candidate approaches that are especially suitable for veriﬁable FHE: First, we consider Groth16 [65], which represented a major breakthrough in practical ZKP research, showing that zkSNARKs can be achieved with good concrete efﬁciency.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>0%</td>
-            <td style="max-width:400px;font-size:0.85em">No citations (resolved or raw) available for this claim.</td>
+            <td>90%</td>
+            <td style="max-width:400px;font-size:0.85em">The citation is only a bibliographic stub and does not include the actual source text needed to verify the claim. Without access to the content of the cited paper, it is impossible to determine whether it supports the claim that Groth16 represented a major breakthrough in practical ZKP research with good concrete efficiency.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">Here, we consider Bulletproofs [66] which is part of a generation of zkSNARKS without trusted setup that brings them into the same realm of performance as traditional efﬁcient constructions that require (universal or per-circuit) setup.</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is available. Without access to the actual content of the cited paper, it is impossible to verify whether it supports the claim about Bulletproofs being part of a generation of zkSNARKS without trusted setup that brings them into the same realm of performance as traditional efficient constructions.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
             <td style="max-width:400px">We also evaluate Aurora [67], which is part of the same generation and trades off asymptotically worse prover times and proof sizes for a move to post-quantum secure assumptions, which matches nicely with the post-quantum security of FHE schemes.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>0%</td>
-            <td style="max-width:400px;font-size:0.85em">No citations (resolved or raw) available for this claim.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">Finally, we also consider Rinocchio [31] by Ganesh et al., which we brie­ly discussed in Section 3.1.</td>
-            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The provided source text is only a citation to a bibliographic entry and does not contain any actual content from the source. Without access to the full text of the cited work, it is impossible to determine whether it supports the claim about Rinocchio by Ganesh et al.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">Rinocchio offers native support for FHE-friendly rings, potentially giving signi­cant performance bene­ts over systems that need to emulate these rings.</td>
-            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>90%</td>
-            <td style="max-width:400px;font-size:0.85em">The provided source is an unresolved citation with only bibliographic information available. There is no actual source text to verify the claim against, making it impossible to determine if Rinocchio offers native support for FHE-friendly rings or if it provides performance benefits.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">However, its expressiveness is limited, as Rinocchio only supports arithmetic ring operations, whereas some FHE op-erations (e.g., relinearization) use component-wise rounding operations internally.</td>
-            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited source is an unresolved citation with only bibliographic information available. There is no actual source text to verify the claim against.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">Rinocchio only provides only around 60 bits of (computational) soundness for the rings used in FHE.</td>
-            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The provided source is only a bibliographic reference to the &#x27;arkworks zksnark ecosystem&#x27; document from 2022. Without access to the actual content of this document, it is impossible to verify whether it contains information about Rinocchio providing 60 bits of computational soundness for the rings used in FHE.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">We use the Microsoft SEAL [2] implementation of the BGV scheme [14], which is a state-of-the-art RNS- and NTT-based implementation.</td>
-            <td><span style="color:#a855f7;font-weight:700">&#8631; out_of_scope</span></td>
             <td>95%</td>
-            <td style="max-width:400px;font-size:0.85em">The cited sources discuss fully homomorphic encryption (FHE) and its applications, but do not mention the Microsoft SEAL implementation or the BGV scheme. The sources are too general and do not provide specific information about the implementation details claimed.</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is available. Without access to the actual content of the cited paper, it is impossible to verify whether it supports the claim about Aurora trading off asymptotically worse prover times and proof sizes for post-quantum secure assumptions.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">We express our ZKP circuits using Circom [68] which translates its cus-tom speci­cation language to R1CS.</td>
-            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>0%</td>
-            <td style="max-width:400px;font-size:0.85em">No citations (resolved or raw) available for this claim.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">We rely on a variety of state-of-the-art ZKP implementations for the backends: we use the arkworks library [69] to implement Groth16 [65], for Aurora [67] we use the libiop library by the same authors, and for Bulletproofs [66] we use the Dalek library [70].</td>
-            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>0%</td>
-            <td style="max-width:400px;font-size:0.85em">No citations (resolved or raw) available for this claim.</td>
-            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
-        </tr>
-        <tr>
-            <td style="max-width:400px">We implement Rinocchio [31] and extend it with an optimized encoding scheme (cf. Appendix C).</td>
+            <td style="max-width:400px">Finally, we also consider Rinocchio [31] by Ganesh et al., which we brieﬂy discussed in Section 3.1. Rinocchio offers native support for FHE-friendly rings, potentially giving signiﬁcant performance beneﬁts over systems that need to emulate these rings.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
             <td>80%</td>
-            <td style="max-width:400px;font-size:0.85em">The provided source is an unresolved citation with only bibliographic information available. Without access to the actual content of the source, it is impossible to determine whether it supports the claim about implementing Rinocchio and extending it with an optimized encoding scheme.</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is available. Therefore, it is impossible to verify whether the cited source supports the claim that Rinocchio offers native support for FHE-friendly rings.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr>
         <tr>
-            <td style="max-width:400px">For the TEE-based approach, we re-implement CHEX-MIX [42] and extend it with our optimization (cf. Appendix D), targeting Intel SGX via the OpenEnclave SDK [71].</td>
+            <td style="max-width:400px">We note that, while there has been a plethora of attacks on TEE-based conﬁdentiality guarantees [45]–[47], there have been signiﬁcantly fewer issues with the attestationbased integrity guarantees [47]. Natarajan et al. presented the ﬁrst implementation of this FHE-in-TEE approach [42] and we extend </td>
+            <td><span style="color:#f59e0b;font-weight:700">&#9888; overstated</span></td>
+            <td>80%</td>
+            <td style="max-width:400px;font-size:0.85em">The source discusses security vulnerabilities of Intel SGX, including attacks on confidentiality, but does not explicitly state that there have been &#x27;significantly fewer issues with the attestation-based integrity guarantees&#x27;. While the source does mention that SGX provides &#x27;run-time protection for the execution of security-critical code and data&#x27;, implying some level of integrity, it does not provide a direct comparison or quantification of the number of issues affecting confidentiality versus </td>
+            <td style="max-width:250px;font-size:0.8em;color:#555">Trusted Execution Environments (TEEs) have been widely used in many security-critical applications. The popularity of TEEs derives from its high security and trustworthiness supported by secure hardware. Intel Software Guard Extensions (SGX) is one of the most representative TEEs that creates an iso</td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">We use the Microsoft SEAL [2] implementation of the BGV scheme [14], which is a stateof-the-art RNS- and NTT-based implementation.</td>
             <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
-            <td>0%</td>
-            <td style="max-width:400px;font-size:0.85em">No citations (resolved or raw) available for this claim.</td>
+            <td>80%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim states that Microsoft SEAL is a state-of-the-art RNS- and NTT-based implementation of the BGV scheme. However, the provided source text for both citations [2] and [14] consists only of bibliographic information and does not contain the necessary content to verify the claim.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">We express our ZKP circuits using Circom [68] which translates its custom speciﬁcation language to R1CS.</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The source text is missing, and only bibliographic information is provided. Without access to the actual content of the cited master&#x27;s thesis, it is impossible to verify whether it supports the claim that Circom translates its custom specification language to R1CS.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">We rely on a variety of state-of-the-art ZKP implementations for the backends: we use the arkworks library [69] to implement Groth16 [65], for Aurora [67] we use the libiop library by the same authors, and for Bulletproofs [66] we use the Dalek library [70]. We implement Rinocchio [31] and extend it</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>95%</td>
+            <td style="max-width:400px;font-size:0.85em">The claim describes the use of specific libraries and implementations for various ZKP schemes, but the provided source texts are only bibliographic stubs. Without the actual content of the cited papers, it is impossible to verify whether they support the claim&#x27;s assertions about the implementations used.</td>
+            <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
+        </tr>
+        <tr>
+            <td style="max-width:400px">We follow the approach described in [30], which adds randomly-selected encryptions of zero to increase the noise of the ciphertext without modifying the message. (iii) Finally, our Medium circuit introduces ciphertext-maintenance operations, comput-     (x −w)2 ing NoiseFlood ModSwitch for a clien</td>
+            <td><span style="color:#6b7280;font-weight:700">? unverifiable</span></td>
+            <td>80%</td>
+            <td style="max-width:400px;font-size:0.85em">The citation [30] is provided only as a bibliographic stub, with no actual source text available. Therefore, it is impossible to verify whether the source supports the claim that it describes adding randomly-selected encryptions of zero to increase ciphertext noise without modifying the message.</td>
             <td style="max-width:250px;font-size:0.8em;color:#555"><em>none</em></td>
         </tr></tbody>
 </table>
@@ -305,19 +438,32 @@
         </tr></tbody>
 </table>
 
-<h2>Unresolved Citations (7)</h2>
+<h2>Unresolved Citations (11)</h2>
 <table>
 <thead><tr><th>#</th><th>Title</th><th>Raw Text</th></tr></thead>
-<tbody><tr><td>1</td><td>OpenFHE: Open-Source fully homomorphic encryption library</td><td style='font-size:0.8em;color:#888'>A. Al Badawi, J. Bates, F. Bergamaschi, D. B. Cousins, S. Erabelli, N. Genise, S. Halevi, H. Hunt, A. Kim, Y. Lee, Z. Liu, D. Micciancio, I. Quah, Y. Polyakov, S. R.v., K. Rohloff, J. Saylor, D. Supon</td></tr><tr><td>5</td><td>Password monitor: Safeguarding passwords in microsoft edge</td><td style='font-size:0.8em;color:#888'>K. Lauter, S. Kannepalli, K. Laine, and R. C. Moreno, “Password monitor: Safeguarding passwords in microsoft edge,” 2021.</td></tr><tr><td>19</td><td>AMD SEV-SNP: Strengthening VM isolation with integrity protection and more</td><td style='font-size:0.8em;color:#888'>[40] “AMD
+<tbody><tr><td>0</td><td></td><td style='font-size:0.8em;color:#888'>[1]
+tology – CRYPTO 2014, pp. 554–571, Springer Berlin Heidelberg,
+2014.</td></tr><tr><td>2</td><td>OpenFHE: Open-Source fully homomorphic encryption library</td><td style='font-size:0.8em;color:#888'>[3]
+A. Al Badawi, J. Bates, F. Bergamaschi, D. B. Cousins, S. Erabelli,
+N. Genise, S. Halevi, H. Hunt, A. Kim, Y. Lee, Z. Liu, D. Micciancio,
+I. Quah, Y. Polyakov, S. R.v., K. Rohloff, J. Saylor, D. S</td></tr><tr><td>6</td><td>Password monitor: Safeguarding passwords in microsoft edge</td><td style='font-size:0.8em;color:#888'>[7]
+K. Lauter, S. Kannepalli, K. Laine, and R. C. Moreno, “Password
+monitor: Safeguarding passwords in microsoft edge,” 2021.</td></tr><tr><td>9</td><td>Attacking FHE-based applications by software fault injections</td><td style='font-size:0.8em;color:#888'>[10] I. Chillotti, N. Gama, and L. Goubin, “Attacking FHE-based applica-
+tions by software fault injections,” Cryptology ePrint Archive, 2016.</td></tr><tr><td>39</td><td>AMD SEV-SNP: Strengthening VM isolation with integrity protection and more</td><td style='font-size:0.8em;color:#888'>[40] “AMD
 SEV-SNP:
 Strengthening
 VM
 isolation
 with
 integrity
-protection and more.” https://www.amd.com/system/ files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-
-more.pdf</td></tr><tr><td>20</td><td>Privacy-Preserving homomorphic MACs with ef̈cient verïcation</td><td style='font-size:0.8em;color:#888'>[41] S. Li, X. Wang, and R. Zhang, “Privacy-Preserving homomorphic MACs with ef̈cient verïcation,” in Web Services – ICWS 2018, pp. 100–115, Springer International Publishing, 2018.</td></tr><tr><td>31</td><td>arkworks zksnark ecosystem</td><td style='font-size:0.8em;color:#888'>[69] arkworks contributors, “arkworks zksnark ecosystem,” 2022.</td></tr><tr><td>32</td><td>Rust Bulletproofs Library</td><td style='font-size:0.8em;color:#888'>[70] D. Cryptography, “Rust Bulletproofs Library.” Online: https://github.
-com/dalek-cryptography/bulletproofs, August 2020.</td></tr><tr><td>33</td><td>Open enclave SDK</td><td style='font-size:0.8em;color:#888'>[71] “Open enclave SDK.” https://github.com/openenclave/openenclave.</td></tr></tbody>
+protection and more.” https://www.amd.com/system/ les/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-
+more.pdf.</td></tr><tr><td>52</td><td>Plug-and-play sanitization for TFHE</td><td style='font-size:0.8em;color:#888'>F. Bourse and M. Izabachène, “Plug-and-play sanitization for TFHE,” Cryptology ePrint Archive, 2022.</td></tr><tr><td>60</td><td>PlonK: Permutations over lagrange-bases for oecumenical noninteractive arguments of knowledge</td><td style='font-size:0.8em;color:#888'>A. Gabizon, Z. J. Aztec, and A. O. Williamson, “PlonK: Permuta-
+tions over lagrange-bases for oecumenical noninteractive arguments
+of knowledge.” https://eprint.iacr.org/2019/953.pdf, 2022. Accessed:
+</td></tr><tr><td>62</td><td>Scalable, transparent, and post-quantum secure computational integrity</td><td style='font-size:0.8em;color:#888'>E. Ben-Sasson, I. Bentov, Y. Horesh, and M. Riabzev, “Scalable,
+transparent, and post-quantum secure computational integrity,” Cryp-
+tology ePrint Archive, 2018.</td></tr><tr><td>68</td><td>arkworks zksnark ecosystem</td><td style='font-size:0.8em;color:#888'>arkworks contributors, “arkworks zksnark ecosystem,” 2022.</td></tr><tr><td>69</td><td>Rust Bulletproofs Library</td><td style='font-size:0.8em;color:#888'>D. Cryptography, “Rust Bulletproofs Library.” Online: https://github.
+com/dalek-cryptography/bulletproofs, August 2020.</td></tr><tr><td>70</td><td>Open enclave SDK</td><td style='font-size:0.8em;color:#888'>“Open enclave SDK.” https://github.com/openenclave/openenclave</td></tr></tbody>
 </table>
 
 

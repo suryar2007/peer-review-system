@@ -57,6 +57,8 @@ class Settings:
     hex_project_id: str | None
     e2b_api_key: str | None
     semantic_scholar_api_key: str | None
+    lava_customer_id: str | None
+    lava_meter_slug: str | None
 
 
 def _load_settings() -> Settings:
@@ -65,13 +67,17 @@ def _load_settings() -> Settings:
 
     Required:
         NOUS_API_KEY — Hermes / Nous inference API.
-        LAVA_API_KEY — Lava MCP retrieval.
+
+    Optional:
+        LAVA_API_KEY — Lava gateway (lava.so) for proxied API calls with usage tracking.
+        LAVA_CUSTOMER_ID — Lava customer ID for customer billing mode.
+        LAVA_METER_SLUG — Lava meter slug for usage metering.
 
     Conditionally required:
         LANGCHAIN_API_KEY — required when LANGCHAIN_TRACING_V2 is enabled.
     """
     nous_api_key = _require("NOUS_API_KEY", os.getenv("NOUS_API_KEY"))
-    lava_api_key = _require("LAVA_API_KEY", os.getenv("LAVA_API_KEY"))
+    lava_api_key = _strip_or_none(os.getenv("LAVA_API_KEY")) or "not-set"
 
     tracing = _truthy(os.getenv("LANGCHAIN_TRACING_V2"))
     langchain_api_key = _strip_or_none(os.getenv("LANGCHAIN_API_KEY"))
@@ -107,6 +113,8 @@ def _load_settings() -> Settings:
         hex_project_id=_strip_or_none(os.getenv("HEX_PROJECT_ID")),
         e2b_api_key=_strip_or_none(os.getenv("E2B_API_KEY")),
         semantic_scholar_api_key=_strip_or_none(os.getenv("SEMANTIC_SCHOLAR_API_KEY")),
+        lava_customer_id=_strip_or_none(os.getenv("LAVA_CUSTOMER_ID")),
+        lava_meter_slug=_strip_or_none(os.getenv("LAVA_METER_SLUG")),
     )
 
 

@@ -223,6 +223,8 @@ def reporter_node(state: PipelineState) -> dict[str, Any]:
     try:
         payload = _build_payload(state)
         payload["summary"] = summary
+        payload["paper_text"] = state.get("paper_text") or ""
+        payload["title"] = state.get("paper_title") or ""
         paper_path = state.get("paper_path") or ""
         stem = Path(paper_path).stem if paper_path else "paper"
         out_dir = Path(paper_path).parent if paper_path else Path(".")

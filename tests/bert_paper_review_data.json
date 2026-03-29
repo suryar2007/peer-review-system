@@ -1,0 +1,2752 @@
+{
+  "citations": [
+    {
+      "raw_text": "Alan Akbik, Duncan Blythe, and Roland Vollgraf. 2018. Contextual string embeddings for sequence labeling. In Proceedings of the 27th International Conference on Computational Linguistics, pages 1638\u20131649.",
+      "authors": [
+        "Alan Akbik",
+        "Duncan Blythe",
+        "Roland Vollgraf"
+      ],
+      "title": "Contextual string embeddings for sequence labeling",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Rami Al-Rfou, Dokook Choe, Noah Constant, Mandy Guo, and Llion Jones. 2018. Character-level lan-guage modeling with deeper self-attention. preprint arXiv:1808.04444.",
+      "authors": [
+        "Rami Al-Rfou",
+        "Dokook Choe",
+        "Noah Constant",
+        "Mandy Guo",
+        "Llion Jones"
+      ],
+      "title": "Character-level language modeling with deeper self-attention",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": "1808.04444",
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Rie Kubota Ando and Tong Zhang. 2005. A framework for learning predictive structures from multiple tasks and unlabeled data. Journal of Machine Learning Research, 6(Nov):1817\u20131853.",
+      "authors": [
+        "Rie Kubota Ando",
+        "Tong Zhang"
+      ],
+      "title": "A framework for learning predictive structures from multiple tasks and unlabeled data",
+      "journal": "Journal of Machine Learning Research",
+      "year": 2005,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Luisa Bentivogli, Bernardo Magnini, Ido Dagan, Hoa Trang Dang, and Danilo Giampiccolo. 2009. The fifth PASCAL recognizing textual entailment challenge. In TAC. NIST.",
+      "authors": [
+        "Luisa Bentivogli",
+        "Bernardo Magnini",
+        "Ido Dagan",
+        "Hoa Trang Dang",
+        "Danilo Giampiccolo"
+      ],
+      "title": "The fifth PASCAL recognizing textual entailment challenge",
+      "journal": null,
+      "year": 2009,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "John Blitzer, Ryan McDonald, and Fernando Pereira. 2006. Domain adaptation with structural correspon-dence learning. In Proceedings of the 2006 confer-ence on empirical methods in natural language pro-cessing, pages 120\u2013128. Association for Computa-tional Linguistics.",
+      "authors": [
+        "John Blitzer",
+        "Ryan McDonald",
+        "Fernando Pereira"
+      ],
+      "title": "Domain adaptation with structural correspondence learning",
+      "journal": null,
+      "year": 2006,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Samuel R. Bowman, Gabor Angeli, Christopher Potts, and Christopher D. Manning. 2015. A large anno-tated corpus for learning natural language inference. In EMNLP. Association for Computational Linguis-tics.",
+      "authors": [
+        "Samuel R. Bowman",
+        "Gabor Angeli",
+        "Christopher Potts",
+        "Christopher D. Manning"
+      ],
+      "title": "A large annotated corpus for learning natural language inference",
+      "journal": null,
+      "year": 2015,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Peter F Brown, Peter V Desouza, Robert L Mercer, Vincent J Della Pietra, and Jenifer C Lai. 1992. Class-based n-gram models of natural language. Computational linguistics, 18(4):467\u2013479.",
+      "authors": [
+        "Peter F Brown",
+        "Peter V Desouza",
+        "Robert L Mercer",
+        "Vincent J Della Pietra",
+        "Jenifer C Lai"
+      ],
+      "title": "Class-based n-gram models of natural language",
+      "journal": "Computational linguistics",
+      "year": 1992,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Daniel Cer, Mona Diab, Eneko Agirre, Inigo Lopez-Gazpio, and Lucia Specia. 2017. Semeval-2017 task 1: Semantic textual similarity multilingual and crosslingual focused evaluation. In Proceedings of the 11th International Workshop on Semantic Evaluation (SemEval-2017), pages 1\u201314, Vancou-ver, Canada. Association for Computational Lin-guistics.",
+      "authors": [
+        "Daniel Cer",
+        "Mona Diab",
+        "Eneko Agirre",
+        "Inigo Lopez-Gazpio",
+        "Lucia Specia"
+      ],
+      "title": "Semeval-2017 task 1: Semantic textual similarity multilingual and crosslingual focused evaluation",
+      "journal": null,
+      "year": 2017,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Ciprian Chelba, Tomas Mikolov, Mike Schuster, Qi Ge, Thorsten Brants, Phillipp Koehn, and Tony Robin-son. 2013. One billion word benchmark for measur-ing progress in statistical language modeling. arXiv preprint arXiv:1312.3005.",
+      "authors": [
+        "Ciprian Chelba",
+        "Tomas Mikolov",
+        "Mike Schuster",
+        "Qi Ge",
+        "Thorsten Brants",
+        "Phillipp Koehn",
+        "Tony Robinson"
+      ],
+      "title": "One billion word benchmark for measuring progress in statistical language modeling",
+      "journal": null,
+      "year": 2013,
+      "doi": null,
+      "arxiv_id": "1312.3005",
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Z. Chen, H. Zhang, X. Zhang, and L. Zhao. 2018. Quora question pairs.",
+      "authors": [
+        "Z. Chen",
+        "H. Zhang",
+        "X. Zhang",
+        "L. Zhao"
+      ],
+      "title": "Quora question pairs",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Christopher Clark and Matt Gardner. 2018. Simple and effective multi-paragraph reading comprehen-sion. In ACL.",
+      "authors": [
+        "Christopher Clark",
+        "Matt Gardner"
+      ],
+      "title": "Simple and effective multi-paragraph reading comprehension",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Kevin Clark, Minh-Thang Luong, Christopher D Man-ning, and Quoc Le. 2018. Semi-supervised se-quence modeling with cross-view training. In Pro-ceedings of the 2018 Conference on Empirical Meth-ods in Natural Language Processing, pages 1914\u20131925.",
+      "authors": [
+        "Kevin Clark",
+        "Minh-Thang Luong",
+        "Christopher D Manning",
+        "Quoc Le"
+      ],
+      "title": "Semi-supervised sequence modeling with cross-view training",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Ronan Collobert and Jason Weston. 2008. A uni\ufb01ed architecture for natural language processing: Deep In Pro-neural networks with multitask learning. ceedings of the 25th international conference on Machine learning, pages 160\u2013167. ACM.",
+      "authors": [
+        "Ronan Collobert",
+        "Jason Weston"
+      ],
+      "title": "A unified architecture for natural language processing: Deep neural networks with multitask learning",
+      "journal": null,
+      "year": 2008,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Alexis Conneau, Douwe Kiela, Holger Schwenk, Lo\u00a8c Barrault, and Antoine Bordes. 2017. Supervised learning of universal sentence representations from natural language inference data. In Proceedings of the 2017 Conference on Empirical Methods in Nat-ural Language Processing, pages 670\u2013680, Copen-hagen, Denmark. Association for Computational Linguistics.",
+      "authors": [
+        "Alexis Conneau",
+        "Douwe Kiela",
+        "Holger Schwenk",
+        "Lo\u00a8c Barrault",
+        "Antoine Bordes"
+      ],
+      "title": "Supervised learning of universal sentence representations from natural language inference data",
+      "journal": null,
+      "year": 2017,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Andrew M Dai and Quoc V Le. 2015. Semi-supervised sequence learning. In Advances in neural informa-tion processing systems, pages 3079\u20133087.",
+      "authors": [
+        "Andrew M Dai",
+        "Quoc V Le"
+      ],
+      "title": "Semi-supervised sequence learning",
+      "journal": null,
+      "year": 2015,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "J. Deng, W. Dong, R. Socher, L.-J. Li, K. Li, and L. Fei-Fei. 2009. ImageNet: A Large-Scale Hierarchical Image Database. In CVPR09.",
+      "authors": [
+        "J. Deng",
+        "W. Dong",
+        "R. Socher",
+        "L.-J. Li",
+        "K. Li",
+        "L. Fei-Fei"
+      ],
+      "title": "ImageNet: A Large-Scale Hierarchical Image Database",
+      "journal": null,
+      "year": 2009,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "William B Dolan and Chris Brockett. 2005. Automati-cally constructing a corpus of sentential paraphrases. In Proceedings of the Third International Workshop on Paraphrasing (IWP2005).",
+      "authors": [
+        "William B Dolan",
+        "Chris Brockett"
+      ],
+      "title": "Automatically constructing a corpus of sentential paraphrases",
+      "journal": null,
+      "year": 2005,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "William Fedus, Ian Goodfellow, and Andrew M Dai. 2018. Maskgan: Better text generation via \u00a0filling in the . arXiv preprint arXiv:1801.07736.",
+      "authors": [
+        "William Fedus",
+        "Ian Goodfellow",
+        "Andrew M Dai"
+      ],
+      "title": "Maskgan: Better text generation via filling in the .",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": "1801.07736",
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Dan Hendrycks and Kevin Gimpel. 2016. Bridging nonlinearities and stochastic regularizers with gaus-sian error linear units. CoRR, abs/1606.08415.",
+      "authors": [
+        "Dan Hendrycks",
+        "Kevin Gimpel"
+      ],
+      "title": "Bridging nonlinearities and stochastic regularizers with gaussian error linear units",
+      "journal": "CoRR",
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": "1606.08415",
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Felix Hill, Kyunghyun Cho, and Anna Korhonen. 2016. Learning distributed representations of sentences from unlabelled data. In Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies. Association for Computa-tional Linguistics.",
+      "authors": [
+        "Felix Hill",
+        "Kyunghyun Cho",
+        "Anna Korhonen"
+      ],
+      "title": "Learning distributed representations of sentences from unlabelled data",
+      "journal": null,
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Jeremy Howard and Sebastian Ruder. 2018. Universal language model \u00a0fine-tuning for text classi\u00a0fication. In ACL. Association for Computational Linguistics.",
+      "authors": [
+        "Jeremy Howard",
+        "Sebastian Ruder"
+      ],
+      "title": "Universal language model fine-tuning for text classification",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Minghao Hu, Yuxing Peng, Zhen Huang, Xipeng Qiu, Furu Wei, and Ming Zhou. 2018. Reinforced mnemonic reader for machine reading comprehen-sion. In IJCAI.",
+      "authors": [
+        "Minghao Hu",
+        "Yuxing Peng",
+        "Zhen Huang",
+        "Xipeng Qiu",
+        "Furu Wei",
+        "Ming Zhou"
+      ],
+      "title": "Reinforced mnemonic reader for machine reading comprehension",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Yacine Jernite, Samuel R. Bowman, and David Son-tag. 2017. Discourse-based objectives for fast un-supervised sentence representation learning. CoRR, abs/1705.00557.",
+      "authors": [
+        "Yacine Jernite",
+        "Samuel R. Bowman",
+        "David Sontag"
+      ],
+      "title": "Discourse-based objectives for fast unsupervised sentence representation learning",
+      "journal": "CoRR",
+      "year": 2017,
+      "doi": null,
+      "arxiv_id": "1705.00557",
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Mandar Joshi, Eunsol Choi, Daniel S Weld, and Luke Zettlemoyer. 2017. Triviaqa: A large scale distantly supervised challenge dataset for reading comprehen-sion. In ACL.",
+      "authors": [
+        "Mandar Joshi",
+        "Eunsol Choi",
+        "Daniel S Weld",
+        "Luke Zettlemoyer"
+      ],
+      "title": "Triviaqa: A large scale distantly supervised challenge dataset for reading comprehension",
+      "journal": null,
+      "year": 2017,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Ryan Kiros, Yukun Zhu, Ruslan R Salakhutdinov, Richard Zemel, Raquel Urtasun, Antonio Torralba, and Sanja Fidler. 2015. Skip-thought vectors. In Advances in neural information processing systems, pages 3294\u20133302.",
+      "authors": [
+        "Ryan Kiros",
+        "Yukun Zhu",
+        "Ruslan R Salakhutdinov",
+        "Richard Zemel",
+        "Raquel Urtasun",
+        "Antonio Torralba",
+        "Sanja Fidler"
+      ],
+      "title": "Skip-thought vectors",
+      "journal": null,
+      "year": 2015,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Quoc Le and Tomas Mikolov. 2014. Distributed rep-resentations of sentences and documents. In Inter-national Conference on Machine Learning, pages 1188\u20131196.",
+      "authors": [
+        "Quoc Le",
+        "Tomas Mikolov"
+      ],
+      "title": "Distributed representations of sentences and documents",
+      "journal": null,
+      "year": 2014,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Hector J Levesque, Ernest Davis, and Leora Morgen-stern. 2011. The winograd schema challenge. In Aaai spring symposium: Logical formalizations of commonsense reasoning, volume 46, page 47.",
+      "authors": [
+        "Hector J Levesque",
+        "Ernest Davis",
+        "Leora Morgenstern"
+      ],
+      "title": "The winograd schema challenge",
+      "journal": null,
+      "year": 2011,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Lajanugen Logeswaran and Honglak Lee. 2018. An ef\u00a0ficient framework for learning sentence represen-tations. In International Conference on Learning Representations.",
+      "authors": [
+        "Lajanugen Logeswaran",
+        "Honglak Lee"
+      ],
+      "title": "An efficient framework for learning sentence representations",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Bryan McCann, James Bradbury, Caiming Xiong, and Richard Socher. 2017. Learned in translation: Con-textualized word vectors. In NIPS.",
+      "authors": [
+        "Bryan McCann",
+        "James Bradbury",
+        "Caiming Xiong",
+        "Richard Socher"
+      ],
+      "title": "Learned in translation: Contextualized word vectors",
+      "journal": null,
+      "year": 2017,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Oren Melamud, Jacob Goldberger, and Ido Dagan. 2016. context2vec: Learning generic context em-bedding with bidirectional LSTM. In CoNLL.",
+      "authors": [
+        "Oren Melamud",
+        "Jacob Goldberger",
+        "Ido Dagan"
+      ],
+      "title": "context2vec: Learning generic context embedding with bidirectional LSTM",
+      "journal": null,
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Cor-\nrado, and Jeff Dean. 2013. Distributed representa-\ntions of words and phrases and their compositional-\nity. In Advances in Neural Information Processing\nSystems 26, pages 3111\u20133119. Curran Associates,\nInc.",
+      "authors": [
+        "Tomas Mikolov",
+        "Ilya Sutskever",
+        "Kai Chen",
+        "Greg S Corrado",
+        "Jeff Dean"
+      ],
+      "title": "Distributed representations of words and phrases and their compositionality",
+      "journal": "Advances in Neural Information Processing Systems 26",
+      "year": 2013,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Andriy Mnih and Geoffrey E Hinton. 2009. A scal-\nable hierarchical distributed language model.\nIn\nD. Koller, D. Schuurmans, Y. Bengio, and L. Bot-\ntou, editors, Advances in Neural Information Pro-\ncessing Systems 21, pages 1081\u20131088. Curran As-\nsociates, Inc.",
+      "authors": [
+        "Andriy Mnih",
+        "Geoffrey E Hinton"
+      ],
+      "title": "A scalable hierarchical distributed language model",
+      "journal": "Advances in Neural Information Processing Systems 21",
+      "year": 2009,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Ankur P Parikh, Oscar T\u00e4ckstr\u00f6m, Dipanjan Das, and\nJakob Uszkoreit. 2016. A decomposable attention\nmodel for natural language inference. In EMNLP.",
+      "authors": [
+        "Ankur P Parikh",
+        "Oscar T\u00e4ckstr\u00f6m",
+        "Dipanjan Das",
+        "Jakob Uszkoreit"
+      ],
+      "title": "A decomposable attention model for natural language inference",
+      "journal": "EMNLP",
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Jeffrey Pennington, Richard Socher, and Christo-\npher D. Manning. 2014. Glove: Global vectors for\nword representation. In Empirical Methods in Nat-\nural Language Processing (EMNLP), pages 1532\u20131543.",
+      "authors": [
+        "Jeffrey Pennington",
+        "Richard Socher",
+        "Christopher D. Manning"
+      ],
+      "title": "Glove: Global vectors for word representation",
+      "journal": "Empirical Methods in Natural Language Processing (EMNLP)",
+      "year": 2014,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Matthew Peters, Waleed Ammar, Chandra Bhagavat-\nula, and Russell Power. 2017. Semi-supervised se-\nquence tagging with bidirectional language models.\nIn ACL.",
+      "authors": [
+        "Matthew Peters",
+        "Waleed Ammar",
+        "Chandra Bhagavatula",
+        "Russell Power"
+      ],
+      "title": "Semi-supervised sequence tagging with bidirectional language models",
+      "journal": "ACL",
+      "year": 2017,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Matthew Peters, Mark Neumann, Mohit Iyyer, Matt\nGardner, Christopher Clark, Kenton Lee, and Luke\nZettlemoyer. 2018a. Deep contextualized word rep-\nresentations. In NAACL.",
+      "authors": [
+        "Matthew Peters",
+        "Mark Neumann",
+        "Mohit Iyyer",
+        "Matt Gardner",
+        "Christopher Clark",
+        "Kenton Lee",
+        "Luke Zettlemoyer"
+      ],
+      "title": "Deep contextualized word representations",
+      "journal": "NAACL",
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Matthew Peters, Mark Neumann, Luke Zettlemoyer,\nand Wen-tau Yih. 2018b.\nDissecting contextual\nword embeddings: Architecture and representation.\nIn Proceedings of the 2018 Conference on Empiri-\ncal Methods in Natural Language Processing, pages\n1499\u20131509.",
+      "authors": [
+        "Matthew Peters",
+        "Mark Neumann",
+        "Luke Zettlemoyer",
+        "Wen-tau Yih"
+      ],
+      "title": "Dissecting contextual word embeddings: Architecture and representation",
+      "journal": "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing",
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Alec Radford, Karthik Narasimhan, Tim Salimans, and\nIlya Sutskever. 2018.\nImproving language under-\nstanding with unsupervised learning. Technical re-\nport, OpenAI.",
+      "authors": [
+        "Alec Radford",
+        "Karthik Narasimhan",
+        "Tim Salimans",
+        "Ilya Sutskever"
+      ],
+      "title": "Improving language understanding with unsupervised learning",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, and\nPercy Liang. 2016. Squad: 100,000+ questions for\nmachine comprehension of text. In Proceedings of\nthe 2016 Conference on Empirical Methods in Nat-\nural Language Processing, pages 2383\u20132392.",
+      "authors": [
+        "Pranav Rajpurkar",
+        "Jian Zhang",
+        "Konstantin Lopyrev",
+        "Percy Liang"
+      ],
+      "title": "Squad: 100,000+ questions for machine comprehension of text",
+      "journal": "Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing",
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Minjoon Seo, Aniruddha Kembhavi, Ali Farhadi, and\nHannaneh Hajishirzi. 2017. Bidirectional attention\n\u03b2ow for machine comprehension. In ICLR.",
+      "authors": [
+        "Minjoon Seo",
+        "Aniruddha Kembhavi",
+        "Ali Farhadi",
+        "Hannaneh Hajishirzi"
+      ],
+      "title": "Bidirectional attention flow for machine comprehension",
+      "journal": "ICLR",
+      "year": 2017,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Richard Socher, Alex Perelygin, Jean Wu, Jason\nChuang, Christopher D Manning, Andrew Ng, and\nChristopher Potts. 2013.\nRecursive deep models\nfor semantic compositionality over a sentiment tree-\nIn Proceedings of the 2013 conference on\nbank.\nempirical methods in natural language processing,\npages 1631\u20131642.",
+      "authors": [
+        "Richard Socher",
+        "Alex Perelygin",
+        "Jean Wu",
+        "Jason Chuang",
+        "Christopher D Manning",
+        "Andrew Ng",
+        "Christopher Potts"
+      ],
+      "title": "Recursive deep models for semantic compositionality over a sentiment treebank",
+      "journal": "Proceedings of the 2013 conference on empirical methods in natural language processing",
+      "year": 2013,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Fu Sun, Linyang Li, Xipeng Qiu, and Yang Liu.\n2018.\nU-net:\nMachine reading comprehension\narXiv preprint\nwith unanswerable questions.\narXiv:1810.06638.",
+      "authors": [
+        "Fu Sun",
+        "Linyang Li",
+        "Xipeng Qiu",
+        "Yang Liu"
+      ],
+      "title": "U-net: Machine reading comprehension with unanswerable questions",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": "1810.06638",
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Wilson L Taylor. 1953.\nCloze procedure:\nA new\ntool for measuring readability. Journalism Bulletin,\n30(4):415\u2013433.",
+      "authors": [
+        "Wilson L Taylor"
+      ],
+      "title": "Cloze procedure: A new tool for measuring readability",
+      "journal": "Journalism Bulletin",
+      "year": 1953,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Erik F Tjong Kim Sang and Fien De Meulder.\n2003.\nIntroduction to the conll-2003 shared task:\nLanguage-independent named entity recognition. In\nCoNLL.",
+      "authors": [
+        "Erik F Tjong Kim Sang",
+        "Fien De Meulder"
+      ],
+      "title": "Introduction to the conll-2003 shared task: Language-independent named entity recognition",
+      "journal": "CoNLL",
+      "year": 2003,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Joseph Turian, Lev Ratinov, and Yoshua Bengio. 2010.\nWord representations: A simple and general method\nfor semi-supervised learning. In Proceedings of the\n48th Annual Meeting of the Association for Compu-\ntational Linguistics, ACL \u201910, pages 384\u2013394.",
+      "authors": [
+        "Joseph Turian",
+        "Lev Ratinov",
+        "Yoshua Bengio"
+      ],
+      "title": "Word representations: A simple and general method for semi-supervised learning",
+      "journal": "Proceedings of the 48th Annual Meeting of the Association for Computational Linguistics, ACL \u201910",
+      "year": 2010,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob\nUszkoreit, Llion Jones, Aidan N Gomez, Lukasz\nKaiser, and Illia Polosukhin. 2017. Attention is all\nyou need. In Advances in Neural Information Pro-\ncessing Systems, pages 6000\u20136010.",
+      "authors": [
+        "Ashish Vaswani",
+        "Noam Shazeer",
+        "Niki Parmar",
+        "Jakob Uszkoreit",
+        "Llion Jones",
+        "Aidan N Gomez",
+        "Lukasz Kaiser",
+        "Illia Polosukhin"
+      ],
+      "title": "Attention is all you need",
+      "journal": "Advances in Neural Information Processing Systems",
+      "year": 2017,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Pascal Vincent, Hugo Larochelle, Yoshua Bengio, and\nPierre-Antoine Manzagol. 2008.\nExtracting and\ncomposing robust features with denoising autoen-\nIn Proceedings of the 25th international\n coders.\nconference on Machine learning, pages 1096\u20131103.\nACM.",
+      "authors": [
+        "Pascal Vincent",
+        "Hugo Larochelle",
+        "Yoshua Bengio",
+        "Pierre-Antoine Manzagol"
+      ],
+      "title": "Extracting and composing robust features with denoising autoencoders",
+      "journal": "Proceedings of the 25th international conference on Machine learning",
+      "year": 2008,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Alex Wang, Amanpreet Singh, Julian Michael, Fe-\nlix Hill, Omer Levy, and Samuel Bowman. 2018a.\nGlue: A multi-task benchmark and analysis platform\nfor natural language understanding. In Proceedings\nof the 2018 EMNLP Workshop BlackboxNLP: An-\nalyzing and Interpreting Neural Networks for NLP,\npages 353\u2013355.",
+      "authors": [
+        "Alex Wang",
+        "Amanpreet Singh",
+        "Julian Michael",
+        "Felix Hill",
+        "Omer Levy",
+        "Samuel Bowman"
+      ],
+      "title": "Glue: A multi-task benchmark and analysis platform for natural language understanding",
+      "journal": "Proceedings of the 2018 EMNLP Workshop BlackboxNLP: Analyzing and Interpreting Neural Networks for NLP",
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Wei Wang, Ming Yan, and Chen Wu. 2018b. Multi-\ngranularity hierarchical attention fusion networks\nfor reading comprehension and question answering.\nIn Proceedings of the 56th Annual Meeting of the As-\nsociation for Computational Linguistics (Volume 1:\nLong Papers). Association for Computational Lin-\nguistics.",
+      "authors": [
+        "Wei Wang",
+        "Ming Yan",
+        "Chen Wu"
+      ],
+      "title": "Multi-granularity hierarchical attention fusion networks for reading comprehension and question answering",
+      "journal": "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Alex Warstadt, Amanpreet Singh, and Samuel R Bow-\nman. 2018.\nNeural network acceptability judg-\nments. arXiv preprint arXiv:1805.12471.",
+      "authors": [
+        "Alex Warstadt",
+        "Amanpreet Singh",
+        "Samuel R Bowman"
+      ],
+      "title": "Neural network acceptability judgments",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": "1805.12471",
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Adina Williams, Nikita Nangia, and Samuel R Bow-\nman. 2018.\nA broad-coverage challenge corpus\nfor sentence understanding through inference.\nIn\nNAACL.",
+      "authors": [
+        "Adina Williams",
+        "Nikita Nangia",
+        "Samuel R Bowman"
+      ],
+      "title": "A broad-coverage challenge corpus for sentence understanding through inference",
+      "journal": "NAACL",
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc V\nLe,\nMohammad Norouzi,\nWolfgang Macherey,\nMaxim Krikun,\nYuan Cao,\nQin Gao,\nKlaus\nMacherey, et al. 2016.\nGoogle\u2019s neural ma-\nchine translation system: Bridging the gap between\narXiv preprint\nhuman and machine translation.\narXiv:1609.08144.",
+      "authors": [
+        "Yonghui Wu",
+        "Mike Schuster",
+        "Zhifeng Chen",
+        "Quoc V Le",
+        "Mohammad Norouzi",
+        "Wolfgang Macherey",
+        "Maxim Krikun",
+        "Yuan Cao",
+        "Qin Gao",
+        "Klaus Macherey"
+      ],
+      "title": "Google\u2019s neural machine translation system: Bridging the gap between human and machine translation",
+      "journal": null,
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": "1609.08144",
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Jason Yosinski, Jeff Clune, Yoshua Bengio, and Hod\nLipson. 2014. How transferable are features in deep\nneural networks? In Advances in neural information\nprocessing systems, pages 3320\u20133328.",
+      "authors": [
+        "Jason Yosinski",
+        "Jeff Clune",
+        "Yoshua Bengio",
+        "Hod Lipson"
+      ],
+      "title": "How transferable are features in deep neural networks?",
+      "journal": "Advances in neural information processing systems",
+      "year": 2014,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Adams Wei Yu, David Dohan, Minh-Thang Luong, Rui\nZhao, Kai Chen, Mohammad Norouzi, and Quoc V\nLe. 2018.\nQANet: Combining local convolution\nwith global self-attention for reading comprehen-\nsion. In ICLR.",
+      "authors": [
+        "Adams Wei Yu",
+        "David Dohan",
+        "Minh-Thang Luong",
+        "Rui Zhao",
+        "Kai Chen",
+        "Mohammad Norouzi",
+        "Quoc V Le"
+      ],
+      "title": "QANet: Combining local convolution with global self-attention for reading comprehension",
+      "journal": "ICLR",
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Rowan Zellers, Yonatan Bisk, Roy Schwartz, and Yejin\nChoi. 2018. Swag: A large-scale adversarial dataset\nfor grounded commonsense inference. In Proceed-\nings of the 2018 Conference on Empirical Methods\nin Natural Language Processing (EMNLP).",
+      "authors": [
+        "Rowan Zellers",
+        "Yonatan Bisk",
+        "Roy Schwartz",
+        "Yejin Choi"
+      ],
+      "title": "Swag: A large-scale adversarial dataset for grounded commonsense inference",
+      "journal": "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Yukun Zhu, Ryan Kiros, Rich Zemel, Ruslan Salakhut-\ndinov, Raquel Urtasun, Antonio Torralba, and Sanja\nFidler. 2015. Aligning books and movies: Towards\nstory-like visual explanations by watching movies\nIn Proceedings of the IEEE\nand reading books.\ninternational conference on computer vision, pages\n19\u201327.",
+      "authors": [
+        "Yukun Zhu",
+        "Ryan Kiros",
+        "Rich Zemel",
+        "Ruslan Salakhutdinov",
+        "Raquel Urtasun",
+        "Antonio Torralba",
+        "Sanja Fidler"
+      ],
+      "title": "Aligning books and movies: Towards story-like visual explanations by watching movies and reading books",
+      "journal": "Proceedings of the IEEE international conference on computer vision",
+      "year": 2015,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Hendrycks, D. and Gimpel, J. (2016). Gaussian error linear units (gelus). arXiv preprint arXiv:1606.08415.",
+      "authors": [
+        "Hendrycks",
+        "Gimpel"
+      ],
+      "title": "Gaussian error linear units (gelus)",
+      "journal": null,
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": "arXiv:1606.08415",
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Williams, A., Nangia, N., and Bowman, S. R. (2018). A broad-coverage challenge corpus for sentence understanding through inference. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers), pages 1112\u20131122. Association for Computational Linguistics.",
+      "authors": [
+        "Williams",
+        "Nangia",
+        "Bowman"
+      ],
+      "title": "A broad-coverage challenge corpus for sentence understanding through inference",
+      "journal": "Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers)",
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Chen, Q., Zhuo, L., and Wang, Z. (2018). Universal natural language processing pipelines; return of the texar framework. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing: System Demonstrations, pages 122\u2013127.",
+      "authors": [
+        "Chen",
+        "Zhuo",
+        "Wang"
+      ],
+      "title": "Universal natural language processing pipelines; return of the texar framework",
+      "journal": "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing: System Demonstrations",
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Rajpurkar, P., Zhang, J., Lopyrev, K., and Liang, P. (2016). Squad: 100,000+ questions for machine comprehension of text. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, pages 2383\u20132392.",
+      "authors": [
+        "Rajpurkar",
+        "Zhang",
+        "Lopyrev",
+        "Liang"
+      ],
+      "title": "Squad: 100,000+ questions for machine comprehension of text",
+      "journal": "Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing",
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Wang, A., Singh, A., Michael, J., Hill, F., Levy, O., and Bowman, S. R. (2018a). Glue: A multi-task benchmark and analysis platform for natural language understanding. In Proceedings of the 2018 EMNLP Workshop BlackboxNLP: Analyzing and Interpreting Neural Networks for NLP, pages 353\u2013355.",
+      "authors": [
+        "Wang",
+        "Singh",
+        "Michael",
+        "Hill",
+        "Levy",
+        "Bowman"
+      ],
+      "title": "Glue: A multi-task benchmark and analysis platform for natural language understanding",
+      "journal": "Proceedings of the 2018 EMNLP Workshop BlackboxNLP: Analyzing and Interpreting Neural Networks for NLP",
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Socher, R., Perelygin, A., Wu, J., Chuang, J., Manning, C. D., Ng, A., and Potts, C. (2013). Recursive deep models for semantic compositionality over a sentiment treebank. In Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing, pages 1631\u20131642.",
+      "authors": [
+        "Socher",
+        "Perelygin",
+        "Wu",
+        "Chuang",
+        "Manning",
+        "Ng",
+        "Potts"
+      ],
+      "title": "Recursive deep models for semantic compositionality over a sentiment treebank",
+      "journal": "Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing",
+      "year": 2013,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Warstadt, A., Singh, A., and Bowman, S. R. (2018). Neural network acceptability judgments. arXiv preprint arXiv:1805.12471.",
+      "authors": [
+        "Warstadt",
+        "Singh",
+        "Bowman"
+      ],
+      "title": "Neural network acceptability judgments",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": "arXiv:1805.12471",
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Cer, D., Diab, M., Agirre, E., Lopez-Gazpio, I., and Specia, L. (2017). Semeval-2017 task 1: Semantic textual similarity multilingual and crosslingual focused evaluation. In Proceedings of the 11th International Workshop on Semantic Evaluation (SemEval-2017), pages 1\u201314.",
+      "authors": [
+        "Cer",
+        "Diab",
+        "Agirre",
+        "Lopez-Gazpio",
+        "Specia"
+      ],
+      "title": "Semeval-2017 task 1: Semantic textual similarity multilingual and crosslingual focused evaluation",
+      "journal": "Proceedings of the 11th International Workshop on Semantic Evaluation (SemEval-2017)",
+      "year": 2017,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Dolan, B. and Brockett, C. (2005). Automatically constructing a corpus of sentential paraphrases. In Proceedings of the Third International Workshop on Paraphrasing (IWP2005).",
+      "authors": [
+        "Dolan",
+        "Brockett"
+      ],
+      "title": "Automatically constructing a corpus of sentential paraphrases",
+      "journal": "Proceedings of the Third International Workshop on Paraphrasing (IWP2005)",
+      "year": 2005,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Bentivogli, L., Dagan, I., Dang, H. T., Giampiccolo, D., and Magnini, B. (2009). The \ufb01fth pascal recognizing textual entailment challenge. In TAC.",
+      "authors": [
+        "Bentivogli",
+        "Dagan",
+        "Dang",
+        "Giampiccolo",
+        "Magnini"
+      ],
+      "title": "The \ufb01fth pascal recognizing textual entailment challenge",
+      "journal": "TAC",
+      "year": 2009,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Levesque, H., Davis, E., and Morgenstern, L. (2011). The winograd schema challenge. In Proceedings of the 13th International Conference on Principles of Knowledge Representation and Reasoning, pages 552\u2013561.",
+      "authors": [
+        "Levesque",
+        "Davis",
+        "Morgenstern"
+      ],
+      "title": "The winograd schema challenge",
+      "journal": "Proceedings of the 13th International Conference on Principles of Knowledge Representation and Reasoning",
+      "year": 2011,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    }
+  ],
+  "claims": [
+    {
+      "text": "Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers.",
+      "paper_section": "Abstract",
+      "supporting_citation_indices": [
+        0,
+        1
+      ],
+      "claim_type": "methodological"
+    },
+    {
+      "text": "We argue that current techniques restrict the power of the pre-trained representations, especially for the fine-tuning approaches.",
+      "paper_section": "Introduction",
+      "supporting_citation_indices": [],
+      "claim_type": "methodological"
+    },
+    {
+      "text": "ELMo and its predecessor (Peters et al., 2017, 2018a) generalize traditional word embedding research along a different dimension.",
+      "paper_section": "Related Work",
+      "supporting_citation_indices": [
+        2,
+        0
+      ],
+      "claim_type": "methodological"
+    },
+    {
+      "text": "ELMo advances the state of the art for several major NLP benchmarks (Peters et al., 2018a) including question answering (Rajpurkar et al., 2016), sentiment analysis (Socher et al., 2013), and named entity recognition (Tjong Kim Sang and De Meulder, 2003).",
+      "paper_section": "Related Work",
+      "supporting_citation_indices": [
+        0,
+        3,
+        4,
+        5
+      ],
+      "claim_type": "empirical"
+    },
+    {
+      "text": "OpenAI GPT (Radford et al., 2018) achieved previously state-of-the-art results on many sentence-level tasks from the GLUE benchmark (Wang et al., 2018a).",
+      "paper_section": "Related Work",
+      "supporting_citation_indices": [
+        1,
+        6
+      ],
+      "claim_type": "empirical"
+    },
+    {
+      "text": "The NSP task is closely related to representation-learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018).",
+      "paper_section": "Pre-training BERT",
+      "supporting_citation_indices": [
+        7,
+        8
+      ],
+      "claim_type": "methodological"
+    },
+    {
+      "text": "We demonstrate the importance of bidirectional pre-training for language representations.",
+      "paper_section": "Ablation Studies",
+      "supporting_citation_indices": [],
+      "claim_type": "methodological"
+    },
+    {
+      "text": "We show that pre-trained representations reduce the need for many heavily-engineered task-specific architectures.",
+      "paper_section": "Ablation Studies",
+      "supporting_citation_indices": [],
+      "claim_type": "methodological"
+    },
+    {
+      "text": "BERT advances the state of the art for eleven NLP tasks.",
+      "paper_section": "Ablation Studies",
+      "supporting_citation_indices": [],
+      "claim_type": "empirical"
+    }
+  ],
+  "statistical_assertions": [
+    {
+      "text": "BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes.",
+      "p_value": null,
+      "effect_size": null,
+      "sample_size": null,
+      "confidence_interval": null,
+      "section": "unknown"
+    },
+    {
+      "text": "BERTBASE (L=12, H=768, A=12, Total Parameters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M).",
+      "p_value": null,
+      "effect_size": null,
+      "sample_size": null,
+      "confidence_interval": null,
+      "section": "unknown"
+    },
+    {
+      "text": "BERTBASE and BERTLARGE outperform all systems on all tasks by a substantial margin, obtaining 4.5% and 7.0% respective average accuracy improvement over the prior state of the art.",
+      "p_value": null,
+      "effect_size": 4.5,
+      "sample_size": null,
+      "confidence_interval": null,
+      "section": "unknown"
+    },
+    {
+      "text": "For the largest and most widely reported GLUE task, MNLI, BERT obtains a 4.6% absolute accuracy improvement.",
+      "p_value": null,
+      "effect_size": 4.6,
+      "sample_size": null,
+      "confidence_interval": null,
+      "section": "unknown"
+    },
+    {
+      "text": "On the of\ufb01cial GLUE leaderboard10, BERTLARGE obtains a score of 80.5, compared to OpenAI GPT, which obtains 72.8 as of the date of writing.",
+      "p_value": null,
+      "effect_size": null,
+      "sample_size": null,
+      "confidence_interval": null,
+      "section": "unknown"
+    },
+    {
+      "text": "Our best performing system outperforms the top leaderboard system by +1.5 F1 in ensembling and +1.3 F1 as a single system.",
+      "p_value": null,
+      "effect_size": 1.5,
+      "sample_size": null,
+      "confidence_interval": null,
+      "section": "unknown"
+    },
+    {
+      "text": "In fact, our single BERT model outperforms the top ensemble sys-tem in terms of F1 score.",
+      "p_value": null,
+      "effect_size": null,
+      "sample_size": null,
+      "confidence_interval": null,
+      "section": "unknown"
+    },
+    {
+      "text": "Without TriviaQA \ufb01ne-tuning data, we only lose 0.1-0.4 F1, still outper-forming all existing systems by a wide margin.",
+      "p_value": null,
+      "effect_size": 0.4,
+      "sample_size": null,
+      "confidence_interval": null,
+      "section": "unknown"
+    },
+    {
+      "text": "We observe a +5.1 F1 improvement over the previous best system.",
+      "p_value": null,
+      "effect_size": 5.1,
+      "sample_size": null,
+      "confidence_interval": null,
+      "section": "unknown"
+    },
+    {
+      "text": "BERTLARGE outperforms the authors\u2019 baseline ESIM+ELMo sys-tem by +27.1% and OpenAI GPT by 8.3%.",
+      "p_value": null,
+      "effect_size": 27.1,
+      "sample_size": null,
+      "confidence_interval": null,
+      "section": "unknown"
+    },
+    {
+      "text": "The best performing method concatenates the token representations from the top four hidden lay-ers of the pre-trained Transformer, which is only 0.3 F1 behind \ufb01ne-tuning the entire model.",
+      "p_value": null,
+      "effect_size": 0.3,
+      "sample_size": null,
+      "confidence_interval": null,
+      "section": "unknown"
+    }
+  ],
+  "resolved_citations": [
+    {
+      "raw_text": "Alan Akbik, Duncan Blythe, and Roland Vollgraf. 2018. Contextual string embeddings for sequence labeling. In Proceedings of the 27th International Conference on Computational Linguistics, pages 1638\u20131649.",
+      "authors": [
+        "Alan Akbik",
+        "Duncan Blythe",
+        "Roland Vollgraf"
+      ],
+      "title": "Contextual string embeddings for sequence labeling",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Recent advances in language modeling using recurrent neural networks have made it viable to model language as distributions over characters. By learning to predict the next character on the basis of previous characters, such models have been shown to automatically internalize linguistic concepts such as words, sentences, subclauses and even sentiment. In this paper, we propose to leverage the internal states of a trained character language model to produce a novel type of word embedding which we refer to as contextual string embeddings. Our proposed embeddings have the distinct properties that they (a) are trained without any explicit notion of words and thus fundamentally model words as sequences of characters, and (b) are contextualized by their surrounding text, meaning that the same word will have different embeddings depending on its contextual use. We conduct a comparative evaluation against previous embeddings and find that our embeddings are highly useful for downstream tasks: across four classic sequence labeling tasks we consistently outperform the previous state-of-the-art. In particular, we significantly outperform previous work on English and German named entity recognition (NER), allowing us to report new state-of-the-art F1-scores on the CoNLL03 shared task. We release all code and pre-trained language models in a simple-to-use framework to the research community, to enable reproduction of these experiments and application of our proposed embeddings to other tasks: https://github.com/zalandoresearch/flair",
+      "exists": true
+    },
+    {
+      "raw_text": "Rami Al-Rfou, Dokook Choe, Noah Constant, Mandy Guo, and Llion Jones. 2018. Character-level lan-guage modeling with deeper self-attention. preprint arXiv:1808.04444.",
+      "authors": [
+        "Rami Al-Rfou",
+        "Dokook Choe",
+        "Noah Constant",
+        "Mandy Guo",
+        "Llion Jones"
+      ],
+      "title": "Character-level language modeling with deeper self-attention",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": "1808.04444",
+      "url": null,
+      "resolved": true,
+      "source_text": "LSTMs and other RNN variants have shown strong performance on character-level language modeling. These models are typically trained using truncated backpropagation through time, and it is common to assume that their success stems from their ability to remember long-term contexts. In this paper, we show that a deep (64-layer) transformer model (Vaswani et al. 2017) with fixed context outperforms RNN variants by a large margin, achieving state of the art on two popular benchmarks: 1.13 bits per character on text8 and 1.06 on enwik8. To get good results at this depth, we show that it is important to add auxiliary losses, both at intermediate network layers and intermediate sequence positions.",
+      "exists": true
+    },
+    {
+      "raw_text": "Rie Kubota Ando and Tong Zhang. 2005. A framework for learning predictive structures from multiple tasks and unlabeled data. Journal of Machine Learning Research, 6(Nov):1817\u20131853.",
+      "authors": [
+        "Rie Kubota Ando",
+        "Tong Zhang"
+      ],
+      "title": "A framework for learning predictive structures from multiple tasks and unlabeled data",
+      "journal": "Journal of Machine Learning Research",
+      "year": 2005,
+      "doi": "10.5555/1046920.1194905",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "One of the most important issues in machine learning is whether one can improve the performance of a supervised learning algorithm by including unlabeled data. Methods that use both labeled and unlabeled data are generally referred to as semi-supervised learning. Although a number of such methods are proposed, at the current stage, we still don't have a complete understanding of their effectiveness. This paper investigates a closely related problem, which leads to a novel approach to semi-supervised learning. Specifically we consider learning predictive structures on hypothesis spaces (that is, what kind of classifiers have good predictive power) from multiple learning tasks. We present a general framework in which the structural learning problem can be formulated and analyzed theoretically, and relate it to learning with unlabeled data. Under this framework, algorithms for structural learning will be proposed, and computational issues will be investigated. Experiments will be given to demonstrate the effectiveness of the proposed algorithms in the semi-supervised learning setting.",
+      "exists": true
+    },
+    {
+      "raw_text": "Luisa Bentivogli, Bernardo Magnini, Ido Dagan, Hoa Trang Dang, and Danilo Giampiccolo. 2009. The fifth PASCAL recognizing textual entailment challenge. In TAC. NIST.",
+      "authors": [
+        "Luisa Bentivogli",
+        "Bernardo Magnini",
+        "Ido Dagan",
+        "Hoa Trang Dang",
+        "Danilo Giampiccolo"
+      ],
+      "title": "The fifth PASCAL recognizing textual entailment challenge",
+      "journal": null,
+      "year": 2009,
+      "doi": "10.3115/1654536.1654538",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "",
+      "exists": true
+    },
+    {
+      "raw_text": "John Blitzer, Ryan McDonald, and Fernando Pereira. 2006. Domain adaptation with structural correspon-dence learning. In Proceedings of the 2006 confer-ence on empirical methods in natural language pro-cessing, pages 120\u2013128. Association for Computa-tional Linguistics.",
+      "authors": [
+        "John Blitzer",
+        "Ryan McDonald",
+        "Fernando Pereira"
+      ],
+      "title": "Domain adaptation with structural correspondence learning",
+      "journal": null,
+      "year": 2006,
+      "doi": "10.3115/1610075.1610094",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Discriminative learning methods are widely used in natural language processing. These methods work best when their training and test data are drawn from the same distribution. For many NLP tasks, however, we are confronted with new domains in which labeled data is scarce or non-existent. In such cases, we seek to adapt existing models from a resource-rich source domain to a resource-poor target domain. We introduce structural correspondence learning to automatically induce correspondences among features from different domains. We test our technique on part of speech tagging and show performance gains for varying amounts of source and target training data, as well as improvements in target domain parsing accuracy using our improved tagger.",
+      "exists": true
+    },
+    {
+      "raw_text": "Samuel R. Bowman, Gabor Angeli, Christopher Potts, and Christopher D. Manning. 2015. A large anno-tated corpus for learning natural language inference. In EMNLP. Association for Computational Linguis-tics.",
+      "authors": [
+        "Samuel R. Bowman",
+        "Gabor Angeli",
+        "Christopher Potts",
+        "Christopher D. Manning"
+      ],
+      "title": "A large annotated corpus for learning natural language inference",
+      "journal": null,
+      "year": 2015,
+      "doi": "10.18653/v1/d15-1075",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Understanding entailment and contradiction is fundamental to understanding natural language, and inference about entailment and contradiction is a valuable testing ground for the development of semantic representations. However, machine learning research in this area has been dramatically limited by the lack of large-scale resources. To address this, we introduce the Stanford Natural Language Inference corpus, a new, freely available collection of labeled sentence pairs, written by humans doing a novel grounded task based on image captioning. At 570K pairs, it is two orders of magnitude larger than all other resources of its type. This increase in scale allows lexicalized classifiers to outperform some sophisticated existing entailment models, and it allows a neural network-based model to perform competitively on natural language inference benchmarks for the first time.",
+      "exists": true
+    },
+    {
+      "raw_text": "Peter F Brown, Peter V Desouza, Robert L Mercer, Vincent J Della Pietra, and Jenifer C Lai. 1992. Class-based n-gram models of natural language. Computational linguistics, 18(4):467\u2013479.",
+      "authors": [
+        "Peter F Brown",
+        "Peter V Desouza",
+        "Robert L Mercer",
+        "Vincent J Della Pietra",
+        "Jenifer C Lai"
+      ],
+      "title": "Class-based n-gram models of natural language",
+      "journal": "Computational linguistics",
+      "year": 1992,
+      "doi": "10.5555/176313.176316",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "We address the problem of predicting a word from previous words in a sample of text. In particular, we discuss n-gram models based on classes of words. We also discuss several statistical algorithms for assigning words to classes based on the frequency of their co-occurrence with other words. We find that we are able to extract classes that have the flavor of either syntactically based groupings or semantically based groupings, depending on the nature of the underlying statistics.",
+      "exists": true
+    },
+    {
+      "raw_text": "Daniel Cer, Mona Diab, Eneko Agirre, Inigo Lopez-Gazpio, and Lucia Specia. 2017. Semeval-2017 task 1: Semantic textual similarity multilingual and crosslingual focused evaluation. In Proceedings of the 11th International Workshop on Semantic Evaluation (SemEval-2017), pages 1\u201314, Vancou-ver, Canada. Association for Computational Lin-guistics.",
+      "authors": [
+        "Daniel Cer",
+        "Mona Diab",
+        "Eneko Agirre",
+        "Inigo Lopez-Gazpio",
+        "Lucia Specia"
+      ],
+      "title": "Semeval-2017 task 1: Semantic textual similarity multilingual and crosslingual focused evaluation",
+      "journal": null,
+      "year": 2017,
+      "doi": "10.18653/v1/s17-2001",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Semantic Textual Similarity (STS) measures the meaning similarity of sentences. Applications include machine translation (MT), summarization, generation, question answering (QA), short answer grading, semantic search, dialog and conversational systems. The STS shared task is a venue for assessing the current state-of-the-art. The 2017 task focuses on multilingual and cross-lingual pairs with one sub-track exploring MT quality estimation (MTQE) data. The task obtained strong participation from 31 teams, with 17 participating in all language tracks. We summarize performance and review a selection of well performing methods. Analysis highlights common errors, providing insight into the limitations of existing models. To support ongoing work on semantic representations, the STS Benchmark is introduced as a new shared training and evaluation set carefully selected from the corpus of English STS shared task data (2012)(2013)(2014)(2015)(2016)(2017).",
+      "exists": true
+    },
+    {
+      "raw_text": "Ciprian Chelba, Tomas Mikolov, Mike Schuster, Qi Ge, Thorsten Brants, Phillipp Koehn, and Tony Robin-son. 2013. One billion word benchmark for measur-ing progress in statistical language modeling. arXiv preprint arXiv:1312.3005.",
+      "authors": [
+        "Ciprian Chelba",
+        "Tomas Mikolov",
+        "Mike Schuster",
+        "Qi Ge",
+        "Thorsten Brants",
+        "Phillipp Koehn",
+        "Tony Robinson"
+      ],
+      "title": "One billion word benchmark for measuring progress in statistical language modeling",
+      "journal": null,
+      "year": 2013,
+      "doi": null,
+      "arxiv_id": "1312.3005",
+      "url": null,
+      "resolved": true,
+      "source_text": "We propose a new benchmark corpus to be used for measuring progress in statistical language modeling. With almost one billion words of training data, we hope this benchmark will be useful to quickly evaluate novel language modeling techniques, and to compare their contribution when combined with other advanced techniques. We show performance of several well-known types of language models, with the best results achieved with a recurrent neural network based language model. The baseline unpruned KneserNey 5-gram model achieves perplexity 67.6. A combination of techniques leads to 35% reduction in perplexity, or 10% reduction in cross-entropy (bits), over that baseline. The benchmark is available as a code.google.com project; besides the scripts needed to rebuild the training/held-out data, it also makes available log-probability values for each word in each of ten held-out data sets, for each of the baseline n-gram models.",
+      "exists": true
+    },
+    {
+      "raw_text": "Z. Chen, H. Zhang, X. Zhang, and L. Zhao. 2018. Quora question pairs.",
+      "authors": [
+        "Z. Chen",
+        "H. Zhang",
+        "X. Zhang",
+        "L. Zhao"
+      ],
+      "title": "Quora question pairs",
+      "journal": null,
+      "year": 2018,
+      "doi": "10.1007/978-981-99-3723-3_16",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "",
+      "exists": true
+    },
+    {
+      "raw_text": "Christopher Clark and Matt Gardner. 2018. Simple and effective multi-paragraph reading comprehen-sion. In ACL.",
+      "authors": [
+        "Christopher Clark",
+        "Matt Gardner"
+      ],
+      "title": "Simple and effective multi-paragraph reading comprehension",
+      "journal": null,
+      "year": 2018,
+      "doi": "10.18653/v1/p18-1078",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "We introduce a method of adapting neural paragraph-level question answering models to the case where entire documents are given as input. Most current question answering models cannot scale to document or multi-document input, and naively applying these models to each paragraph independently often results in them being distracted by irrelevant text. We show that it is possible to significantly improve performance by using a modified training scheme that teaches the model to ignore non-answer containing paragraphs. Our method involves sampling multiple paragraphs from each document, and using an objective function that requires the model to produce globally correct output. We additionally identify and improve upon a number of other design decisions that arise when working with document-level data. Experiments on TriviaQA and SQuAD shows our method advances the state of the art, including a 10 point gain on TriviaQA.",
+      "exists": true
+    },
+    {
+      "raw_text": "Kevin Clark, Minh-Thang Luong, Christopher D Man-ning, and Quoc Le. 2018. Semi-supervised se-quence modeling with cross-view training. In Pro-ceedings of the 2018 Conference on Empirical Meth-ods in Natural Language Processing, pages 1914\u20131925.",
+      "authors": [
+        "Kevin Clark",
+        "Minh-Thang Luong",
+        "Christopher D Manning",
+        "Quoc Le"
+      ],
+      "title": "Semi-supervised sequence modeling with cross-view training",
+      "journal": null,
+      "year": 2018,
+      "doi": "10.18653/v1/d18-1217",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Unsupervised representation learning algorithms such as word2vec and ELMo improve the accuracy of many supervised NLP models, mainly because they can take advantage of large amounts of unlabeled text. However, the supervised models only learn from taskspecific labeled data during the main training phase. We therefore propose Cross-View Training (CVT), a semi-supervised learning algorithm that improves the representations of a Bi-LSTM sentence encoder using a mix of labeled and unlabeled data. On labeled examples, standard supervised learning is used. On unlabeled examples, CVT teaches auxiliary prediction modules that see restricted views of the input (e.g., only part of a sentence) to match the predictions of the full model seeing the whole input. Since the auxiliary modules and the full model share intermediate representations, this in turn improves the full model. Moreover, we show that CVT is particularly effective when combined with multitask learning. We evaluate CVT on five sequence tagging tasks, machine translation, and dependency parsing, achieving state-of-the-art results. 1",
+      "exists": true
+    },
+    {
+      "raw_text": "Ronan Collobert and Jason Weston. 2008. A uni\ufb01ed architecture for natural language processing: Deep In Pro-neural networks with multitask learning. ceedings of the 25th international conference on Machine learning, pages 160\u2013167. ACM.",
+      "authors": [
+        "Ronan Collobert",
+        "Jason Weston"
+      ],
+      "title": "A unified architecture for natural language processing: Deep neural networks with multitask learning",
+      "journal": null,
+      "year": 2008,
+      "doi": "10.1145/1390156.1390177",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "",
+      "exists": true
+    },
+    {
+      "raw_text": "Alexis Conneau, Douwe Kiela, Holger Schwenk, Lo\u00a8c Barrault, and Antoine Bordes. 2017. Supervised learning of universal sentence representations from natural language inference data. In Proceedings of the 2017 Conference on Empirical Methods in Nat-ural Language Processing, pages 670\u2013680, Copen-hagen, Denmark. Association for Computational Linguistics.",
+      "authors": [
+        "Alexis Conneau",
+        "Douwe Kiela",
+        "Holger Schwenk",
+        "Lo\u00a8c Barrault",
+        "Antoine Bordes"
+      ],
+      "title": "Supervised learning of universal sentence representations from natural language inference data",
+      "journal": null,
+      "year": 2017,
+      "doi": "10.48550/arxiv.1705.02364",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Many modern NLP systems rely on word embeddings, previously trained in an\\nunsupervised manner on large corpora, as base features. Efforts to obtain\\nembeddings for larger chunks of text, such as sentences, have however not been\\nso successful. Several attempts at learning unsupervised representations of\\nsentences have not reached satisfactory enough performance to be widely\\nadopted. In this paper, we show how universal sentence representations trained\\nusing the supervised data of the Stanford Natural Language Inference datasets\\ncan consistently outperform unsupervised methods like SkipThought vectors on a\\nwide range of transfer tasks. Much like how computer vision uses ImageNet to\\nobtain features, which can then be transferred to other tasks, our work tends\\nto indicate the suitability of natural language inference for transfer learning\\nto other NLP tasks. Our encoder is publicly available.\\n",
+      "exists": true
+    },
+    {
+      "raw_text": "Andrew M Dai and Quoc V Le. 2015. Semi-supervised sequence learning. In Advances in neural informa-tion processing systems, pages 3079\u20133087.",
+      "authors": [
+        "Andrew M Dai",
+        "Quoc V Le"
+      ],
+      "title": "Semi-supervised sequence learning",
+      "journal": null,
+      "year": 2015,
+      "doi": "10.48550/arxiv.1511.01432",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "We present two approaches that use unlabeled data to improve sequence learning with recurrent networks. The first approach is to predict what comes next in a sequence, which is a conventional language model in natural language processing. The second approach is to use a sequence autoencoder, which reads the input sequence into a vector and predicts the input sequence again. These two algorithms can be used as a \"pretraining\" step for a later supervised sequence learning algorithm. In other words, the parameters obtained from the unsupervised step can be used as a starting point for other supervised training models. In our experiments, we find that long short term memory recurrent networks after being pretrained with the two approaches are more stable and generalize better. With pretraining, we are able to train long short term memory recurrent networks up to a few hundred timesteps, thereby achieving strong performance in many text classification tasks, such as IMDB, DBpedia and 20 Newsgroups.",
+      "exists": true
+    },
+    {
+      "raw_text": "J. Deng, W. Dong, R. Socher, L.-J. Li, K. Li, and L. Fei-Fei. 2009. ImageNet: A Large-Scale Hierarchical Image Database. In CVPR09.",
+      "authors": [
+        "J. Deng",
+        "W. Dong",
+        "R. Socher",
+        "L.-J. Li",
+        "K. Li",
+        "L. Fei-Fei"
+      ],
+      "title": "ImageNet: A Large-Scale Hierarchical Image Database",
+      "journal": null,
+      "year": 2009,
+      "doi": "10.1109/cvpr.2009.5206848",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "The explosion of image data on the Internet has the potential to foster more sophisticated and robust models and algorithms to index, retrieve, organize and interact with images and multimedia data. But exactly how such data can be harnessed and organized remains a critical problem. We introduce here a new database called \u201cImageNet\u201d, a large-scale ontology of images built upon the backbone of the WordNet structure. ImageNet aims to populate the majority of the 80,000 synsets of WordNet with an average of 500\u20131000 clean and full resolution images. This will result in tens of millions of annotated images organized by the semantic hierarchy of WordNet. This paper offers a detailed analysis of ImageNet in its current state: 12 subtrees with 5247 synsets and 3.2 million images in total. We show that ImageNet is much larger in scale and diversity and much more accurate than the current image datasets. Constructing such a large-scale database is a challenging task. We describe the data collection scheme with Amazon Mechanical Turk. Lastly, we illustrate the usefulness of ImageNet through three simple applications in object recognition, image classification and automatic object clustering. We hope that the scale, accuracy, diversity and hierarchical structure of ImageNet can offer unparalleled opportunities to researchers in the computer vision community and beyond.",
+      "exists": true
+    },
+    {
+      "raw_text": "William B Dolan and Chris Brockett. 2005. Automati-cally constructing a corpus of sentential paraphrases. In Proceedings of the Third International Workshop on Paraphrasing (IWP2005).",
+      "authors": [
+        "William B Dolan",
+        "Chris Brockett"
+      ],
+      "title": "Automatically constructing a corpus of sentential paraphrases",
+      "journal": null,
+      "year": 2005,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "An obstacle to research in automatic paraphrase identification and genera-tion is the lack of large-scale, publicly-available labeled corpora of sentential paraphrases. This paper describes the creation of the recently-released Micro-soft Research Paraphrase Corpus, which contains 5801 sentence pairs, each hand-labeled with a binary judg-ment as to whether the pair constitutes a paraphrase. The corpus was created using heuristic extraction techniques in conjunction with an SVM-based classi-fier to select likely sentence-level para-phrases from a large corpus of topic-clustered news data. These pairs were then submitted to human judges, who confirmed that 67 % were in fact se-mantically equivalent. In addition to describing the corpus itself, we explore a number of issues that arose in defin-ing guidelines for the human raters.",
+      "exists": true
+    },
+    {
+      "raw_text": "William Fedus, Ian Goodfellow, and Andrew M Dai. 2018. Maskgan: Better text generation via \u00a0filling in the . arXiv preprint arXiv:1801.07736.",
+      "authors": [
+        "William Fedus",
+        "Ian Goodfellow",
+        "Andrew M Dai"
+      ],
+      "title": "Maskgan: Better text generation via filling in the .",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": "1801.07736",
+      "url": null,
+      "resolved": true,
+      "source_text": "Neural text generation models are often autoregressive language models or seq2seq models. These models generate text by sampling words sequentially, with each word conditioned on the previous word, and are state-of-the-art for several machine translation and summarization benchmarks. These benchmarks are often defined by validation perplexity even though this is not a direct measure of the quality of the generated text. Additionally, these models are typically trained via maxi- mum likelihood and teacher forcing. These methods are well-suited to optimizing perplexity but can result in poor sample quality since generating text requires conditioning on sequences of words that may have never been observed at training time. We propose to improve sample quality using Generative Adversarial Networks (GANs), which explicitly train the generator to produce high quality samples and have shown a lot of success in image generation. GANs were originally designed to output differentiable values, so discrete language generation is challenging for them. We claim that validation perplexity alone is not indicative of the quality of text generated by a model. We introduce an actor-critic conditional GAN that fills in missing text conditioned on the surrounding context. We show qualitatively and quantitatively, evidence that this produces more realistic conditional and unconditional text samples compared to a maximum likelihood trained model.",
+      "exists": true
+    },
+    {
+      "raw_text": "Dan Hendrycks and Kevin Gimpel. 2016. Bridging nonlinearities and stochastic regularizers with gaus-sian error linear units. CoRR, abs/1606.08415.",
+      "authors": [
+        "Dan Hendrycks",
+        "Kevin Gimpel"
+      ],
+      "title": "Bridging nonlinearities and stochastic regularizers with gaussian error linear units",
+      "journal": "CoRR",
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": "1606.08415",
+      "url": null,
+      "resolved": true,
+      "source_text": "We propose the Gaussian Error Linear Unit (GELU), a high-performing neural network activation function. The GELU activation function is $x\\Phi(x)$, where $\\Phi(x)$ the standard Gaussian cumulative distribution function. The GELU nonlinearity weights inputs by their value, rather than gates inputs by their sign as in ReLUs ($x\\mathbf{1}_{x>0}$). We perform an empirical evaluation of the GELU nonlinearity against the ReLU and ELU activations and find performance improvements across all considered computer vision, natural language processing, and speech tasks.",
+      "exists": true
+    },
+    {
+      "raw_text": "Felix Hill, Kyunghyun Cho, and Anna Korhonen. 2016. Learning distributed representations of sentences from unlabelled data. In Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies. Association for Computa-tional Linguistics.",
+      "authors": [
+        "Felix Hill",
+        "Kyunghyun Cho",
+        "Anna Korhonen"
+      ],
+      "title": "Learning distributed representations of sentences from unlabelled data",
+      "journal": null,
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Unsupervised methods for learning distributed representations of words are ubiquitous in today's NLP research, but far less is known about the best ways to learn distributed phrase or sentence representations from unlabelled data. This paper is a systematic comparison of models that learn such representations. We find that the optimal approach depends critically on the intended application. Deeper, more complex models are preferable for representations to be used in supervised systems, but shallow log-linear models work best for building representation spaces that can be decoded with simple spatial distance metrics. We also propose two new unsupervised representation-learning objectives designed to optimise the trade-off between training time, domain portability and performance.",
+      "exists": true
+    },
+    {
+      "raw_text": "Jeremy Howard and Sebastian Ruder. 2018. Universal language model \u00a0fine-tuning for text classi\u00a0fication. In ACL. Association for Computational Linguistics.",
+      "authors": [
+        "Jeremy Howard",
+        "Sebastian Ruder"
+      ],
+      "title": "Universal language model fine-tuning for text classification",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Inductive transfer learning has greatly impacted computer vision, but existing approaches in NLP still require task-specific modifications and training from scratch. We propose Universal Language Model Fine-tuning (ULMFiT), an effective transfer learning method that can be applied to any task in NLP, and introduce techniques that are key for fine-tuning a language model. Our method significantly outperforms the state-of-the-art on six text classification tasks, reducing the error by 18-24% on the majority of datasets. Furthermore, with only 100 labeled examples, it matches the performance of training from scratch on 100 times more data. We open-source our pretrained models and code.",
+      "exists": true
+    },
+    {
+      "raw_text": "Minghao Hu, Yuxing Peng, Zhen Huang, Xipeng Qiu, Furu Wei, and Ming Zhou. 2018. Reinforced mnemonic reader for machine reading comprehen-sion. In IJCAI.",
+      "authors": [
+        "Minghao Hu",
+        "Yuxing Peng",
+        "Zhen Huang",
+        "Xipeng Qiu",
+        "Furu Wei",
+        "Ming Zhou"
+      ],
+      "title": "Reinforced mnemonic reader for machine reading comprehension",
+      "journal": null,
+      "year": 2018,
+      "doi": "10.24963/ijcai.2018/570",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "In this paper, we introduce the Reinforced Mnemonic Reader for machine reading comprehension tasks, which enhances previous attentive readers in two aspects. First, a reattention mechanism is proposed to refine current attentions by directly accessing to past attentions that are temporally memorized in a multi-round alignment architecture, so as to avoid the problems of attention redundancy and attention deficiency. Second, a new optimization approach, called dynamic-critical reinforcement learning, is introduced to extend the standard supervised method. It always encourages to predict a more acceptable answer so as to address the convergence suppression problem occurred in traditional reinforcement learning algorithms. Extensive experiments on the Stanford Question Answering Dataset (SQuAD) show that our model achieves state-of-the-art results. Meanwhile, our model outperforms previous systems by over 6% in terms of both Exact Match and F1 metrics on two adversarial SQuAD datasets.",
+      "exists": true
+    },
+    {
+      "raw_text": "Yacine Jernite, Samuel R. Bowman, and David Son-tag. 2017. Discourse-based objectives for fast un-supervised sentence representation learning. CoRR, abs/1705.00557.",
+      "authors": [
+        "Yacine Jernite",
+        "Samuel R. Bowman",
+        "David Sontag"
+      ],
+      "title": "Discourse-based objectives for fast unsupervised sentence representation learning",
+      "journal": "CoRR",
+      "year": 2017,
+      "doi": null,
+      "arxiv_id": "1705.00557",
+      "url": null,
+      "resolved": true,
+      "source_text": "This work presents a novel objective function for the unsupervised training of neural network sentence encoders. It exploits signals from paragraph-level discourse coherence to train these models to understand text. Our objective is purely discriminative, allowing us to train models many times faster than was possible under prior methods, and it yields models which perform well in extrinsic evaluations.",
+      "exists": true
+    },
+    {
+      "raw_text": "Mandar Joshi, Eunsol Choi, Daniel S Weld, and Luke Zettlemoyer. 2017. Triviaqa: A large scale distantly supervised challenge dataset for reading comprehen-sion. In ACL.",
+      "authors": [
+        "Mandar Joshi",
+        "Eunsol Choi",
+        "Daniel S Weld",
+        "Luke Zettlemoyer"
+      ],
+      "title": "Triviaqa: A large scale distantly supervised challenge dataset for reading comprehension",
+      "journal": null,
+      "year": 2017,
+      "doi": "10.18653/v1/p17-1147",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "We present TriviaQA, a challenging reading comprehension dataset containing over 650K question-answer-evidence triples. TriviaQA includes 95K questionanswer pairs authored by trivia enthusiasts and independently gathered evidence documents, six per question on average, that provide high quality distant supervision for answering the questions. We show that, in comparison to other recently introduced large-scale datasets, TriviaQA (1) has relatively complex, compositional questions, (2) has considerable syntactic and lexical variability between questions and corresponding answer-evidence sentences, and (3) requires more cross sentence reasoning to find answers. We also present two baseline algorithms: a featurebased classifier and a state-of-the-art neural network, that performs well on SQuAD reading comprehension. Neither approach comes close to human performance (23% and 40% vs. 80%), suggesting that Trivi-aQA is a challenging testbed that is worth significant future study. 1",
+      "exists": true
+    },
+    {
+      "raw_text": "Ryan Kiros, Yukun Zhu, Ruslan R Salakhutdinov, Richard Zemel, Raquel Urtasun, Antonio Torralba, and Sanja Fidler. 2015. Skip-thought vectors. In Advances in neural information processing systems, pages 3294\u20133302.",
+      "authors": [
+        "Ryan Kiros",
+        "Yukun Zhu",
+        "Ruslan R Salakhutdinov",
+        "Richard Zemel",
+        "Raquel Urtasun",
+        "Antonio Torralba",
+        "Sanja Fidler"
+      ],
+      "title": "Skip-thought vectors",
+      "journal": null,
+      "year": 2015,
+      "doi": "10.48550/arxiv.1506.06726",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "We describe an approach for unsupervised learning of a generic, distributed sentence encoder. Using the continuity of text from books, we train an encoder-decoder model that tries to reconstruct the surrounding sentences of an encoded passage. Sentences that share semantic and syntactic properties are thus mapped to similar vector representations. We next introduce a simple vocabulary expansion method to encode words that were not seen as part of training, allowing us to expand our vocabulary to a million words. After training our model, we extract and evaluate our vectors with linear models on 8 tasks: semantic relatedness, paraphrase detection, image-sentence ranking, question-type classification and 4 benchmark sentiment and subjectivity datasets. The end result is an off-the-shelf encoder that can produce highly generic sentence representations that are robust and perform well in practice. We will make our encoder publicly available.",
+      "exists": true
+    },
+    {
+      "raw_text": "Quoc Le and Tomas Mikolov. 2014. Distributed rep-resentations of sentences and documents. In Inter-national Conference on Machine Learning, pages 1188\u20131196.",
+      "authors": [
+        "Quoc Le",
+        "Tomas Mikolov"
+      ],
+      "title": "Distributed representations of sentences and documents",
+      "journal": null,
+      "year": 2014,
+      "doi": "10.48550/arxiv.1405.4053",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Many machine learning algorithms require the input to be represented as a fixed-length feature vector. When it comes to texts, one of the most common fixed-length features is bag-of-words. Despite their popularity, bag-of-words features have two major weaknesses: they lose the ordering of the words and they also ignore semantics of the words. For example, \"powerful,\" \"strong\" and \"Paris\" are equally distant. In this paper, we propose Paragraph Vector, an unsupervised algorithm that learns fixed-length feature representations from variable-length pieces of texts, such as sentences, paragraphs, and documents. Our algorithm represents each document by a dense vector which is trained to predict words in the document. Its construction gives our algorithm the potential to overcome the weaknesses of bag-of-words models. Empirical results show that Paragraph Vectors outperform bag-of-words models as well as other techniques for text representations. Finally, we achieve new state-of-the-art results on several text classification and sentiment analysis tasks.",
+      "exists": true
+    },
+    {
+      "raw_text": "Hector J Levesque, Ernest Davis, and Leora Morgen-stern. 2011. The winograd schema challenge. In Aaai spring symposium: Logical formalizations of commonsense reasoning, volume 46, page 47.",
+      "authors": [
+        "Hector J Levesque",
+        "Ernest Davis",
+        "Leora Morgenstern"
+      ],
+      "title": "The winograd schema challenge",
+      "journal": null,
+      "year": 2011,
+      "doi": "10.29007/rnk8",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "CAPTCHAs have established themselves as a standard technology to confidently distinguish humans from bots. Beyond the typical use for security reasons, CAPTCHAs have helped promote AI research in challenge tasks such as image classification and optical character recognition. It is, therefore, natural to consider what other challenge tasks for AI could serve a role in CAPTCHAs. The Winograd Schema Challenge (WSC), a certain form of hard pronoun resolution tasks, was proposed by Levesque as such a challenge task to promote research in AI. Based on current reports in the literature, the WSC remains a challenging task for bots, and is, therefore, a candidate to serve as a form of CAPTCHA. In this work we investigate whether this a priori appropriateness of the WSC as a form of CAPTCHA can be justified in terms of its acceptability by the human users in relation to existing CAPTCHA tasks. Our empirical study involved a total of 329 students, aged between 11 and 15, and showed that the WSC is generally faster and easier to solve than, and equally entertaining with, the most typical existing CAPTCHA tasks.",
+      "exists": true
+    },
+    {
+      "raw_text": "Lajanugen Logeswaran and Honglak Lee. 2018. An ef\u00a0ficient framework for learning sentence represen-tations. In International Conference on Learning Representations.",
+      "authors": [
+        "Lajanugen Logeswaran",
+        "Honglak Lee"
+      ],
+      "title": "An efficient framework for learning sentence representations",
+      "journal": null,
+      "year": 2018,
+      "doi": "10.48550/arxiv.1803.02893",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "In this work we propose a simple and efficient framework for learning sentence representations from unlabelled data. Drawing inspiration from the distributional hypothesis and recent work on learning sentence representations, we reformulate the problem of predicting the context in which a sentence appears as a classification problem. Given a sentence and its context, a classifier distinguishes context sentences from other contrastive sentences based on their vector representations. This allows us to efficiently learn different types of encoding functions, and we show that the model learns high-quality sentence representations. We demonstrate that our sentence representations outperform state-of-the-art unsupervised and supervised representation learning methods on several downstream NLP tasks that involve understanding sentence semantics while achieving an order of magnitude speedup in training time.",
+      "exists": true
+    },
+    {
+      "raw_text": "Bryan McCann, James Bradbury, Caiming Xiong, and Richard Socher. 2017. Learned in translation: Con-textualized word vectors. In NIPS.",
+      "authors": [
+        "Bryan McCann",
+        "James Bradbury",
+        "Caiming Xiong",
+        "Richard Socher"
+      ],
+      "title": "Learned in translation: Contextualized word vectors",
+      "journal": null,
+      "year": 2017,
+      "doi": "10.48550/arxiv.1708.00107",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Computer vision has benefited from initializing multiple deep layers with weights pretrained on large supervised training sets like ImageNet. Natural language processing (NLP) typically sees initialization of only the lowest layer of deep models with pretrained word vectors. In this paper, we use a deep LSTM encoder from an attentional sequence-to-sequence model trained for machine translation (MT) to contextualize word vectors. We show that adding these context vectors (CoVe) improves performance over using only unsupervised word and character vectors on a wide variety of common NLP tasks: sentiment analysis (SST, IMDb), question classification (TREC), entailment (SNLI), and question answering (SQuAD). For fine-grained sentiment analysis and entailment, CoVe improves performance of our baseline models to the state of the art.",
+      "exists": true
+    },
+    {
+      "raw_text": "Oren Melamud, Jacob Goldberger, and Ido Dagan. 2016. context2vec: Learning generic context em-bedding with bidirectional LSTM. In CoNLL.",
+      "authors": [
+        "Oren Melamud",
+        "Jacob Goldberger",
+        "Ido Dagan"
+      ],
+      "title": "context2vec: Learning generic context embedding with bidirectional LSTM",
+      "journal": null,
+      "year": 2016,
+      "doi": "10.18653/v1/k16-1006",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Context representations are central to various NLP tasks, such as word sense disambiguation, named entity recognition, coreference resolution, and many more. In this work we present a neural model for efficiently learning a generic context embedding function from large corpora, using bidirectional LSTM. With a very simple application of our context representations, we manage to surpass or nearly reach state-of-the-art results on sentence completion, lexical substitution and word sense disambiguation tasks, while substantially outperforming the popular context representation of averaged word embeddings. We release our code and pretrained models, suggesting they could be useful in a wide variety of NLP tasks.",
+      "exists": true
+    },
+    {
+      "raw_text": "Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Cor-\nrado, and Jeff Dean. 2013. Distributed representa-\ntions of words and phrases and their compositional-\nity. In Advances in Neural Information Processing\nSystems 26, pages 3111\u20133119. Curran Associates,\nInc.",
+      "authors": [
+        "Tomas Mikolov",
+        "Ilya Sutskever",
+        "Kai Chen",
+        "Greg S Corrado",
+        "Jeff Dean"
+      ],
+      "title": "Distributed representations of words and phrases and their compositionality",
+      "journal": "Advances in Neural Information Processing Systems 26",
+      "year": 2013,
+      "doi": "10.48550/arxiv.1310.4546",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "The recently introduced continuous Skip-gram model is an efficient method for learning high-quality distributed vector representations that capture a large number of precise syntactic and semantic word relationships. In this paper we present several extensions that improve both the quality of the vectors and the training speed. By subsampling of the frequent words we obtain significant speedup and also learn more regular word representations. We also describe a simple alternative to the hierarchical softmax called negative sampling. An inherent limitation of word representations is their indifference to word order and their inability to represent idiomatic phrases. For example, the meanings of \"Canada\" and \"Air\" cannot be easily combined to obtain \"Air Canada\". Motivated by this example, we present a simple method for finding phrases in text, and show that learning good vector representations for millions of phrases is possible.",
+      "exists": true
+    },
+    {
+      "raw_text": "Andriy Mnih and Geoffrey E Hinton. 2009. A scal-\nable hierarchical distributed language model.\nIn\nD. Koller, D. Schuurmans, Y. Bengio, and L. Bot-\ntou, editors, Advances in Neural Information Pro-\ncessing Systems 21, pages 1081\u20131088. Curran As-\nsociates, Inc.",
+      "authors": [
+        "Andriy Mnih",
+        "Geoffrey E Hinton"
+      ],
+      "title": "A scalable hierarchical distributed language model",
+      "journal": "Advances in Neural Information Processing Systems 21",
+      "year": 2009,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "A fast hierarchical language model along with a simple feature-based algorithm for automatic construction of word trees from the data are introduced and it is shown that the resulting models can outperform non-hierarchical neural models as well as the best n-gram models.",
+      "exists": true
+    },
+    {
+      "raw_text": "Ankur P Parikh, Oscar T\u00e4ckstr\u00f6m, Dipanjan Das, and\nJakob Uszkoreit. 2016. A decomposable attention\nmodel for natural language inference. In EMNLP.",
+      "authors": [
+        "Ankur P Parikh",
+        "Oscar T\u00e4ckstr\u00f6m",
+        "Dipanjan Das",
+        "Jakob Uszkoreit"
+      ],
+      "title": "A decomposable attention model for natural language inference",
+      "journal": "EMNLP",
+      "year": 2016,
+      "doi": "10.18653/v1/d16-1244",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "We propose a simple neural architecture for natural language inference.Our approach uses attention to decompose the problem into subproblems that can be solved separately, thus making it trivially parallelizable.On the Stanford Natural Language Inference (SNLI) dataset, we obtain state-of-the-art results with almost an order of magnitude fewer parameters than previous work and without relying on any word-order information.Adding intra-sentence attention that takes a minimum amount of order into account yields further improvements.",
+      "exists": true
+    },
+    {
+      "raw_text": "Jeffrey Pennington, Richard Socher, and Christo-\npher D. Manning. 2014. Glove: Global vectors for\nword representation. In Empirical Methods in Nat-\nural Language Processing (EMNLP), pages 1532\u20131543.",
+      "authors": [
+        "Jeffrey Pennington",
+        "Richard Socher",
+        "Christopher D. Manning"
+      ],
+      "title": "Glove: Global vectors for word representation",
+      "journal": "Empirical Methods in Natural Language Processing (EMNLP)",
+      "year": 2014,
+      "doi": "10.3115/v1/d14-1162",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Recent methods for learning vector space representations of words have succeeded in capturing fine-grained semantic and syntactic regularities using vector arithmetic, but the origin of these regularities has remained opaque. We analyze and make explicit the model properties needed for such regularities to emerge in word vectors. The result is a new global logbilinear regression model that combines the advantages of the two major model families in the literature: global matrix factorization and local context window methods. Our model efficiently leverages statistical information by training only on the nonzero elements in a word-word cooccurrence matrix, rather than on the entire sparse matrix or on individual context windows in a large corpus. The model produces a vector space with meaningful substructure, as evidenced by its performance of 75% on a recent word analogy task. It also outperforms related models on similarity tasks and named entity recognition.",
+      "exists": true
+    },
+    {
+      "raw_text": "Matthew Peters, Waleed Ammar, Chandra Bhagavat-\nula, and Russell Power. 2017. Semi-supervised se-\nquence tagging with bidirectional language models.\nIn ACL.",
+      "authors": [
+        "Matthew Peters",
+        "Waleed Ammar",
+        "Chandra Bhagavatula",
+        "Russell Power"
+      ],
+      "title": "Semi-supervised sequence tagging with bidirectional language models",
+      "journal": "ACL",
+      "year": 2017,
+      "doi": "10.18653/v1/p17-1161",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Pre-trained word embeddings learned from unlabeled text have become a standard component of neural network architectures for NLP tasks. However, in most cases, the recurrent network that operates on word-level representations to produce context sensitive representations is trained on relatively little labeled data. In this paper, we demonstrate a general semi-supervised approach for adding pre- trained context embeddings from bidirectional language models to NLP systems and apply it to sequence labeling tasks. We evaluate our model on two standard datasets for named entity recognition (NER) and chunking, and in both cases achieve state of the art results, surpassing previous systems that use other forms of transfer or joint learning with additional labeled data and task specific gazetteers.",
+      "exists": true
+    },
+    {
+      "raw_text": "Matthew Peters, Mark Neumann, Mohit Iyyer, Matt\nGardner, Christopher Clark, Kenton Lee, and Luke\nZettlemoyer. 2018a. Deep contextualized word rep-\nresentations. In NAACL.",
+      "authors": [
+        "Matthew Peters",
+        "Mark Neumann",
+        "Mohit Iyyer",
+        "Matt Gardner",
+        "Christopher Clark",
+        "Kenton Lee",
+        "Luke Zettlemoyer"
+      ],
+      "title": "Deep contextualized word representations",
+      "journal": "NAACL",
+      "year": 2018,
+      "doi": "10.18653/v1/n18-1202",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Matthew E. Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee, Luke Zettlemoyer. Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers). 2018.",
+      "exists": true
+    },
+    {
+      "raw_text": "Matthew Peters, Mark Neumann, Luke Zettlemoyer,\nand Wen-tau Yih. 2018b.\nDissecting contextual\nword embeddings: Architecture and representation.\nIn Proceedings of the 2018 Conference on Empiri-\ncal Methods in Natural Language Processing, pages\n1499\u20131509.",
+      "authors": [
+        "Matthew Peters",
+        "Mark Neumann",
+        "Luke Zettlemoyer",
+        "Wen-tau Yih"
+      ],
+      "title": "Dissecting contextual word embeddings: Architecture and representation",
+      "journal": "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing",
+      "year": 2018,
+      "doi": "10.18653/v1/d18-1179",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Contextual word representations derived from pre-trained bidirectional language models (biLMs) have recently been shown to provide significant improvements to the state of the art for a wide range of NLP tasks. However, many questions remain as to how and why these models are so effective. In this paper, we present a detailed empirical study of how the choice of neural architecture (e.g. LSTM, CNN, or self attention) influences both end task accuracy and qualitative properties of the representations that are learned. We show there is a tradeoff between speed and accuracy, but all architectures learn high quality contextual representations that outperform word embeddings for four challenging NLP tasks. Additionally, all architectures learn representations that vary with network depth, from exclusively morphological based at the word embedding layer through local syntax based in the lower contextual layers to longer range semantics such coreference at the upper layers. Together, these results suggest that unsupervised biLMs, independent of architecture, are learning much more about the structure of language than previously appreciated.",
+      "exists": true
+    },
+    {
+      "raw_text": "Alec Radford, Karthik Narasimhan, Tim Salimans, and\nIlya Sutskever. 2018.\nImproving language under-\nstanding with unsupervised learning. Technical re-\nport, OpenAI.",
+      "authors": [
+        "Alec Radford",
+        "Karthik Narasimhan",
+        "Tim Salimans",
+        "Ilya Sutskever"
+      ],
+      "title": "Improving language understanding with unsupervised learning",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": false,
+      "source_text": null,
+      "exists": null
+    },
+    {
+      "raw_text": "Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, and\nPercy Liang. 2016. Squad: 100,000+ questions for\nmachine comprehension of text. In Proceedings of\nthe 2016 Conference on Empirical Methods in Nat-\nural Language Processing, pages 2383\u20132392.",
+      "authors": [
+        "Pranav Rajpurkar",
+        "Jian Zhang",
+        "Konstantin Lopyrev",
+        "Percy Liang"
+      ],
+      "title": "Squad: 100,000+ questions for machine comprehension of text",
+      "journal": "Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing",
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "We present the Stanford Question Answering Dataset (SQuAD), a new reading comprehension dataset consisting of 100,000+ questions posed by crowdworkers on a set of Wikipedia articles, where the answer to each question is a segment of text from the corresponding reading passage. We analyze the dataset to understand the types of reasoning required to answer the questions, leaning heavily on dependency and constituency trees. We build a strong logistic regression model, which achieves an F1 score of 51.0%, a significant improvement over a simple baseline (20%). However, human performance (86.8%) is much higher, indicating that the dataset presents a good challenge problem for future research. \nThe dataset is freely available at this https URL",
+      "exists": true
+    },
+    {
+      "raw_text": "Minjoon Seo, Aniruddha Kembhavi, Ali Farhadi, and\nHannaneh Hajishirzi. 2017. Bidirectional attention\n\u03b2ow for machine comprehension. In ICLR.",
+      "authors": [
+        "Minjoon Seo",
+        "Aniruddha Kembhavi",
+        "Ali Farhadi",
+        "Hannaneh Hajishirzi"
+      ],
+      "title": "Bidirectional attention flow for machine comprehension",
+      "journal": "ICLR",
+      "year": 2017,
+      "doi": "10.1017/nlp.2024.46",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "AbstractMachine reading comprehension (MRC) refers to the process of instructing machines to comprehend and respond to inquiries based on a provided text. There are two primary methodologies for achieving this: extracting answers directly from the text or predicting them. Extracting answers involves anticipating the specific segment of text containing the answer, pinpointed by its starting and ending indices within the paragraph. Despite the increasing interest in MRC, exploration within the framework of the Arabic language faces limitations due to various challenges. A significant impediment arises from the inadequacy of resources available for Arabic textual content, which impedes the development of effective models. Furthermore, the inherent intricacies of Arabic, manifesting in its diverse linguistic forms including classical, modern standard, and colloquial, present distinctive hurdles for tasks involving language comprehension. This paper proposes an enhanced version of the bidirectional attention flow (BIDAF) model for Arabic MRC, constructed upon the Arabic Span-Extraction-based Reading Comprehension Benchmark (ASER). ASER comprises 10,000 sets of questions, answers, and passages, partitioned into a training set constituting 90% of the data and a testing set making up the remaining 10%. By introducing a new input feature based on parts-of-speech (POS) word embeddings and replacing Bidirectional Long Short-Term Memory (bi-LSTM) with bidirectional gated recurrent unit, significant improvements were observed. Eight different POS word embeddings were generated using both Continuous Bag of Words (CBOW) and Skip-gram methods, with varying dimensionalities. Evaluation metrics, including exact match (EM) and F1-measure, were utilized to assess model performance, with emphasis on the latter for its accuracy. The proposed enhanced BIDAF model achieved a remarkable accuracy of 75.22%\u00a0on the ASER dataset, demonstrating its efficacy in Arabic MRC tasks. Additionally, rigorous statistical evaluation using a two-tailed paired samples t-test further validated the findings, highlighting the significance of the proposed enhancements in advancing Arabic language processing capabilities.",
+      "exists": true
+    },
+    {
+      "raw_text": "Richard Socher, Alex Perelygin, Jean Wu, Jason\nChuang, Christopher D Manning, Andrew Ng, and\nChristopher Potts. 2013.\nRecursive deep models\nfor semantic compositionality over a sentiment tree-\nIn Proceedings of the 2013 conference on\nbank.\nempirical methods in natural language processing,\npages 1631\u20131642.",
+      "authors": [
+        "Richard Socher",
+        "Alex Perelygin",
+        "Jean Wu",
+        "Jason Chuang",
+        "Christopher D Manning",
+        "Andrew Ng",
+        "Christopher Potts"
+      ],
+      "title": "Recursive deep models for semantic compositionality over a sentiment treebank",
+      "journal": "Proceedings of the 2013 conference on empirical methods in natural language processing",
+      "year": 2013,
+      "doi": "10.18653/v1/d13-1170",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Richard Socher, Alex Perelygin, Jean Wu, Jason Chuang, Christopher D. Manning, Andrew Ng, Christopher Potts. Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing. 2013.",
+      "exists": true
+    },
+    {
+      "raw_text": "Fu Sun, Linyang Li, Xipeng Qiu, and Yang Liu.\n2018.\nU-net:\nMachine reading comprehension\narXiv preprint\nwith unanswerable questions.\narXiv:1810.06638.",
+      "authors": [
+        "Fu Sun",
+        "Linyang Li",
+        "Xipeng Qiu",
+        "Yang Liu"
+      ],
+      "title": "U-net: Machine reading comprehension with unanswerable questions",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": "1810.06638",
+      "url": null,
+      "resolved": true,
+      "source_text": "Machine reading comprehension with unanswerable questions is a new challenging task for natural language processing. A key subtask is to reliably predict whether the question is unanswerable. In this paper, we propose a unified model, called U-Net, with three important components: answer pointer, no-answer pointer, and answer verifier. We introduce a universal node and thus process the question and its context passage as a single contiguous sequence of tokens. The universal node encodes the fused information from both the question and passage, and plays an important role to predict whether the question is answerable and also greatly improves the conciseness of the U-Net. Different from the state-of-art pipeline models, U-Net can be learned in an end-to-end fashion. The experimental results on the SQuAD 2.0 dataset show that U-Net can effectively predict the unanswerability of questions and achieves an F1 score of 71.7 on SQuAD 2.0.",
+      "exists": true
+    },
+    {
+      "raw_text": "Wilson L Taylor. 1953.\nCloze procedure:\nA new\ntool for measuring readability. Journalism Bulletin,\n30(4):415\u2013433.",
+      "authors": [
+        "Wilson L Taylor"
+      ],
+      "title": "Cloze procedure: A new tool for measuring readability",
+      "journal": "Journalism Bulletin",
+      "year": 1953,
+      "doi": "10.1177/107769905303000401",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Here is the first comprehensive statement of a research method and its theory which were introduced briefly during a workshop at the 1953 AEJ convention. Included are findings from three pilot studies and two experiments in which \u201ccloze procedure\u201d results are compared with those of two readability formulas.",
+      "exists": true
+    },
+    {
+      "raw_text": "Erik F Tjong Kim Sang and Fien De Meulder.\n2003.\nIntroduction to the conll-2003 shared task:\nLanguage-independent named entity recognition. In\nCoNLL.",
+      "authors": [
+        "Erik F Tjong Kim Sang",
+        "Fien De Meulder"
+      ],
+      "title": "Introduction to the conll-2003 shared task: Language-independent named entity recognition",
+      "journal": "CoNLL",
+      "year": 2003,
+      "doi": "10.48550/arxiv.cs/0306050",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "We describe the CoNLL-2003 shared task: language-independent named entity recognition. We give background information on the data sets (English and German) and the evaluation method, present a general overview of the systems that have taken part in the task and discuss their performance.",
+      "exists": true
+    },
+    {
+      "raw_text": "Joseph Turian, Lev Ratinov, and Yoshua Bengio. 2010.\nWord representations: A simple and general method\nfor semi-supervised learning. In Proceedings of the\n48th Annual Meeting of the Association for Compu-\ntational Linguistics, ACL \u201910, pages 384\u2013394.",
+      "authors": [
+        "Joseph Turian",
+        "Lev Ratinov",
+        "Yoshua Bengio"
+      ],
+      "title": "Word representations: A simple and general method for semi-supervised learning",
+      "journal": "Proceedings of the 48th Annual Meeting of the Association for Computational Linguistics, ACL \u201910",
+      "year": 2010,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "If we take an existing supervised NLP system, a simple and general way to improve accuracy is to use unsupervised word representations as extra word features. We evaluate Brown clusters, Collobert and Weston (2008) embeddings, and HLBL (Mnih &amp;amp; Hinton, 2009) embeddings of words on both NER and chunking. We use near state-of-the-art supervised baselines, and find that each of the three word representations improves the accuracy of these baselines. We find further improvements by combining different word representations. You can download our word features, for off-the-shelf use in existing NLP systems, as well as our code, here:",
+      "exists": true
+    },
+    {
+      "raw_text": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob\nUszkoreit, Llion Jones, Aidan N Gomez, Lukasz\nKaiser, and Illia Polosukhin. 2017. Attention is all\nyou need. In Advances in Neural Information Pro-\ncessing Systems, pages 6000\u20136010.",
+      "authors": [
+        "Ashish Vaswani",
+        "Noam Shazeer",
+        "Niki Parmar",
+        "Jakob Uszkoreit",
+        "Llion Jones",
+        "Aidan N Gomez",
+        "Lukasz Kaiser",
+        "Illia Polosukhin"
+      ],
+      "title": "Attention is all you need",
+      "journal": "Advances in Neural Information Processing Systems",
+      "year": 2017,
+      "doi": "10.65215/2q58a426",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.",
+      "exists": true
+    },
+    {
+      "raw_text": "Pascal Vincent, Hugo Larochelle, Yoshua Bengio, and\nPierre-Antoine Manzagol. 2008.\nExtracting and\ncomposing robust features with denoising autoen-\nIn Proceedings of the 25th international\n coders.\nconference on Machine learning, pages 1096\u20131103.\nACM.",
+      "authors": [
+        "Pascal Vincent",
+        "Hugo Larochelle",
+        "Yoshua Bengio",
+        "Pierre-Antoine Manzagol"
+      ],
+      "title": "Extracting and composing robust features with denoising autoencoders",
+      "journal": "Proceedings of the 25th international conference on Machine learning",
+      "year": 2008,
+      "doi": "10.1145/1390156.1390294",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Previous work has shown that the difficulties in learning deep generative or discriminative models can be overcome by an initial unsupervised learning step that maps inputs to useful intermediate representations. We introduce and motivate a new training principle for unsupervised learning of a representation based on the idea of making the learned representations robust to partial corruption of the input pattern. This approach can be used to train autoencoders, and these denoising autoencoders can be stacked to initialize deep architectures. The algorithm can be motivated from a manifold learning and information theoretic perspective or from a generative model perspective. Comparative experiments clearly show the surprising advantage of corrupting the input of autoencoders on a pattern classification benchmark suite.",
+      "exists": true
+    },
+    {
+      "raw_text": "Alex Wang, Amanpreet Singh, Julian Michael, Fe-\nlix Hill, Omer Levy, and Samuel Bowman. 2018a.\nGlue: A multi-task benchmark and analysis platform\nfor natural language understanding. In Proceedings\nof the 2018 EMNLP Workshop BlackboxNLP: An-\nalyzing and Interpreting Neural Networks for NLP,\npages 353\u2013355.",
+      "authors": [
+        "Alex Wang",
+        "Amanpreet Singh",
+        "Julian Michael",
+        "Felix Hill",
+        "Omer Levy",
+        "Samuel Bowman"
+      ],
+      "title": "Glue: A multi-task benchmark and analysis platform for natural language understanding",
+      "journal": "Proceedings of the 2018 EMNLP Workshop BlackboxNLP: Analyzing and Interpreting Neural Networks for NLP",
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Human ability to understand language is general, flexible, and robust. In contrast, most NLU models above the word level are designed for a specific task and struggle with out-of-domain data. If we aspire to develop models with understanding beyond the detection of superficial correspondences between inputs and outputs, then it is critical to develop a unified model that can execute a range of linguistic tasks across different domains. To facilitate research in this direction, we present the General Language Understanding Evaluation (GLUE, gluebenchmark.com): a benchmark of nine diverse NLU tasks, an auxiliary dataset for probing models for understanding of specific linguistic phenomena, and an online platform for evaluating and comparing models. For some benchmark tasks, training data is plentiful, but for others it is limited or does not match the genre of the test set. GLUE thus favors models that can represent linguistic knowledge in a way that facilitates sample-efficient learning and effective knowledge-transfer across tasks. While none of the datasets in GLUE were created from scratch for the benchmark, four of them feature privately-held test data, which is used to ensure that the benchmark is used fairly. We evaluate baselines that use ELMo (Peters et al., 2018), a powerful transfer learning technique, as well as state-of-the-art sentence representation models. The best models still achieve fairly low absolute scores. Analysis with our diagnostic dataset yields similarly weak performance over all phenomena tested, with some exceptions.",
+      "exists": true
+    },
+    {
+      "raw_text": "Wei Wang, Ming Yan, and Chen Wu. 2018b. Multi-\ngranularity hierarchical attention fusion networks\nfor reading comprehension and question answering.\nIn Proceedings of the 56th Annual Meeting of the As-\nsociation for Computational Linguistics (Volume 1:\nLong Papers). Association for Computational Lin-\nguistics.",
+      "authors": [
+        "Wei Wang",
+        "Ming Yan",
+        "Chen Wu"
+      ],
+      "title": "Multi-granularity hierarchical attention fusion networks for reading comprehension and question answering",
+      "journal": "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+      "year": 2018,
+      "doi": "10.18653/v1/p18-1158",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "This paper describes a novel hierarchical attention network for reading comprehension style question answering, which aims to answer questions for a given narrative paragraph. In the proposed method, attention and fusion are conducted horizontally and vertically across layers at different levels of granularity between question and paragraph. Specifically, it first encode the question and paragraph with fine-grained language embeddings, to better capture the respective representations at semantic level. Then it proposes a multi-granularity fusion approach to fully fuse information from both global and attended representations. Finally, it introduces a hierarchical attention network to focuses on the answer span progressively with multi-level softalignment. Extensive experiments on the large-scale SQuAD and TriviaQA datasets validate the effectiveness of the proposed method. At the time of writing the paper (Jan. 12th 2018), our model achieves the first position on the SQuAD leaderboard for both single and ensemble models. We also achieves state-of-the-art results on TriviaQA, AddSent and AddOne-Sent datasets.",
+      "exists": true
+    },
+    {
+      "raw_text": "Alex Warstadt, Amanpreet Singh, and Samuel R Bow-\nman. 2018.\nNeural network acceptability judg-\nments. arXiv preprint arXiv:1805.12471.",
+      "authors": [
+        "Alex Warstadt",
+        "Amanpreet Singh",
+        "Samuel R Bowman"
+      ],
+      "title": "Neural network acceptability judgments",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": "1805.12471",
+      "url": null,
+      "resolved": true,
+      "source_text": "Abstract This paper investigates the ability of artificial neural networks to judge the grammatical acceptability of a sentence, with the goal of testing their linguistic competence. We introduce the Corpus of Linguistic Acceptability (CoLA), a set of 10,657 English sentences labeled as grammatical or ungrammatical from published linguistics literature. As baselines, we train several recurrent neural network models on acceptability classification, and find that our models outperform unsupervised models by Lau et al. (2016) on CoLA. Error-analysis on specific grammatical phenomena reveals that both Lau et al.\u2019s models and ours learn systematic generalizations like subject-verb-object order. However, all models we test perform far below human level on a wide range of grammatical constructions.",
+      "exists": true
+    },
+    {
+      "raw_text": "Adina Williams, Nikita Nangia, and Samuel R Bow-\nman. 2018.\nA broad-coverage challenge corpus\nfor sentence understanding through inference.\nIn\nNAACL.",
+      "authors": [
+        "Adina Williams",
+        "Nikita Nangia",
+        "Samuel R Bowman"
+      ],
+      "title": "A broad-coverage challenge corpus for sentence understanding through inference",
+      "journal": "NAACL",
+      "year": 2018,
+      "doi": "10.18653/v1/n18-1101",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Adina Williams, Nikita Nangia, Samuel Bowman. Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers). 2018.",
+      "exists": true
+    },
+    {
+      "raw_text": "Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc V\nLe,\nMohammad Norouzi,\nWolfgang Macherey,\nMaxim Krikun,\nYuan Cao,\nQin Gao,\nKlaus\nMacherey, et al. 2016.\nGoogle\u2019s neural ma-\nchine translation system: Bridging the gap between\narXiv preprint\nhuman and machine translation.\narXiv:1609.08144.",
+      "authors": [
+        "Yonghui Wu",
+        "Mike Schuster",
+        "Zhifeng Chen",
+        "Quoc V Le",
+        "Mohammad Norouzi",
+        "Wolfgang Macherey",
+        "Maxim Krikun",
+        "Yuan Cao",
+        "Qin Gao",
+        "Klaus Macherey"
+      ],
+      "title": "Google\u2019s neural machine translation system: Bridging the gap between human and machine translation",
+      "journal": null,
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": "1609.08144",
+      "url": null,
+      "resolved": true,
+      "source_text": "Neural Machine Translation (NMT) is an end-to-end learning approach for automated translation, with the potential to overcome many of the weaknesses of conventional phrase-based translation systems. Unfortunately, NMT systems are known to be computationally expensive both in training and in translation inference. Also, most NMT systems have difficulty with rare words. These issues have hindered NMT's use in practical deployments and services, where both accuracy and speed are essential. In this work, we present GNMT, Google's Neural Machine Translation system, which attempts to address many of these issues. Our model consists of a deep LSTM network with 8 encoder and 8 decoder layers using attention and residual connections. To improve parallelism and therefore decrease training time, our attention mechanism connects the bottom layer of the decoder to the top layer of the encoder. To accelerate the final translation speed, we employ low-precision arithmetic during inference computations. To improve handling of rare words, we divide words into a limited set of common sub-word units (\"wordpieces\") for both input and output. This method provides a good balance between the flexibility of \"character\"-delimited models and the efficiency of \"word\"-delimited models, naturally handles translation of rare words, and ultimately improves the overall accuracy of the system. Our beam search technique employs a length-normalization procedure and uses a coverage penalty, which encourages generation of an output sentence that is most likely to cover all the words in the source sentence. On the WMT'14 English-to-French and English-to-German benchmarks, GNMT achieves competitive results to state-of-the-art. Using a human side-by-side evaluation on a set of isolated simple sentences, it reduces translation errors by an average of 60% compared to Google's phrase-based production system.",
+      "exists": true
+    },
+    {
+      "raw_text": "Jason Yosinski, Jeff Clune, Yoshua Bengio, and Hod\nLipson. 2014. How transferable are features in deep\nneural networks? In Advances in neural information\nprocessing systems, pages 3320\u20133328.",
+      "authors": [
+        "Jason Yosinski",
+        "Jeff Clune",
+        "Yoshua Bengio",
+        "Hod Lipson"
+      ],
+      "title": "How transferable are features in deep neural networks?",
+      "journal": "Advances in neural information processing systems",
+      "year": 2014,
+      "doi": "10.48550/arxiv.1411.1792",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Many deep neural networks trained on natural images exhibit a curious phenomenon in common: on the first layer they learn features similar to Gabor filters and color blobs. Such first-layer features appear not to be specific to a particular dataset or task, but general in that they are applicable to many datasets and tasks. Features must eventually transition from general to specific by the last layer of the network, but this transition has not been studied extensively. In this paper we experimentally quantify the generality versus specificity of neurons in each layer of a deep convolutional neural network and report a few surprising results. Transferability is negatively affected by two distinct issues: (1) the specialization of higher layer neurons to their original task at the expense of performance on the target task, which was expected, and (2) optimization difficulties related to splitting networks between co-adapted neurons, which was not expected. In an example network trained on ImageNet, we demonstrate that either of these two issues may dominate, depending on whether features are transferred from the bottom, middle, or top of the network. We also document that the transferability of features decreases as the distance between the base task and target task increases, but that transferring features even from distant tasks can be better than using random features. A final surprising result is that initializing a network with transferred features from almost any number of layers can produce a boost to generalization that lingers even after fine-tuning to the target dataset.",
+      "exists": true
+    },
+    {
+      "raw_text": "Adams Wei Yu, David Dohan, Minh-Thang Luong, Rui\nZhao, Kai Chen, Mohammad Norouzi, and Quoc V\nLe. 2018.\nQANet: Combining local convolution\nwith global self-attention for reading comprehen-\nsion. In ICLR.",
+      "authors": [
+        "Adams Wei Yu",
+        "David Dohan",
+        "Minh-Thang Luong",
+        "Rui Zhao",
+        "Kai Chen",
+        "Mohammad Norouzi",
+        "Quoc V Le"
+      ],
+      "title": "QANet: Combining local convolution with global self-attention for reading comprehension",
+      "journal": "ICLR",
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Current end-to-end machine reading and question answering (Q\\&A) models are primarily based on recurrent neural networks (RNNs) with attention. Despite their success, these models are often slow for both training and inference due to the sequential nature of RNNs. We propose a new Q\\&A architecture called QANet, which does not require recurrent networks: Its encoder consists exclusively of convolution and self-attention, where convolution models local interactions and self-attention models global interactions. On the SQuAD dataset, our model is 3x to 13x faster in training and 4x to 9x faster in inference, while achieving equivalent accuracy to recurrent models. The speed-up gain allows us to train the model with much more data. We hence combine our model with data generated by backtranslation from a neural machine translation model. On the SQuAD dataset, our single model, trained with augmented data, achieves 84.6 F1 score on the test set, which is significantly better than the best published F1 score of 81.8.",
+      "exists": true
+    },
+    {
+      "raw_text": "Rowan Zellers, Yonatan Bisk, Roy Schwartz, and Yejin\nChoi. 2018. Swag: A large-scale adversarial dataset\nfor grounded commonsense inference. In Proceed-\nings of the 2018 Conference on Empirical Methods\nin Natural Language Processing (EMNLP).",
+      "authors": [
+        "Rowan Zellers",
+        "Yonatan Bisk",
+        "Roy Schwartz",
+        "Yejin Choi"
+      ],
+      "title": "Swag: A large-scale adversarial dataset for grounded commonsense inference",
+      "journal": "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+      "year": 2018,
+      "doi": "10.18653/v1/d18-1009",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Given a partial description like \"she opened the hood of the car,\" humans can reason about the situation and anticipate what might come next (\"then, she examined the engine\"). In this paper, we introduce the task of grounded commonsense inference, unifying natural language inference and commonsense reasoning.",
+      "exists": true
+    },
+    {
+      "raw_text": "Yukun Zhu, Ryan Kiros, Rich Zemel, Ruslan Salakhut-\ndinov, Raquel Urtasun, Antonio Torralba, and Sanja\nFidler. 2015. Aligning books and movies: Towards\nstory-like visual explanations by watching movies\nIn Proceedings of the IEEE\nand reading books.\ninternational conference on computer vision, pages\n19\u201327.",
+      "authors": [
+        "Yukun Zhu",
+        "Ryan Kiros",
+        "Rich Zemel",
+        "Ruslan Salakhutdinov",
+        "Raquel Urtasun",
+        "Antonio Torralba",
+        "Sanja Fidler"
+      ],
+      "title": "Aligning books and movies: Towards story-like visual explanations by watching movies and reading books",
+      "journal": "Proceedings of the IEEE international conference on computer vision",
+      "year": 2015,
+      "doi": "10.1109/iccv.2015.11",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Books are a rich source of both fine-grained information, how a character, an object or a scene looks like, as well as high-level semantics, what someone is thinking, feeling and how these states evolve through a story. This paper aims to align books to their movie releases in order to provide rich descriptive explanations for visual content that go semantically far beyond the captions available in the current datasets. To align movies and books we propose a neural sentence embedding that is trained in an unsupervised way from a large corpus of books, as well as a video-text neural embedding for computing similarities between movie clips and sentences in the book. We propose a context-aware CNN to combine information from multiple sources. We demonstrate good quantitative performance for movie/book alignment and show several qualitative examples that showcase the diversity of tasks our model can be used for.",
+      "exists": true
+    },
+    {
+      "raw_text": "Hendrycks, D. and Gimpel, J. (2016). Gaussian error linear units (gelus). arXiv preprint arXiv:1606.08415.",
+      "authors": [
+        "Hendrycks",
+        "Gimpel"
+      ],
+      "title": "Gaussian error linear units (gelus)",
+      "journal": null,
+      "year": 2016,
+      "doi": null,
+      "arxiv_id": "arXiv:1606.08415",
+      "url": null,
+      "resolved": true,
+      "source_text": "We propose the Gaussian Error Linear Unit (GELU), a high-performing neural network activation function. The GELU activation function is $x\\Phi(x)$, where $\\Phi(x)$ the standard Gaussian cumulative distribution function. The GELU nonlinearity weights inputs by their value, rather than gates inputs by their sign as in ReLUs ($x\\mathbf{1}_{x>0}$). We perform an empirical evaluation of the GELU nonlinearity against the ReLU and ELU activations and find performance improvements across all considered computer vision, natural language processing, and speech tasks.",
+      "exists": true
+    },
+    {
+      "raw_text": "Williams, A., Nangia, N., and Bowman, S. R. (2018). A broad-coverage challenge corpus for sentence understanding through inference. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers), pages 1112\u20131122. Association for Computational Linguistics.",
+      "authors": [
+        "Williams",
+        "Nangia",
+        "Bowman"
+      ],
+      "title": "A broad-coverage challenge corpus for sentence understanding through inference",
+      "journal": "Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers)",
+      "year": 2018,
+      "doi": "10.18653/v1/n18-1101",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Adina Williams, Nikita Nangia, Samuel Bowman. Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers). 2018.",
+      "exists": true
+    },
+    {
+      "raw_text": "Chen, Q., Zhuo, L., and Wang, Z. (2018). Universal natural language processing pipelines; return of the texar framework. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing: System Demonstrations, pages 122\u2013127.",
+      "authors": [
+        "Chen",
+        "Zhuo",
+        "Wang"
+      ],
+      "title": "Universal natural language processing pipelines; return of the texar framework",
+      "journal": "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing: System Demonstrations",
+      "year": 2018,
+      "doi": "10.7717/peerjcs.1274/fig-3",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "",
+      "exists": true
+    },
+    {
+      "raw_text": "Rajpurkar, P., Zhang, J., Lopyrev, K., and Liang, P. (2016). Squad: 100,000+ questions for machine comprehension of text. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, pages 2383\u20132392.",
+      "authors": [
+        "Rajpurkar",
+        "Zhang",
+        "Lopyrev",
+        "Liang"
+      ],
+      "title": "Squad: 100,000+ questions for machine comprehension of text",
+      "journal": "Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing",
+      "year": 2016,
+      "doi": "10.18653/v1/d16-1264",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "",
+      "exists": true
+    },
+    {
+      "raw_text": "Wang, A., Singh, A., Michael, J., Hill, F., Levy, O., and Bowman, S. R. (2018a). Glue: A multi-task benchmark and analysis platform for natural language understanding. In Proceedings of the 2018 EMNLP Workshop BlackboxNLP: Analyzing and Interpreting Neural Networks for NLP, pages 353\u2013355.",
+      "authors": [
+        "Wang",
+        "Singh",
+        "Michael",
+        "Hill",
+        "Levy",
+        "Bowman"
+      ],
+      "title": "Glue: A multi-task benchmark and analysis platform for natural language understanding",
+      "journal": "Proceedings of the 2018 EMNLP Workshop BlackboxNLP: Analyzing and Interpreting Neural Networks for NLP",
+      "year": 2018,
+      "doi": "10.18653/v1/w18-5446",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Human ability to understand language is general, flexible, and robust. In contrast, most NLU models above the word level are designed for a specific task and struggle with out-of-domain data. If we aspire to develop models with understanding beyond the detection of superficial correspondences between inputs and outputs, then it is critical to develop a unified model that can execute a range of linguistic tasks across different domains. To facilitate research in this direction, we present the General Language Understanding Evaluation (GLUE, gluebenchmark.com): a benchmark of nine diverse NLU tasks, an auxiliary dataset for probing models for understanding of specific linguistic phenomena, and an online platform for evaluating and comparing models. For some benchmark tasks, training data is plentiful, but for others it is limited or does not match the genre of the test set. GLUE thus favors models that can represent linguistic knowledge in a way that facilitates sample-efficient learning and effective knowledge-transfer across tasks. While none of the datasets in GLUE were created from scratch for the benchmark, four of them feature privately-held test data, which is used to ensure that the benchmark is used fairly. We evaluate baselines that use ELMo (Peters et al., 2018), a powerful transfer learning technique, as well as state-of-the-art sentence representation models. The best models still achieve fairly low absolute scores. Analysis with our diagnostic dataset yields similarly weak performance over all phenomena tested, with some exceptions.",
+      "exists": true
+    },
+    {
+      "raw_text": "Socher, R., Perelygin, A., Wu, J., Chuang, J., Manning, C. D., Ng, A., and Potts, C. (2013). Recursive deep models for semantic compositionality over a sentiment treebank. In Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing, pages 1631\u20131642.",
+      "authors": [
+        "Socher",
+        "Perelygin",
+        "Wu",
+        "Chuang",
+        "Manning",
+        "Ng",
+        "Potts"
+      ],
+      "title": "Recursive deep models for semantic compositionality over a sentiment treebank",
+      "journal": "Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing",
+      "year": 2013,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Semantic word spaces have been very useful but cannot express the meaning of longer phrases in a principled way. Further progress towards understanding compositionality in tasks such as sentiment detection requires richer supervised training and evaluation resources and more powerful models of composition. To remedy this, we introduce a Sentiment Treebank. It includes fine grained sentiment labels for 215,154 phrases in the parse trees of 11,855 sentences and presents new challenges for sentiment compositionality. To address them, we introduce the Recursive Neural Tensor Network. When trained on the new treebank, this model outperforms all previous methods on several metrics. It pushes the state of the art in single sentence positive/negative classification from 80% up to 85.4%. The accuracy of predicting fine-grained sentiment labels for all phrases reaches 80.7%, an improvement of 9.7% over bag of features baselines. Lastly, it is the only model that can accurately capture the effects of negation and its scope at various tree levels for both positive and negative phrases.",
+      "exists": true
+    },
+    {
+      "raw_text": "Warstadt, A., Singh, A., and Bowman, S. R. (2018). Neural network acceptability judgments. arXiv preprint arXiv:1805.12471.",
+      "authors": [
+        "Warstadt",
+        "Singh",
+        "Bowman"
+      ],
+      "title": "Neural network acceptability judgments",
+      "journal": null,
+      "year": 2018,
+      "doi": null,
+      "arxiv_id": "arXiv:1805.12471",
+      "url": null,
+      "resolved": true,
+      "source_text": "Abstract This paper investigates the ability of artificial neural networks to judge the grammatical acceptability of a sentence, with the goal of testing their linguistic competence. We introduce the Corpus of Linguistic Acceptability (CoLA), a set of 10,657 English sentences labeled as grammatical or ungrammatical from published linguistics literature. As baselines, we train several recurrent neural network models on acceptability classification, and find that our models outperform unsupervised models by Lau et al. (2016) on CoLA. Error-analysis on specific grammatical phenomena reveals that both Lau et al.\u2019s models and ours learn systematic generalizations like subject-verb-object order. However, all models we test perform far below human level on a wide range of grammatical constructions.",
+      "exists": true
+    },
+    {
+      "raw_text": "Cer, D., Diab, M., Agirre, E., Lopez-Gazpio, I., and Specia, L. (2017). Semeval-2017 task 1: Semantic textual similarity multilingual and crosslingual focused evaluation. In Proceedings of the 11th International Workshop on Semantic Evaluation (SemEval-2017), pages 1\u201314.",
+      "authors": [
+        "Cer",
+        "Diab",
+        "Agirre",
+        "Lopez-Gazpio",
+        "Specia"
+      ],
+      "title": "Semeval-2017 task 1: Semantic textual similarity multilingual and crosslingual focused evaluation",
+      "journal": "Proceedings of the 11th International Workshop on Semantic Evaluation (SemEval-2017)",
+      "year": 2017,
+      "doi": "10.18653/v1/s17-2001",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "Semantic Textual Similarity (STS) measures the meaning similarity of sentences. Applications include machine translation (MT), summarization, generation, question answering (QA), short answer grading, semantic search, dialog and conversational systems. The STS shared task is a venue for assessing the current state-of-the-art. The 2017 task focuses on multilingual and cross-lingual pairs with one sub-track exploring MT quality estimation (MTQE) data. The task obtained strong participation from 31 teams, with 17 participating in all language tracks. We summarize performance and review a selection of well performing methods. Analysis highlights common errors, providing insight into the limitations of existing models. To support ongoing work on semantic representations, the STS Benchmark is introduced as a new shared training and evaluation set carefully selected from the corpus of English STS shared task data (2012)(2013)(2014)(2015)(2016)(2017).",
+      "exists": true
+    },
+    {
+      "raw_text": "Dolan, B. and Brockett, C. (2005). Automatically constructing a corpus of sentential paraphrases. In Proceedings of the Third International Workshop on Paraphrasing (IWP2005).",
+      "authors": [
+        "Dolan",
+        "Brockett"
+      ],
+      "title": "Automatically constructing a corpus of sentential paraphrases",
+      "journal": "Proceedings of the Third International Workshop on Paraphrasing (IWP2005)",
+      "year": 2005,
+      "doi": null,
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "An obstacle to research in automatic paraphrase identification and genera-tion is the lack of large-scale, publicly-available labeled corpora of sentential paraphrases. This paper describes the creation of the recently-released Micro-soft Research Paraphrase Corpus, which contains 5801 sentence pairs, each hand-labeled with a binary judg-ment as to whether the pair constitutes a paraphrase. The corpus was created using heuristic extraction techniques in conjunction with an SVM-based classi-fier to select likely sentence-level para-phrases from a large corpus of topic-clustered news data. These pairs were then submitted to human judges, who confirmed that 67 % were in fact se-mantically equivalent. In addition to describing the corpus itself, we explore a number of issues that arose in defin-ing guidelines for the human raters.",
+      "exists": true
+    },
+    {
+      "raw_text": "Bentivogli, L., Dagan, I., Dang, H. T., Giampiccolo, D., and Magnini, B. (2009). The \ufb01fth pascal recognizing textual entailment challenge. In TAC.",
+      "authors": [
+        "Bentivogli",
+        "Dagan",
+        "Dang",
+        "Giampiccolo",
+        "Magnini"
+      ],
+      "title": "The \ufb01fth pascal recognizing textual entailment challenge",
+      "journal": "TAC",
+      "year": 2009,
+      "doi": "10.3115/1654536.1654538",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "",
+      "exists": true
+    },
+    {
+      "raw_text": "Levesque, H., Davis, E., and Morgenstern, L. (2011). The winograd schema challenge. In Proceedings of the 13th International Conference on Principles of Knowledge Representation and Reasoning, pages 552\u2013561.",
+      "authors": [
+        "Levesque",
+        "Davis",
+        "Morgenstern"
+      ],
+      "title": "The winograd schema challenge",
+      "journal": "Proceedings of the 13th International Conference on Principles of Knowledge Representation and Reasoning",
+      "year": 2011,
+      "doi": "10.29007/rnk8",
+      "arxiv_id": null,
+      "url": null,
+      "resolved": true,
+      "source_text": "CAPTCHAs have established themselves as a standard technology to confidently distinguish humans from bots. Beyond the typical use for security reasons, CAPTCHAs have helped promote AI research in challenge tasks such as image classification and optical character recognition. It is, therefore, natural to consider what other challenge tasks for AI could serve a role in CAPTCHAs. The Winograd Schema Challenge (WSC), a certain form of hard pronoun resolution tasks, was proposed by Levesque as such a challenge task to promote research in AI. Based on current reports in the literature, the WSC remains a challenging task for bots, and is, therefore, a candidate to serve as a form of CAPTCHA. In this work we investigate whether this a priori appropriateness of the WSC as a form of CAPTCHA can be justified in terms of its acceptability by the human users in relation to existing CAPTCHA tasks. Our empirical study involved a total of 329 students, aged between 11 and 15, and showed that the WSC is generally faster and easier to solve than, and equally entertaining with, the most typical existing CAPTCHA tasks.",
+      "exists": true
+    }
+  ],
+  "verification_results": [
+    {
+      "claim_text": "Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers.",
+      "verdict": "out_of_scope",
+      "confidence": 0.95,
+      "explanation": "The cited sources discuss character-level language modeling and contextual string embeddings, but do not mention BERT or its bidirectional pre-training approach. The claim about BERT's design is not addressed in either source.",
+      "relevant_passage": null,
+      "citation_indices": [
+        0,
+        1
+      ]
+    },
+    {
+      "claim_text": "We argue that current techniques restrict the power of the pre-trained representations, especially for the fine-tuning approaches.",
+      "verdict": "unverifiable",
+      "confidence": 0.0,
+      "explanation": "No citations (resolved or raw) available for this claim.",
+      "relevant_passage": null,
+      "citation_indices": []
+    },
+    {
+      "claim_text": "ELMo and its predecessor (Peters et al., 2017, 2018a) generalize traditional word embedding research along a different dimension.",
+      "verdict": "out_of_scope",
+      "confidence": 0.9,
+      "explanation": "The cited sources do not discuss ELMo or its predecessor, nor do they address the generalization of traditional word embedding research. The sources focus on semi-supervised learning and character-level language models, which are unrelated to the claim.",
+      "relevant_passage": null,
+      "citation_indices": [
+        2,
+        0
+      ]
+    },
+    {
+      "claim_text": "ELMo advances the state of the art for several major NLP benchmarks (Peters et al., 2018a) including question answering (Rajpurkar et al., 2016), sentiment analysis (Socher et al., 2013), and named entity recognition (Tjong Kim Sang and De Meulder, 2003).",
+      "verdict": "out_of_scope",
+      "confidence": 0.95,
+      "explanation": "The cited sources do not mention ELMo or its performance on NLP benchmarks. The sources discuss various NLP tasks and methods, but none of them reference the ELMo model or its impact on question answering, sentiment analysis, or named entity recognition.",
+      "relevant_passage": null,
+      "citation_indices": [
+        0,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "claim_text": "OpenAI GPT (Radford et al., 2018) achieved previously state-of-the-art results on many sentence-level tasks from the GLUE benchmark (Wang et al., 2018a).",
+      "verdict": "unverifiable",
+      "confidence": 0.8,
+      "explanation": "The provided sources do not contain any information about OpenAI GPT or its performance on the GLUE benchmark. The sources discuss character-level language modeling with transformers and class-based n-gram models, which are unrelated to the claim about OpenAI GPT's state-of-the-art results.",
+      "relevant_passage": null,
+      "citation_indices": [
+        1,
+        6
+      ]
+    },
+    {
+      "claim_text": "The NSP task is closely related to representation-learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018).",
+      "verdict": "unverifiable",
+      "confidence": 0.8,
+      "explanation": "The cited sources do not mention the NSP task or its relation to representation-learning objectives. The sources discuss semantic textual similarity and language modeling benchmarks, which are not directly related to the claim about NSP and its connection to prior work by Jernite et al. (2017) and Logeswaran and Lee (2018).",
+      "relevant_passage": null,
+      "citation_indices": [
+        7,
+        8
+      ]
+    },
+    {
+      "claim_text": "We demonstrate the importance of bidirectional pre-training for language representations.",
+      "verdict": "unverifiable",
+      "confidence": 0.0,
+      "explanation": "No citations (resolved or raw) available for this claim.",
+      "relevant_passage": null,
+      "citation_indices": []
+    },
+    {
+      "claim_text": "We show that pre-trained representations reduce the need for many heavily-engineered task-specific architectures.",
+      "verdict": "unverifiable",
+      "confidence": 0.0,
+      "explanation": "No citations (resolved or raw) available for this claim.",
+      "relevant_passage": null,
+      "citation_indices": []
+    },
+    {
+      "claim_text": "BERT advances the state of the art for eleven NLP tasks.",
+      "verdict": "unverifiable",
+      "confidence": 0.0,
+      "explanation": "No citations (resolved or raw) available for this claim.",
+      "relevant_passage": null,
+      "citation_indices": []
+    }
+  ],
+  "statistical_audit_results": [
+    {
+      "assertion_text": "BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes.",
+      "is_internally_consistent": true,
+      "issues": [],
+      "severity": "low"
+    },
+    {
+      "assertion_text": "BERTBASE (L=12, H=768, A=12, Total Parameters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M).",
+      "is_internally_consistent": true,
+      "issues": [],
+      "severity": "low"
+    },
+    {
+      "assertion_text": "BERTBASE and BERTLARGE outperform all systems on all tasks by a substantial margin, obtaining 4.5% and 7.0% respective average accuracy improvement over the prior state of the art.",
+      "is_internally_consistent": true,
+      "issues": [],
+      "severity": "low"
+    },
+    {
+      "assertion_text": "For the largest and most widely reported GLUE task, MNLI, BERT obtains a 4.6% absolute accuracy improvement.",
+      "is_internally_consistent": true,
+      "issues": [],
+      "severity": "low"
+    },
+    {
+      "assertion_text": "On the of\ufb01cial GLUE leaderboard10, BERTLARGE obtains a score of 80.5, compared to OpenAI GPT, which obtains 72.8 as of the date of writing.",
+      "is_internally_consistent": true,
+      "issues": [],
+      "severity": "low"
+    },
+    {
+      "assertion_text": "Our best performing system outperforms the top leaderboard system by +1.5 F1 in ensembling and +1.3 F1 as a single system.",
+      "is_internally_consistent": true,
+      "issues": [],
+      "severity": "low"
+    },
+    {
+      "assertion_text": "In fact, our single BERT model outperforms the top ensemble sys-tem in terms of F1 score.",
+      "is_internally_consistent": true,
+      "issues": [],
+      "severity": "low"
+    },
+    {
+      "assertion_text": "Without TriviaQA \ufb01ne-tuning data, we only lose 0.1-0.4 F1, still outper-forming all existing systems by a wide margin.",
+      "is_internally_consistent": true,
+      "issues": [],
+      "severity": "low"
+    },
+    {
+      "assertion_text": "We observe a +5.1 F1 improvement over the previous best system.",
+      "is_internally_consistent": true,
+      "issues": [],
+      "severity": "low"
+    },
+    {
+      "assertion_text": "BERTLARGE outperforms the authors\u2019 baseline ESIM+ELMo sys-tem by +27.1% and OpenAI GPT by 8.3%.",
+      "is_internally_consistent": true,
+      "issues": [],
+      "severity": "low"
+    },
+    {
+      "assertion_text": "The best performing method concatenates the token representations from the top four hidden lay-ers of the pre-trained Transformer, which is only 0.3 F1 behind \ufb01ne-tuning the entire model.",
+      "is_internally_consistent": true,
+      "issues": [],
+      "severity": "low"
+    }
+  ],
+  "summary": {
+    "total_citations": 67,
+    "resolved_count": 66,
+    "hallucinated_count": 0,
+    "supported_claims": 0,
+    "flagged_claims": 3
+  },
+  "errors": []
+}

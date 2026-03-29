@@ -67,9 +67,40 @@ def extractor_node(state: PipelineState) -> dict[str, Any]:
     references_raw = parsed.get("references_raw") or ""
 
     agent = HermesAgent()
-    raw_citations = agent.extract_citations(references_raw)
-    raw_claims = agent.extract_claims(paper_text, sections)
-    raw_stats = agent.extract_statistical_assertions(paper_text)
+    errors: list[str] = []
+
+    # Citation extraction must finish first (claims reference citation indices).
+    # Claims + stats extraction are independent and run concurrently.
+    try:
+        raw_citations = agent.extract_citations(references_raw)
+    except Exception as exc:
+        raw_citations = []
+        errors.append(f"extractor_node: citation extraction failed: {exc}")
+
+    from concurrent.futures import ThreadPoolExecutor, Future
+
+    raw_claims: list[dict] = []
+    raw_stats: list[dict] = []
+
+    def _extract_claims() -> list[dict]:
+        return agent.extract_claims(paper_text, sections, citations=raw_citations)
+
+    def _extract_stats() -> list[dict]:
+        return agent.extract_statistical_assertions(paper_text)
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        claim_future: Future = pool.submit(_extract_claims)
+        stats_future: Future = pool.submit(_extract_stats)
+
+        try:
+            raw_claims = claim_future.result(timeout=180)
+        except Exception as exc:
+            errors.append(f"extractor_node: claim extraction failed: {exc}")
+
+        try:
+            raw_stats = stats_future.result(timeout=180)
+        except Exception as exc:
+            errors.append(f"extractor_node: statistical assertion extraction failed: {exc}")
 
     citations: list[Citation] = []
     for item in raw_citations:
@@ -92,7 +123,7 @@ def extractor_node(state: PipelineState) -> dict[str, Any]:
             if s is not None and s.text.strip():
                 statistical_assertions.append(s)
 
-    return {
+    result = {
         "paper_text": paper_text,
         "paper_title": parsed.get("title"),
         "paper_abstract": parsed.get("abstract"),
@@ -101,3 +132,6 @@ def extractor_node(state: PipelineState) -> dict[str, Any]:
         "statistical_assertions": statistical_assertions,
         "current_phase": "extraction_complete",
     }
+    if errors:
+        result["errors"] = errors
+    return result

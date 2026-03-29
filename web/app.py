@@ -6,6 +6,7 @@ import json
 import logging
 import threading
 import uuid
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -34,26 +35,130 @@ _jobs: dict[str, dict[str, Any]] = {}
 # ── Helpers ──────────────────────────────────────────────────────────
 
 
-def _scan_reviews(directory: Path) -> list[dict[str, Any]]:
-    reviews: list[dict[str, Any]] = []
-    for f in sorted(directory.glob("*_review_data.json")):
+def _write_upload_meta(stem: str, original_filename: str) -> None:
+    """Record original upload filename and time for user-uploaded reviews."""
+    name = (original_filename or "upload").strip() or "upload"
+    payload = {
+        "original_filename": name,
+        "uploaded_at": datetime.now(timezone.utc).isoformat(),
+    }
+    (UPLOADS_DIR / f"{stem}.meta.json").write_text(
+        json.dumps(payload, indent=2), encoding="utf-8",
+    )
+
+
+def _load_upload_meta(stem: str) -> dict[str, Any] | None:
+    path = UPLOADS_DIR / f"{stem}.meta.json"
+    if not path.is_file():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else None
+    except Exception:
+        return None
+
+
+def _format_upload_timestamp(iso_ts: str | None) -> str:
+    if not iso_ts:
+        return ""
+    try:
+        dt = datetime.fromisoformat(iso_ts.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        dt_utc = dt.astimezone(timezone.utc)
+        return dt_utc.strftime("%Y-%m-%d %H:%M UTC")
+    except ValueError:
+        return iso_ts
+
+
+def _upload_sort_key(json_path: Path, meta: dict[str, Any] | None) -> float:
+    if meta and meta.get("uploaded_at"):
         try:
-            data = json.loads(f.read_text(encoding="utf-8"))
-            summary = data.get("summary", {})
-            name = f.stem.replace("_review_data", "")
-            pdf_exists = (f.parent / f"{name}.pdf").exists()
-            reviews.append({
-                "name": name,
-                "display_name": name.replace("_", " ").replace("-", " ").title(),
-                "filename": f.name,
-                "directory": str(f.parent),
-                "summary": summary,
-                "pdf_available": pdf_exists,
-                "verification_count": len(data.get("verification_results", [])),
-                "audit_count": len(data.get("statistical_audit_results", [])),
-            })
-        except Exception as exc:
-            logger.warning("Skipping %s: %s", f, exc)
+            dt = datetime.fromisoformat(str(meta["uploaded_at"]).replace("Z", "+00:00"))
+            return dt.timestamp()
+        except ValueError:
+            pass
+    try:
+        return json_path.stat().st_mtime
+    except OSError:
+        return 0.0
+
+
+def _build_review_card(
+    json_path: Path,
+    *,
+    example: bool,
+) -> dict[str, Any] | None:
+    try:
+        data = json.loads(json_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        logger.warning("Skipping %s: %s", json_path, exc)
+        return None
+
+    summary = data.get("summary", {})
+    stem = json_path.stem.replace("_review_data", "")
+    pdf_exists = (json_path.parent / f"{stem}.pdf").exists()
+    paper_title = (data.get("title") or "").strip()
+
+    if example:
+        display_name = paper_title if paper_title else stem.replace("_", " ").replace("-", " ").title()
+        subtitle = "Example"
+        sort_key = 0.0
+    else:
+        meta = _load_upload_meta(stem)
+        if meta and (meta.get("original_filename") or "").strip():
+            display_name = str(meta["original_filename"]).strip()
+        elif paper_title:
+            display_name = paper_title
+        else:
+            display_name = stem
+        if meta and meta.get("uploaded_at"):
+            subtitle = _format_upload_timestamp(str(meta["uploaded_at"]))
+        else:
+            try:
+                m = json_path.stat().st_mtime
+                subtitle = datetime.fromtimestamp(m, tz=timezone.utc).strftime(
+                    "%Y-%m-%d %H:%M UTC (saved)"
+                )
+            except OSError:
+                subtitle = ""
+        sort_key = _upload_sort_key(json_path, meta)
+
+    row: dict[str, Any] = {
+        "name": stem,
+        "display_name": display_name,
+        "subtitle": subtitle,
+        "filename": json_path.name,
+        "directory": str(json_path.parent),
+        "summary": summary,
+        "pdf_available": pdf_exists,
+        "verification_count": len(data.get("verification_results", [])),
+        "audit_count": len(data.get("statistical_audit_results", [])),
+        "example": example,
+    }
+    if not example:
+        row["_sort_key"] = sort_key
+    return row
+
+
+def _scan_example_reviews() -> list[dict[str, Any]]:
+    reviews: list[dict[str, Any]] = []
+    for f in sorted(DATA_DIR.glob("*_review_data.json")):
+        card = _build_review_card(f, example=True)
+        if card:
+            reviews.append(card)
+    return reviews
+
+
+def _scan_user_upload_reviews() -> list[dict[str, Any]]:
+    reviews: list[dict[str, Any]] = []
+    for f in UPLOADS_DIR.glob("*_review_data.json"):
+        card = _build_review_card(f, example=False)
+        if card:
+            reviews.append(card)
+    reviews.sort(key=lambda r: r.get("_sort_key", 0.0), reverse=True)
+    for r in reviews:
+        r.pop("_sort_key", None)
     return reviews
 
 
@@ -130,9 +235,13 @@ def _run_pipeline_thread(upload_id: str, pdf_path: str) -> None:
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    reviews = _scan_reviews(DATA_DIR) + _scan_reviews(UPLOADS_DIR)
     return templates.TemplateResponse(
-        request, "index.html", {"reviews": reviews},
+        request,
+        "index.html",
+        {
+            "example_reviews": _scan_example_reviews(),
+            "upload_reviews": _scan_user_upload_reviews(),
+        },
     )
 
 
@@ -221,9 +330,12 @@ async def upload(
     if results_json and results_json.filename:
         json_dest = UPLOADS_DIR / f"{upload_id}_review_data.json"
         json_dest.write_bytes(await results_json.read())
+        label = results_json.filename or "results.json"
         if pdf and pdf.filename:
             pdf_dest = UPLOADS_DIR / f"{upload_id}.pdf"
             pdf_dest.write_bytes(await pdf.read())
+            label = pdf.filename or label
+        _write_upload_meta(upload_id, label)
         return RedirectResponse(
             f"/review/uploads/{json_dest.name}", status_code=303,
         )
@@ -232,10 +344,13 @@ async def upload(
     if pdf and pdf.filename:
         pdf_dest = UPLOADS_DIR / f"{upload_id}.pdf"
         pdf_dest.write_bytes(await pdf.read())
+        original = pdf.filename or "document.pdf"
+        _write_upload_meta(upload_id, original)
         _jobs[upload_id] = {
             "status": "running",
             "phase": "Starting pipeline...",
             "error": None,
+            "original_filename": original,
         }
         thread = threading.Thread(
             target=_run_pipeline_thread,
@@ -250,8 +365,14 @@ async def upload(
 
 @app.get("/processing/{upload_id}", response_class=HTMLResponse)
 async def processing_page(request: Request, upload_id: str):
+    job = _jobs.get(upload_id) or {}
     return templates.TemplateResponse(
-        request, "processing.html", {"upload_id": upload_id},
+        request,
+        "processing.html",
+        {
+            "upload_id": upload_id,
+            "original_filename": job.get("original_filename") or "",
+        },
     )
 
 

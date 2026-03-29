@@ -90,6 +90,7 @@
 <div class="container">
   <div class="spinner" id="spinner"></div>
   <h2>Analyzing Paper</h2>
+  {% if original_filename %}<p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.6rem;">{{ original_filename }}</p>{% endif %}
   <p class="phase" id="phase">Starting pipeline...</p>
 
   <div class="progress-wrap">

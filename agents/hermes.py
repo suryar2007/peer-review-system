@@ -91,21 +91,20 @@ def _salvage_truncated_json(text: str) -> dict[str, Any] | None:
     return None
 
 
-def _parse_json_object(content: str) -> dict[str, Any]:
+def _parse_json_object(content: str) -> tuple[dict[str, Any], bool]:
+    """Parse JSON from model output.  Returns ``(data, was_salvaged)``."""
     text = _strip_json_fence(content)
-    # Try normal parse first
     try:
         out = _try_parse_json(text)
         if isinstance(out, dict):
-            return out
+            return out, False
     except json.JSONDecodeError:
         pass
 
-    # Try salvaging truncated JSON (common with large reference lists)
     salvaged = _salvage_truncated_json(text)
     if isinstance(salvaged, dict):
         logger.warning("Salvaged truncated JSON from model output")
-        return salvaged
+        return salvaged, True
 
     raise HermesExtractionError("Invalid JSON from model — could not parse or salvage")
 
@@ -154,14 +153,13 @@ def _split_references_into_chunks(text: str, max_refs_per_chunk: int = 30) -> li
         return chunks if chunks else [text]
 
     # --- Strategy 3: author-year format (e.g. "Firstname Lastname, Firstname ...") ---
-    # A new reference starts when the previous line ends a reference (period, URL,
-    # arXiv ID) and the current line starts with a capitalized first name.
+    # A new reference starts when the previous line ends a reference and the
+    # current line starts with an author name.
     ref_starts = []
     for i, line in enumerate(lines):
         stripped = line.strip()
         if not stripped:
             continue
-        # Check if previous non-empty line looks like the end of a reference
         if i > 0:
             prev = ""
             for j in range(i - 1, -1, -1):
@@ -169,17 +167,24 @@ def _split_references_into_chunks(text: str, max_refs_per_chunk: int = 30) -> li
                 if p:
                     prev = p
                     break
-            prev_ends_ref = prev.endswith(".") or prev.endswith("}") or \
-                re.search(r"arXiv:\d+\.\d+", prev) is not None or \
-                re.search(r"\d{4}\.$", prev) is not None
+            prev_ends_ref = (
+                prev.endswith(".")
+                or prev.endswith("}")
+                or prev.endswith(")")
+                or re.search(r"arXiv:\d+\.\d+", prev) is not None
+                or re.search(r"\d{4}", prev) is not None
+                or re.search(r"\d+[–-]\d+\.?\s*$", prev) is not None
+            )
             if not prev_ends_ref and i > 0:
                 continue
 
-        # Current line starts with "Firstname Lastname," pattern
-        # (first word is capitalized, not all-caps, followed by more names)
+        # Author name at start of line:
+        #   "Firstname Lastname" | "J. Deng" | "Z. Chen" | "AI@Meta"
         if re.match(r"^[A-Z][a-zà-ü]+\s+[A-Z]", stripped):
             ref_starts.append(i)
-        elif re.match(r"^[A-Z][A-Z]@", stripped):  # e.g. "AI@Meta"
+        elif re.match(r"^[A-Z]\.\s*[A-Z]", stripped):
+            ref_starts.append(i)
+        elif re.match(r"^[A-Z][A-Z]@", stripped):
             ref_starts.append(i)
 
     if len(ref_starts) >= 10:
@@ -229,6 +234,7 @@ class HermesAgent:
         base = settings.nous_base_url.rstrip("/")
         self._client = OpenAI(base_url=base, api_key=settings.nous_api_key)
         self._model = _env_model()
+        self._last_was_salvaged = False
 
         # Lava gateway integration (BYOK mode)
         self._lava_gw = None
@@ -266,7 +272,11 @@ class HermesAgent:
         )
 
     def _complete_via_lava(
-        self, system_prompt: str, user_content: str, temperature: float = 0.1,
+        self,
+        system_prompt: str,
+        user_content: str,
+        temperature: float = 0.1,
+        max_tokens: int = 2000,
     ) -> dict[str, Any]:
         """Call chat completions through Lava's forward proxy. Returns {content, usage}."""
         from agents.lava_gateway import LavaEndpointNotSupported
@@ -279,7 +289,7 @@ class HermesAgent:
             ],
             "response_format": {"type": "json_object"},
             "temperature": temperature,
-            "max_tokens": 2000,
+            "max_tokens": max_tokens,
         }
         resp = self._lava_gw.forward_post(self._completions_url, json_body=body)
         resp.raise_for_status()
@@ -293,6 +303,7 @@ class HermesAgent:
         operation: str,
         system_prompt: str,
         user_content: str,
+        max_tokens: int = 2000,
     ) -> dict[str, Any]:
         from agents.lava_gateway import LavaEndpointNotSupported
 
@@ -305,7 +316,7 @@ class HermesAgent:
                 time.sleep(sleep_s)
             try:
                 if use_lava:
-                    result = self._complete_via_lava(system_prompt, user_content)
+                    result = self._complete_via_lava(system_prompt, user_content, max_tokens=max_tokens)
                     self._log_usage(operation, result.get("usage"))
                     content = result["content"]
                 else:
@@ -317,14 +328,16 @@ class HermesAgent:
                         ],
                         response_format={"type": "json_object"},
                         temperature=0.1,
-                        max_tokens=2000,
+                        max_tokens=max_tokens,
                     )
                     self._log_usage(operation, completion.usage)
                     content = completion.choices[0].message.content
 
                 if not isinstance(content, str) or not content.strip():
                     raise HermesExtractionError("Empty model content")
-                return _parse_json_object(content)
+                data, salvaged = _parse_json_object(content)
+                self._last_was_salvaged = salvaged
+                return data
             except LavaEndpointNotSupported:
                 logger.warning(
                     "Nous endpoint not supported by Lava gateway, "
@@ -388,7 +401,7 @@ class HermesAgent:
         if not text:
             return []
 
-        chunks = _split_references_into_chunks(text, max_refs_per_chunk=30)
+        chunks = _split_references_into_chunks(text, max_refs_per_chunk=12)
         logger.info("Split references into %d chunk(s)", len(chunks))
 
         system = (
@@ -410,6 +423,7 @@ class HermesAgent:
                 operation=f"extract_citations_chunk_{i + 1}",
                 system_prompt=system,
                 user_content=user,
+                max_tokens=8192,
             )
             citations = data.get("citations")
             if isinstance(citations, list):
@@ -418,107 +432,83 @@ class HermesAgent:
         logger.info("Total citations extracted: %d", len(all_citations))
         return all_citations
 
-    def extract_claims(
-        self, paper_text: str, sections: dict, citations: list[dict] | None = None,
+    _CLASSIFY_SYSTEM_PROMPT = (
+        "You are an expert claim classifier for academic peer review.\n"
+        "You are given sentences from a paper that contain in-text citations.\n"
+        "For EACH sentence, decide its claim type.\n\n"
+        "Return ONLY a JSON object: {\"results\": [...]}. No markdown.\n\n"
+
+        "## Claim types\n"
+        "- \"empirical\": attributes a finding or result to the cited work\n"
+        "  e.g. \"Smith et al. [2] showed that attention improves MT\"\n"
+        "- \"statistical\": cites a specific number, metric, or quantitative result\n"
+        "  e.g. \"ELMo improved F1 by 4.7% (Peters et al., 2018)\"\n"
+        "- \"methodological\": attributes a method, technique, or approach\n"
+        "  e.g. \"The Transformer [47] uses self-attention\"\n"
+        "- \"not_a_claim\": bare reference with no factual assertion about the cited work\n"
+        "  e.g. \"see [5] for details\", table headers, dataset attributions\n\n"
+
+        "## Output schema\n"
+        "The \"results\" array must have exactly one entry per input sentence, "
+        "in the same order:\n"
+        "- id (int): the sentence number from the input\n"
+        "- claim_type (string): one of the four types above\n"
+    )
+
+    _CLASSIFY_BATCH_SIZE = 20
+
+    def classify_citation_mentions(
+        self,
+        mentions: list[dict],
     ) -> list[dict]:
-        """
-        Extract up to 50 cited empirical / statistical / methodological claims.
+        """Classify pre-detected citation mentions into claim types.
 
-        Each item: text, paper_section, supporting_citation_indices, claim_type.
-        Indices are 0-based positions in the paper's reference list (bibliography order).
-
-        If ``citations`` is provided (list of extracted citation dicts), a numbered
-        bibliography lookup table is included in the prompt so the model can map
-        author-year references to indices.
+        *mentions* is a list of dicts with ``sentence``, ``section``, and
+        ``citation_indices``.  Returns the same dicts with an added
+        ``claim_type`` field.  Mentions classified as ``not_a_claim`` are
+        excluded from the result.
         """
-        body = (paper_text or "").strip()
-        if not body:
+        if not mentions:
             return []
 
-        sections_json = json.dumps(sections or {}, ensure_ascii=False, indent=2)
-        if len(sections_json) > 40_000:
-            sections_json = sections_json[:40_000] + "\n…(truncated)"
+        # Default everything to "empirical" (fallback if LLM fails)
+        for m in mentions:
+            m.setdefault("claim_type", "empirical")
 
-        # Build a compact bibliography lookup table: "index 0 = [1] Ba et al., 2016, Layer normalization"
-        bib_table = ""
-        if citations:
-            lines: list[str] = []
-            for i, c in enumerate(citations):
-                authors = c.get("authors") or []
-                first_author = authors[0].split(",")[0].strip() if authors else "Unknown"
-                et_al = " et al." if len(authors) > 1 else ""
-                title = (c.get("title") or "")[:80]
-                year = c.get("year") or "?"
-                lines.append(f"  index {i} = [{i+1}] {first_author}{et_al}, {year}, \"{title}\"")
-            bib_table = "\n".join(lines)
+        # Process in batches
+        for batch_start in range(0, len(mentions), self._CLASSIFY_BATCH_SIZE):
+            batch = mentions[batch_start : batch_start + self._CLASSIFY_BATCH_SIZE]
+            numbered = "\n".join(
+                f"{i + 1}. [{m['section']}] {m['sentence']}"
+                for i, m in enumerate(batch)
+            )
+            user = (
+                f"Classify each of the following {len(batch)} sentences.\n\n"
+                f"{numbered}"
+            )
+            try:
+                data = self._chat_json(
+                    operation=f"classify_mentions_batch_{batch_start // self._CLASSIFY_BATCH_SIZE + 1}",
+                    system_prompt=self._CLASSIFY_SYSTEM_PROMPT,
+                    user_content=user,
+                    max_tokens=2000,
+                )
+                results = data.get("results")
+                if isinstance(results, list):
+                    by_id = {int(r.get("id", 0)): r.get("claim_type", "empirical") for r in results if isinstance(r, dict)}
+                    for i, m in enumerate(batch):
+                        ct = by_id.get(i + 1, "empirical")
+                        if ct in ("empirical", "statistical", "methodological", "not_a_claim"):
+                            m["claim_type"] = ct
+            except Exception as exc:
+                logger.warning("Claim classification batch failed: %s", exc)
 
-        system = (
-            "You are an expert claim extractor for academic peer review.\n"
-            "Your task: find every sentence in this paper that makes a factual claim ABOUT "
-            "another paper's findings, methods, or results, and that explicitly cites that paper.\n\n"
-            "Return ONLY a JSON object: {\"claims\": [...]}. No markdown, no commentary.\n\n"
-
-            "## What counts as a cited claim (EXTRACT THESE)\n"
-            "Any sentence that attributes a finding, method, result, or capability to a cited work:\n"
-            "- \"Bahdanau et al. [2] introduced attention for neural MT\" → empirical\n"
-            "- \"LSTM [13] addresses the vanishing gradient problem\" → methodological\n"
-            "- \"ELMo (Peters et al., 2018) improved SQuAD F1 by 4.7%\" → statistical\n"
-            "- \"Following [5,6], we use BPE tokenization\" → methodological\n"
-            "- \"Prior work [3] showed that deeper models converge faster\" → empirical\n"
-            "- \"The Transformer architecture [47] uses self-attention\" → methodological\n\n"
-
-            "## What does NOT count (SKIP THESE)\n"
-            "- The paper's OWN results: \"Our model achieves 28.4 BLEU\" (no external citation)\n"
-            "- Pure architecture descriptions: \"We use 6 encoder layers\" (no citation)\n"
-            "- Vague background: \"NLP has advanced rapidly\" (no specific cited claim)\n"
-            "- Comparison tables where this paper's model is the subject\n\n"
-
-            "## Citation index mapping\n"
-            "Papers use two citation styles. You MUST handle both:\n"
-            "1. BRACKET NUMBERS: [1] → index 0, [2] → index 1, [14] → index 13, etc.\n"
-            "   Rule: subtract 1 from the bracket number.\n"
-            "2. AUTHOR-YEAR: (Peters et al., 2018) or \"Devlin et al. (2019)\" → look up the\n"
-            "   author name + year in the BIBLIOGRAPHY LOOKUP TABLE below to find the index.\n"
-            "   Match by first author last name and year. If ambiguous (e.g. 2018a vs 2018b),\n"
-            "   pick the best match based on context.\n\n"
-
-            "## Rules\n"
-            "- supporting_citation_indices MUST be non-empty for every claim. If you cannot\n"
-            "  determine the index, SKIP that claim entirely.\n"
-            "- Extract the FULL sentence containing the citation, not a fragment.\n"
-            "- Aim for 20-50 claims. Scan the ENTIRE paper — introduction, related work,\n"
-            "  methods, experiments, discussion, conclusion. Related work sections are goldmines.\n"
-            "- claim_type: \"empirical\" (results/findings), \"statistical\" (numbers/metrics),\n"
-            "  \"methodological\" (techniques/approaches)\n\n"
-
-            "## Output schema\n"
-            "Each object in the \"claims\" array:\n"
-            "- text (string): the full sentence with the cited claim\n"
-            "- paper_section (string): section name from the provided sections dict, or \"unknown\"\n"
-            "- supporting_citation_indices (array of int): 0-based indices. NON-EMPTY.\n"
-            "- claim_type (string): \"empirical\" | \"statistical\" | \"methodological\"\n"
+        out = [m for m in mentions if m.get("claim_type") != "not_a_claim"]
+        logger.info(
+            "Classification: %d/%d mentions kept (filtered %d not_a_claim)",
+            len(out), len(mentions), len(mentions) - len(out),
         )
-
-        bib_section = ""
-        if bib_table:
-            bib_section = f"\n\nBIBLIOGRAPHY LOOKUP TABLE (use this to map author-year citations to indices):\n{bib_table}\n"
-
-        user = (
-            f"BIBLIOGRAPHY LOOKUP TABLE:{bib_section}\n\n"
-            f"SECTION NAMES AND BODIES:\n{sections_json}\n\n"
-            f"FULL PAPER TEXT:\n\n{body[:MAX_PAPER_CHARS]}"
-        )
-        data = self._chat_json(
-            operation="extract_claims",
-            system_prompt=system,
-            user_content=user,
-        )
-        claims = data.get("claims")
-        if not isinstance(claims, list):
-            return []
-        # Filter out any claims that snuck through with empty indices
-        out = [c for c in claims if isinstance(c, dict) and c.get("supporting_citation_indices")]
-        return out[:50]
+        return out
 
     def extract_statistical_assertions(self, paper_text: str) -> list[dict]:
         """

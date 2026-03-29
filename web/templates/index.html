@@ -84,7 +84,13 @@
     border-color: var(--accent); box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
     transform: translateY(-2px);
   }
-  .review-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; }
+  .review-card h3 {
+    font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .review-card .subtitle {
+    font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;
+  }
   .review-card .stats {
     display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
     font-size: 0.8rem; color: var(--text-muted);
@@ -99,6 +105,9 @@
   }
   .badge.has-pdf { background: #ecfdf5; color: #059669; }
   .badge.no-pdf { background: #fef2f2; color: #dc2626; }
+  .badge.example-badge { background: var(--accent-light); color: var(--accent); }
+
+  .section-group { margin-bottom: 2.5rem; }
 
   .empty-state { text-align: center; color: var(--text-muted); padding: 3rem; }
 </style>
@@ -139,38 +148,78 @@
     </div>
   </form>
 
-  <div class="section-label">Available Reviews</div>
-
-  {% if reviews %}
-  <div class="reviews-grid">
-    {% for r in reviews %}
-    <a class="review-card" href="/review/{{ 'tests' if 'tests' in r.directory else 'uploads' }}/{{ r.filename }}">
-      <h3>{{ r.display_name }}</h3>
-      <div class="stats">
-        <div>
-          <div class="stat-val">{{ r.summary.get('total_citations', '?') }}</div>
-          <div>Citations</div>
+  {% if upload_reviews %}
+  <div class="section-group">
+    <div class="section-label">Your Uploads</div>
+    <div class="reviews-grid">
+      {% for r in upload_reviews %}
+      <a class="review-card" href="/review/uploads/{{ r.filename }}">
+        <h3 title="{{ r.display_name }}">{{ r.display_name }}</h3>
+        {% if r.subtitle %}<div class="subtitle">{{ r.subtitle }}</div>{% endif %}
+        <div class="stats">
+          <div>
+            <div class="stat-val">{{ r.summary.get('total_citations', '?') }}</div>
+            <div>Citations</div>
+          </div>
+          <div>
+            <div class="stat-val green">{{ r.summary.get('resolved_count', '?') }}</div>
+            <div>Resolved</div>
+          </div>
+          <div>
+            <div class="stat-val green">{{ r.summary.get('supported_claims', '?') }}</div>
+            <div>Supported</div>
+          </div>
+          <div>
+            <div class="stat-val amber">{{ r.summary.get('flagged_claims', '?') }}</div>
+            <div>Flagged</div>
+          </div>
         </div>
-        <div>
-          <div class="stat-val green">{{ r.summary.get('resolved_count', '?') }}</div>
-          <div>Resolved</div>
-        </div>
-        <div>
-          <div class="stat-val green">{{ r.summary.get('supported_claims', '?') }}</div>
-          <div>Supported</div>
-        </div>
-        <div>
-          <div class="stat-val amber">{{ r.summary.get('flagged_claims', '?') }}</div>
-          <div>Flagged</div>
-        </div>
-      </div>
-      <span class="badge {{ 'has-pdf' if r.pdf_available else 'no-pdf' }}">
-        {{ 'PDF available' if r.pdf_available else 'No PDF' }}
-      </span>
-    </a>
-    {% endfor %}
+        <span class="badge {{ 'has-pdf' if r.pdf_available else 'no-pdf' }}">
+          {{ 'PDF available' if r.pdf_available else 'No PDF' }}
+        </span>
+      </a>
+      {% endfor %}
+    </div>
   </div>
-  {% else %}
+  {% endif %}
+
+  {% if example_reviews %}
+  <div class="section-group">
+    <div class="section-label">Examples</div>
+    <div class="reviews-grid">
+      {% for r in example_reviews %}
+      <a class="review-card" href="/review/tests/{{ r.filename }}">
+        <h3 title="{{ r.display_name }}">{{ r.display_name }}</h3>
+        <div class="subtitle">Example</div>
+        <div class="stats">
+          <div>
+            <div class="stat-val">{{ r.summary.get('total_citations', '?') }}</div>
+            <div>Citations</div>
+          </div>
+          <div>
+            <div class="stat-val green">{{ r.summary.get('resolved_count', '?') }}</div>
+            <div>Resolved</div>
+          </div>
+          <div>
+            <div class="stat-val green">{{ r.summary.get('supported_claims', '?') }}</div>
+            <div>Supported</div>
+          </div>
+          <div>
+            <div class="stat-val amber">{{ r.summary.get('flagged_claims', '?') }}</div>
+            <div>Flagged</div>
+          </div>
+        </div>
+        <span class="badge example-badge">Example</span>
+        <span class="badge {{ 'has-pdf' if r.pdf_available else 'no-pdf' }}">
+          {{ 'PDF available' if r.pdf_available else 'No PDF' }}
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if not upload_reviews and not example_reviews %}
   <div class="empty-state">
     <p>No reviews found. Run the pipeline or upload results to get started.</p>
   </div>

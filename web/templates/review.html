@@ -141,28 +141,58 @@ body {
 .pdf-page {
   position: relative; margin-bottom: 12px;
   background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  border-radius: 4px; overflow: hidden;
+  border-radius: 4px;
 }
-.pdf-page canvas { display: block; width: 100%; height: auto; }
+.pdf-page canvas { display: block; }
 
 .highlight-layer {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  position: absolute; top: 0; left: 0;
   pointer-events: none;
 }
 .hl {
   position: absolute; pointer-events: auto; cursor: pointer;
-  border-radius: 2px; transition: opacity 0.15s;
-  mix-blend-mode: multiply;
+  border-bottom: 3px solid var(--hl-color);
+  background: var(--hl-bg);
+  transition: background 0.15s;
 }
-.hl:hover { opacity: 0.6 !important; }
-.hl.active { opacity: 0.6 !important; outline: 2px solid rgba(0,0,0,0.3); outline-offset: 1px; }
+.hl:hover {
+  background: var(--hl-bg-hover) !important;
+}
+.hl.active {
+  background: var(--hl-bg-hover) !important;
+  outline: 2px solid var(--hl-color); outline-offset: 1px;
+}
 
-.hl-contradicted   { background: var(--red);    opacity: 0.22; }
-.hl-overstated     { background: var(--orange); opacity: 0.22; }
-.hl-unverifiable   { background: var(--gray);   opacity: 0.18; }
-.hl-out-of-scope   { background: var(--purple); opacity: 0.22; }
-.hl-supported      { background: var(--green);  opacity: 0.15; }
-.hl-statistical-issue { background: var(--blue); opacity: 0.22; }
+.hl-contradicted {
+  --hl-color: var(--red);
+  --hl-bg: rgba(239,68,68,0.12);
+  --hl-bg-hover: rgba(239,68,68,0.28);
+}
+.hl-overstated {
+  --hl-color: var(--orange);
+  --hl-bg: rgba(245,158,11,0.12);
+  --hl-bg-hover: rgba(245,158,11,0.28);
+}
+.hl-unverifiable {
+  --hl-color: var(--gray);
+  --hl-bg: rgba(107,114,128,0.10);
+  --hl-bg-hover: rgba(107,114,128,0.25);
+}
+.hl-out-of-scope {
+  --hl-color: var(--purple);
+  --hl-bg: rgba(168,85,247,0.12);
+  --hl-bg-hover: rgba(168,85,247,0.28);
+}
+.hl-supported {
+  --hl-color: var(--green);
+  --hl-bg: rgba(34,197,94,0.08);
+  --hl-bg-hover: rgba(34,197,94,0.22);
+}
+.hl-statistical-issue {
+  --hl-color: var(--blue);
+  --hl-bg: rgba(59,130,246,0.12);
+  --hl-bg-hover: rgba(59,130,246,0.28);
+}
 
 /* ── Popover ── */
 .popover-overlay { position: fixed; inset: 0; z-index: 999; display: none; }
@@ -327,42 +357,54 @@ const LABELS = {contradicted:'Contradicted',overstated:'Overstated',out_of_scope
 if (PDF_URL) {
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-  let currentScale = 1.5;
+  const DPR = window.devicePixelRatio || 1;
+  let baseScale = 1.5;
   const viewer = document.getElementById('pdfViewer');
   let pdfDoc = null;
 
   async function renderPage(page, pageNum) {
-    const viewport = page.getViewport({ scale: currentScale });
+    // Render at high resolution for crisp text
+    const renderScale = baseScale * DPR;
+    const renderViewport = page.getViewport({ scale: renderScale });
+    // CSS display size (without DPR)
+    const cssViewport = page.getViewport({ scale: baseScale });
+
     const wrapper = document.createElement('div');
     wrapper.className = 'pdf-page';
     wrapper.dataset.page = pageNum;
-    wrapper.style.width = viewport.width + 'px';
+    wrapper.style.width = cssViewport.width + 'px';
+    wrapper.style.height = cssViewport.height + 'px';
 
+    // Canvas: render at DPR resolution, display at CSS size
     const canvas = document.createElement('canvas');
-    canvas.width = viewport.width;
-    canvas.height = viewport.height;
+    canvas.width = renderViewport.width;
+    canvas.height = renderViewport.height;
+    canvas.style.width = cssViewport.width + 'px';
+    canvas.style.height = cssViewport.height + 'px';
     wrapper.appendChild(canvas);
 
     const ctx = canvas.getContext('2d');
-    await page.render({ canvasContext: ctx, viewport }).promise;
+    await page.render({ canvasContext: ctx, viewport: renderViewport }).promise;
 
-    // Highlight layer
+    // Highlight layer: sized to CSS viewport, positioned absolutely
     const hlLayer = document.createElement('div');
     hlLayer.className = 'highlight-layer';
-    hlLayer.style.width = viewport.width + 'px';
-    hlLayer.style.height = viewport.height + 'px';
+    hlLayer.style.width = cssViewport.width + 'px';
+    hlLayer.style.height = cssViewport.height + 'px';
 
+    let pageHasHighlights = false;
     for (const ann of ANNOTATIONS) {
-      if (!ann.rects) continue;
+      if (!ann.rects || !ann.rects.length) continue;
       const cssClass = 'hl-' + ann.verdict.replace(/_/g, '-');
       for (const rect of ann.rects) {
         if (rect.page !== pageNum - 1) continue;
+        pageHasHighlights = true;
         const div = document.createElement('div');
         div.className = 'hl ' + cssClass;
-        div.style.left   = (rect.x0 * currentScale) + 'px';
-        div.style.top    = (rect.y0 * currentScale) + 'px';
-        div.style.width  = ((rect.x1 - rect.x0) * currentScale) + 'px';
-        div.style.height = ((rect.y1 - rect.y0) * currentScale) + 'px';
+        div.style.left   = (rect.x0 * baseScale) + 'px';
+        div.style.top    = (rect.y0 * baseScale) + 'px';
+        div.style.width  = ((rect.x1 - rect.x0) * baseScale) + 'px';
+        div.style.height = ((rect.y1 - rect.y0) * baseScale) + 'px';
         div.dataset.annId = ann.id;
         div.addEventListener('click', e => { e.stopPropagation(); showPopover(ann, div); });
         hlLayer.appendChild(div);
@@ -388,10 +430,10 @@ if (PDF_URL) {
   });
 
   function updateZoomLabel() {
-    document.getElementById('zoomLevel').textContent = Math.round(currentScale / 1.5 * 100) + '%';
+    document.getElementById('zoomLevel').textContent = Math.round(baseScale / 1.5 * 100) + '%';
   }
-  document.getElementById('zoomIn').addEventListener('click', () => { currentScale = Math.min(3, currentScale + 0.25); renderAll(); });
-  document.getElementById('zoomOut').addEventListener('click', () => { currentScale = Math.max(0.5, currentScale - 0.25); renderAll(); });
+  document.getElementById('zoomIn').addEventListener('click', () => { baseScale = Math.min(3, baseScale + 0.25); renderAll(); });
+  document.getElementById('zoomOut').addEventListener('click', () => { baseScale = Math.max(0.5, baseScale - 0.25); renderAll(); });
 }
 
 // ── Popover ──

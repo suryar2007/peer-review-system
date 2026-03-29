@@ -279,6 +279,7 @@ class HermesAgent:
             ],
             "response_format": {"type": "json_object"},
             "temperature": temperature,
+            "max_tokens": 2000,
         }
         resp = self._lava_gw.forward_post(self._completions_url, json_body=body)
         resp.raise_for_status()
@@ -316,6 +317,7 @@ class HermesAgent:
                         ],
                         response_format={"type": "json_object"},
                         temperature=0.1,
+                        max_tokens=2000,
                     )
                     self._log_usage(operation, completion.usage)
                     content = completion.choices[0].message.content

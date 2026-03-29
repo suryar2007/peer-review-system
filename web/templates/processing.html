@@ -24,34 +24,6 @@
   h2 { font-size: 1.35rem; margin-bottom: 0.4rem; }
   .phase { color: var(--accent); font-size: 0.92rem; margin-bottom: 1.75rem; min-height: 1.4em; }
 
-  /* ── Progress bar ── */
-  .progress-wrap { margin-bottom: 1.75rem; }
-  .progress-bar {
-    width: 100%; height: 10px; background: #e2e8f0; border-radius: 99px;
-    overflow: hidden; position: relative;
-  }
-  .progress-fill {
-    height: 100%; border-radius: 99px;
-    background: linear-gradient(90deg, var(--accent), #818cf8);
-    width: 0%; transition: width 0.8s ease;
-    position: relative;
-  }
-  .progress-fill::after {
-    content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35));
-    border-radius: 99px;
-    animation: shimmer 1.5s ease infinite;
-  }
-  @keyframes shimmer { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
-  .progress-fill.done {
-    background: linear-gradient(90deg, var(--green), #4ade80);
-  }
-  .progress-fill.done::after { display: none; }
-  .progress-pct {
-    font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem;
-    font-variant-numeric: tabular-nums;
-  }
-
   /* ── Steps ── */
   .steps { text-align: left; margin: 0 auto 1.75rem; max-width: 300px; }
   .step {
@@ -93,13 +65,6 @@
   {% if original_filename %}<p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.6rem;">{{ original_filename }}</p>{% endif %}
   <p class="phase" id="phase">Starting pipeline...</p>
 
-  <div class="progress-wrap">
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
-    <div class="progress-pct" id="progressPct">0%</div>
-  </div>
-
   <div class="steps">
     <div class="step active" id="step-extract">
       <span class="step-icon">1</span> Extract citations &amp; claims
@@ -125,14 +90,10 @@ const uploadId = "{{ upload_id }}";
 const phaseEl = document.getElementById('phase');
 const errorEl = document.getElementById('errorMsg');
 const spinnerEl = document.getElementById('spinner');
-const fillEl = document.getElementById('progressFill');
-const pctEl = document.getElementById('progressPct');
 const elapsedEl = document.getElementById('elapsed');
 const startTime = Date.now();
 
 const STEPS = ['step-extract', 'step-resolve', 'step-reason', 'step-report'];
-const STEP_PROGRESS = { 'step-extract': 25, 'step-resolve': 50, 'step-reason': 75, 'step-report': 95 };
-
 const STEP_MAP = {
   'Starting': 'step-extract',
   'Loading': 'step-extract',
@@ -143,12 +104,6 @@ const STEP_MAP = {
   'report': 'step-report',
   'Complete': 'step-report',
 };
-
-function setProgress(pct, done) {
-  fillEl.style.width = pct + '%';
-  pctEl.textContent = pct + '%';
-  if (done) fillEl.classList.add('done');
-}
 
 function updateSteps(phase) {
   let activeId = null;
@@ -168,8 +123,6 @@ function updateSteps(phase) {
     }
   }
 
-  const targetPct = STEP_PROGRESS[activeId] || 10;
-  setProgress(targetPct, false);
 }
 
 function updateElapsed() {
@@ -189,7 +142,6 @@ async function poll() {
     updateSteps(data.phase || '');
 
     if (data.status === 'done') {
-      setProgress(100, true);
       phaseEl.textContent = 'Complete! Redirecting...';
       spinnerEl.style.borderTopColor = '#22c55e';
 
@@ -205,7 +157,6 @@ async function poll() {
     }
     if (data.status === 'error') {
       spinnerEl.style.display = 'none';
-      fillEl.style.background = '#ef4444';
       phaseEl.textContent = 'Pipeline failed';
       errorEl.textContent = data.error || 'Unknown error';
       errorEl.style.display = 'block';

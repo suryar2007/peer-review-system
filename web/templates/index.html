@@ -79,7 +79,17 @@
     background: var(--surface); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 1.25rem; cursor: pointer;
     transition: all 0.2s; text-decoration: none; color: inherit; display: block;
+    position: relative;
   }
+  .delete-btn {
+    position: absolute; top: 0.6rem; right: 0.6rem;
+    width: 28px; height: 28px; border-radius: 6px;
+    border: none; background: transparent; cursor: pointer;
+    color: var(--text-muted); display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.15s, background 0.15s, color 0.15s;
+  }
+  .review-card:hover .delete-btn { opacity: 1; }
+  .delete-btn:hover { background: #fef2f2; color: var(--red); }
   .review-card:hover {
     border-color: var(--accent); box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
     transform: translateY(-2px);
@@ -154,6 +164,9 @@
     <div class="reviews-grid">
       {% for r in upload_reviews %}
       <a class="review-card" href="/review/uploads/{{ r.filename }}">
+        <button class="delete-btn" title="Delete upload" onclick="deleteUpload(event, '{{ r.filename }}')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
         <h3 title="{{ r.display_name }}">{{ r.display_name }}</h3>
         {% if r.subtitle %}<div class="subtitle">{{ r.subtitle }}</div>{% endif %}
         <div class="stats">
@@ -227,6 +240,18 @@
 </div>
 
 <script>
+async function deleteUpload(event, filename) {
+  event.preventDefault();
+  event.stopPropagation();
+  if (!confirm('Delete this upload? This cannot be undone.')) return;
+  const resp = await fetch(`/api/uploads/${filename}`, { method: 'DELETE' });
+  if (resp.ok) {
+    event.target.closest('.review-card').remove();
+  } else {
+    alert('Failed to delete upload.');
+  }
+}
+
 function showFileName(input, targetId) {
   const el = document.getElementById(targetId);
   el.textContent = input.files.length ? input.files[0].name : '';

@@ -100,8 +100,13 @@ def _build_review_card(
     pdf_exists = (json_path.parent / f"{stem}.pdf").exists()
     paper_title = (data.get("title") or "").strip()
 
+    _EXAMPLE_LABELS: dict[str, str] = {
+        "bert_paper": "Gold Standard",
+        "sample_paper": "Unreliable",
+    }
+
     if example:
-        display_name = paper_title if paper_title else stem.replace("_", " ").replace("-", " ").title()
+        display_name = _EXAMPLE_LABELS.get(stem, paper_title or stem.replace("_", " ").replace("-", " ").title())
         subtitle = "Example"
         sort_key = 0.0
     else:
@@ -374,6 +379,23 @@ async def processing_page(request: Request, upload_id: str):
             "original_filename": job.get("original_filename") or "",
         },
     )
+
+
+@app.delete("/api/uploads/{filename}")
+async def delete_upload(filename: str):
+    """Delete an uploaded review and all associated files from disk."""
+    if "/" in filename or ".." in filename:
+        return JSONResponse({"error": "invalid filename"}, status_code=400)
+    stem = filename.replace("_review_data.json", "")
+    deleted = []
+    for suffix in ("_review_data.json", ".pdf", ".meta.json"):
+        path = UPLOADS_DIR / f"{stem}{suffix}"
+        if path.is_file():
+            path.unlink()
+            deleted.append(path.name)
+    if not deleted:
+        return JSONResponse({"error": "not found"}, status_code=404)
+    return JSONResponse({"deleted": deleted})
 
 
 @app.get("/api/status/{upload_id}")

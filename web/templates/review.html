@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Review — {{ title }}</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<style>
+:root {
+  --bg: #f1f5f9;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border: #e2e8f0;
+  --sidebar-bg: #0f172a;
+  --sidebar-text: #e2e8f0;
+  --sidebar-muted: #64748b;
+  --sidebar-w: 320px;
+  --red: #ef4444;
+  --orange: #f59e0b;
+  --purple: #a855f7;
+  --gray: #6b7280;
+  --green: #22c55e;
+  --blue: #3b82f6;
+  --radius: 10px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6;
+}
+
+/* ── Layout ── */
+.layout { display: flex; min-height: 100vh; }
+.sidebar {
+  width: var(--sidebar-w); position: fixed; top: 0; left: 0; bottom: 0;
+  background: var(--sidebar-bg); color: var(--sidebar-text);
+  overflow-y: auto; z-index: 100; display: flex; flex-direction: column;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.main {
+  margin-left: var(--sidebar-w); flex: 1;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 1.5rem 2rem 3rem;
+}
+
+/* ── Sidebar ── */
+.sidebar-header {
+  padding: 1.25rem 1.25rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.sidebar-header a {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  color: var(--sidebar-muted); font-size: 0.78rem; text-decoration: none;
+  margin-bottom: 0.6rem;
+}
+.sidebar-header a:hover { color: var(--sidebar-text); }
+.sidebar-header h2 {
+  font-size: 0.95rem; font-weight: 600; line-height: 1.4;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+.score-section {
+  padding: 1.25rem; text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.score-ring-wrap { display: inline-block; position: relative; width: 100px; height: 100px; }
+.score-ring-wrap svg { width: 100px; height: 100px; transform: rotate(-90deg); }
+.score-ring-wrap .ring-bg { fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 8; }
+.score-ring-wrap .ring-fg { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+.score-value {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  font-size: 1.7rem; font-weight: 700; line-height: 1;
+}
+.score-value small { display: block; font-size: 0.6rem; font-weight: 400; color: var(--sidebar-muted); margin-top: 0.15rem; }
+
+.verdict-breakdown { padding: 0.75rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.verdict-row { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0; font-size: 0.82rem; }
+.verdict-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.verdict-row .count { margin-left: auto; font-weight: 600; }
+
+.issue-list-section { flex: 1; overflow-y: auto; }
+.issue-list-label {
+  font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--sidebar-muted);
+  padding: 0.75rem 1.25rem 0.4rem;
+}
+.issue-item {
+  padding: 0.6rem 1.25rem; cursor: pointer; transition: background 0.15s;
+  border-left: 3px solid transparent;
+}
+.issue-item:hover { background: rgba(255,255,255,0.04); }
+.issue-item.active { background: rgba(255,255,255,0.06); }
+.issue-badge {
+  display: inline-block; font-size: 0.6rem; font-weight: 700;
+  padding: 0.1rem 0.4rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.03em;
+}
+.issue-item .issue-text {
+  font-size: 0.78rem; color: rgba(255,255,255,0.65); margin-top: 0.25rem;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+.badge-contradicted { background: var(--red); color: #fff; }
+.badge-overstated { background: var(--orange); color: #fff; }
+.badge-unverifiable { background: var(--gray); color: #fff; }
+.badge-out_of_scope { background: var(--purple); color: #fff; }
+.badge-supported { background: var(--green); color: #fff; }
+.badge-statistical_issue { background: var(--blue); color: #fff; }
+
+.issue-item[data-verdict="contradicted"] { border-left-color: var(--red); }
+.issue-item[data-verdict="overstated"] { border-left-color: var(--orange); }
+.issue-item[data-verdict="unverifiable"] { border-left-color: var(--gray); }
+.issue-item[data-verdict="out_of_scope"] { border-left-color: var(--purple); }
+.issue-item[data-verdict="supported"] { border-left-color: var(--green); }
+.issue-item[data-verdict="statistical_issue"] { border-left-color: var(--blue); }
+
+/* ── PDF Viewer ── */
+.pdf-toolbar {
+  width: 100%; max-width: 780px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.5rem 0; margin-bottom: 0.75rem;
+}
+.pdf-toolbar h1 { font-size: 1.15rem; font-weight: 700; }
+.zoom-controls { display: flex; align-items: center; gap: 0.4rem; }
+.zoom-controls button {
+  width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 6px;
+  background: var(--surface); cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.zoom-controls button:hover { background: var(--bg); }
+.zoom-controls span { font-size: 0.8rem; color: var(--text-muted); min-width: 40px; text-align: center; }
+
+#pdfViewer { width: 100%; max-width: 780px; }
+
+.pdf-page {
+  position: relative; margin-bottom: 12px;
+  background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border-radius: 4px; overflow: hidden;
+}
+.pdf-page canvas { display: block; width: 100%; height: auto; }
+
+.highlight-layer {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+}
+.hl {
+  position: absolute; pointer-events: auto; cursor: pointer;
+  border-radius: 2px; transition: opacity 0.15s;
+  mix-blend-mode: multiply;
+}
+.hl:hover { opacity: 0.6 !important; }
+.hl.active { opacity: 0.6 !important; outline: 2px solid rgba(0,0,0,0.3); outline-offset: 1px; }
+
+.hl-contradicted   { background: var(--red);    opacity: 0.22; }
+.hl-overstated     { background: var(--orange); opacity: 0.22; }
+.hl-unverifiable   { background: var(--gray);   opacity: 0.18; }
+.hl-out-of-scope   { background: var(--purple); opacity: 0.22; }
+.hl-supported      { background: var(--green);  opacity: 0.15; }
+.hl-statistical-issue { background: var(--blue); opacity: 0.22; }
+
+/* ── Popover ── */
+.popover-overlay { position: fixed; inset: 0; z-index: 999; display: none; }
+.popover-overlay.visible { display: block; }
+.popover {
+  position: fixed; z-index: 1000; width: 370px; max-height: 65vh; overflow-y: auto;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.14), 0 0 0 1px rgba(0,0,0,0.04);
+  opacity: 0; transform: translateY(8px) scale(0.97);
+  transition: opacity 0.2s, transform 0.2s; pointer-events: none;
+}
+.popover.visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+.popover-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem 1.1rem 0.65rem; border-bottom: 1px solid var(--border);
+}
+.popover-verdict {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em;
+}
+.popover-verdict .dot { width: 10px; height: 10px; border-radius: 50%; }
+.popover-close {
+  width: 26px; height: 26px; border-radius: 6px; border: none; background: transparent;
+  cursor: pointer; font-size: 1.1rem; color: var(--text-muted);
+  display: flex; align-items: center; justify-content: center;
+}
+.popover-close:hover { background: var(--bg); }
+.popover-body { padding: 0.9rem 1.1rem 1.1rem; }
+.popover-confidence {
+  display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem;
+  font-size: 0.78rem; color: var(--text-muted);
+}
+.conf-bar { flex: 1; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.conf-fill { height: 100%; border-radius: 3px; }
+.popover-section { margin-bottom: 0.6rem; }
+.popover-section-label {
+  font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.2rem;
+}
+.popover-section p { font-size: 0.85rem; line-height: 1.5; color: var(--text-secondary); }
+.popover-passage {
+  background: var(--bg); border-radius: 8px; padding: 0.65rem 0.9rem;
+  font-size: 0.8rem; font-style: italic; color: var(--text-secondary);
+  border-left: 3px solid var(--border);
+}
+
+/* ── Fallback table ── */
+.fallback { max-width: 780px; width: 100%; }
+.fallback-msg { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem; }
+.ft { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: var(--radius); overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.ft th { background: var(--bg); padding: 0.55rem 0.9rem; text-align: left; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); }
+.ft td { padding: 0.65rem 0.9rem; border-top: 1px solid var(--border); font-size: 0.85rem; vertical-align: top; }
+
+@media (max-width: 900px) {
+  .sidebar { width: 100%; position: relative; max-height: 35vh; }
+  .main { margin-left: 0; padding: 1rem; }
+  .layout { flex-direction: column; }
+  .popover { width: calc(100vw - 2rem); left: 1rem !important; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+  <!-- ─── Sidebar ─── -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+        All Reviews
+      </a>
+      <h2>{{ title }}</h2>
+    </div>
+    <div class="score-section">
+      <div class="score-ring-wrap">
+        <svg viewBox="0 0 100 100">
+          <circle class="ring-bg" cx="50" cy="50" r="42"/>
+          <circle class="ring-fg" cx="50" cy="50" r="42"
+            stroke="{{ '#22c55e' if score >= 70 else '#f59e0b' if score >= 40 else '#ef4444' }}"
+            stroke-dasharray="263.9"
+            stroke-dashoffset="{{ 263.9 - (263.9 * score / 100) }}"
+          />
+        </svg>
+        <div class="score-value" style="color:{{ '#22c55e' if score >= 70 else '#f59e0b' if score >= 40 else '#ef4444' }}">
+          {{ score }}<small>Integrity</small>
+        </div>
+      </div>
+    </div>
+    <div class="verdict-breakdown">
+      {% set vd = [("contradicted","Contradicted","var(--red)"),("overstated","Overstated","var(--orange)"),("out_of_scope","Out of Scope","var(--purple)"),("unverifiable","Unverifiable","var(--gray)"),("statistical_issue","Statistical","var(--blue)"),("supported","Supported","var(--green)")] %}
+      {% for key, label, color in vd %}{% if verdict_counts.get(key, 0) > 0 %}
+      <div class="verdict-row"><span class="verdict-dot" style="background:{{ color }}"></span><span>{{ label }}</span><span class="count">{{ verdict_counts[key] }}</span></div>
+      {% endif %}{% endfor %}
+    </div>
+    <div class="verdict-breakdown" style="font-size:0.8rem;">
+      <div class="verdict-row"><span style="color:var(--sidebar-muted)">Citations</span><span class="count">{{ summary.get('total_citations','?') }}</span></div>
+      <div class="verdict-row"><span style="color:var(--sidebar-muted)">Resolved</span><span class="count">{{ summary.get('resolved_count','?') }}</span></div>
+    </div>
+    <div class="issue-list-section">
+      <div class="issue-list-label">Findings ({{ annotations|length }})</div>
+      {% for ann in annotations %}
+      <div class="issue-item" data-target="{{ ann.id }}" data-verdict="{{ ann.verdict }}" data-page="{{ ann.rects[0].page if ann.rects else 0 }}">
+        <span class="issue-badge badge-{{ ann.verdict }}">{{ ann.verdict.replace('_',' ') }}</span>
+        <div class="issue-text">{{ ann.explanation[:120] }}</div>
+      </div>
+      {% endfor %}
+      {% if not annotations %}<div style="padding:1.5rem;text-align:center;color:var(--sidebar-muted);font-size:0.82rem;">No findings</div>{% endif %}
+    </div>
+  </aside>
+
+  <!-- ─── Main ─── -->
+  <div class="main">
+    {% if has_pdf %}
+    <div class="pdf-toolbar">
+      <h1>{{ title }}</h1>
+      <div class="zoom-controls">
+        <button id="zoomOut">-</button>
+        <span id="zoomLevel">100%</span>
+        <button id="zoomIn">+</button>
+      </div>
+    </div>
+    <div id="pdfViewer"></div>
+    {% else %}
+    <div class="fallback">
+      <p class="fallback-msg">No PDF available. Upload the PDF alongside the JSON for the annotated PDF experience.</p>
+      <h3 style="font-size:1rem;margin-bottom:0.75rem;">Claim Verification</h3>
+      <table class="ft"><thead><tr><th>Claim</th><th>Verdict</th><th>Conf.</th><th>Explanation</th></tr></thead><tbody>
+      {% for vr in data.get('verification_results',[]) %}
+      <tr><td style="max-width:280px">{{ vr.claim_text[:200] }}</td><td><span class="issue-badge badge-{{ vr.verdict }}">{{ vr.verdict }}</span></td><td>{{ "%.0f%%"|format(vr.confidence*100) }}</td><td style="max-width:280px;font-size:0.8rem">{{ vr.explanation[:250] }}</td></tr>
+      {% endfor %}
+      </tbody></table>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- ─── Popover ─── -->
+<div class="popover-overlay" id="popoverOverlay"></div>
+<div class="popover" id="popover">
+  <div class="popover-header">
+    <div class="popover-verdict"><span class="dot" id="popoverDot"></span><span id="popoverVerdict"></span></div>
+    <button class="popover-close" id="popoverClose">&times;</button>
+  </div>
+  <div class="popover-body">
+    <div class="popover-confidence">
+      <span>Confidence</span>
+      <div class="conf-bar"><div class="conf-fill" id="popoverConfFill"></div></div>
+      <span id="popoverConfVal"></span>
+    </div>
+    <div class="popover-section"><div class="popover-section-label">Explanation</div><p id="popoverExplanation"></p></div>
+    <div class="popover-section" id="popoverPassageWrap" style="display:none"><div class="popover-section-label">Relevant Passage</div><div class="popover-passage" id="popoverPassage"></div></div>
+  </div>
+</div>
+
+<script>
+const ANNOTATIONS = {{ annotations_json | safe }};
+const PDF_URL = "{{ pdf_url }}";
+
+const COLORS = {contradicted:'#ef4444',overstated:'#f59e0b',out_of_scope:'#a855f7',unverifiable:'#6b7280',supported:'#22c55e',statistical_issue:'#3b82f6'};
+const LABELS = {contradicted:'Contradicted',overstated:'Overstated',out_of_scope:'Out of Scope',unverifiable:'Unverifiable',supported:'Supported',statistical_issue:'Statistical Issue'};
+
+// ── PDF rendering ──
+if (PDF_URL) {
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  let currentScale = 1.5;
+  const viewer = document.getElementById('pdfViewer');
+  let pdfDoc = null;
+
+  async function renderPage(page, pageNum) {
+    const viewport = page.getViewport({ scale: currentScale });
+    const wrapper = document.createElement('div');
+    wrapper.className = 'pdf-page';
+    wrapper.dataset.page = pageNum;
+    wrapper.style.width = viewport.width + 'px';
+
+    const canvas = document.createElement('canvas');
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    wrapper.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    await page.render({ canvasContext: ctx, viewport }).promise;
+
+    // Highlight layer
+    const hlLayer = document.createElement('div');
+    hlLayer.className = 'highlight-layer';
+    hlLayer.style.width = viewport.width + 'px';
+    hlLayer.style.height = viewport.height + 'px';
+
+    for (const ann of ANNOTATIONS) {
+      if (!ann.rects) continue;
+      const cssClass = 'hl-' + ann.verdict.replace(/_/g, '-');
+      for (const rect of ann.rects) {
+        if (rect.page !== pageNum - 1) continue;
+        const div = document.createElement('div');
+        div.className = 'hl ' + cssClass;
+        div.style.left   = (rect.x0 * currentScale) + 'px';
+        div.style.top    = (rect.y0 * currentScale) + 'px';
+        div.style.width  = ((rect.x1 - rect.x0) * currentScale) + 'px';
+        div.style.height = ((rect.y1 - rect.y0) * currentScale) + 'px';
+        div.dataset.annId = ann.id;
+        div.addEventListener('click', e => { e.stopPropagation(); showPopover(ann, div); });
+        hlLayer.appendChild(div);
+      }
+    }
+    wrapper.appendChild(hlLayer);
+    viewer.appendChild(wrapper);
+  }
+
+  async function renderAll() {
+    viewer.innerHTML = '';
+    if (!pdfDoc) return;
+    for (let i = 1; i <= pdfDoc.numPages; i++) {
+      const page = await pdfDoc.getPage(i);
+      await renderPage(page, i);
+    }
+    updateZoomLabel();
+  }
+
+  pdfjsLib.getDocument(PDF_URL).promise.then(pdf => {
+    pdfDoc = pdf;
+    renderAll();
+  });
+
+  function updateZoomLabel() {
+    document.getElementById('zoomLevel').textContent = Math.round(currentScale / 1.5 * 100) + '%';
+  }
+  document.getElementById('zoomIn').addEventListener('click', () => { currentScale = Math.min(3, currentScale + 0.25); renderAll(); });
+  document.getElementById('zoomOut').addEventListener('click', () => { currentScale = Math.max(0.5, currentScale - 0.25); renderAll(); });
+}
+
+// ── Popover ──
+const popover = document.getElementById('popover');
+const overlay = document.getElementById('popoverOverlay');
+let activeHl = null;
+
+function showPopover(ann, el) {
+  if (activeHl) activeHl.classList.remove('active');
+  activeHl = el; el.classList.add('active');
+
+  const color = COLORS[ann.verdict] || '#6b7280';
+  document.getElementById('popoverDot').style.background = color;
+  document.getElementById('popoverVerdict').textContent = LABELS[ann.verdict] || ann.verdict;
+
+  const confPct = Math.round((ann.confidence || 0) * 100) + '%';
+  document.getElementById('popoverConfVal').textContent = confPct;
+  const fill = document.getElementById('popoverConfFill');
+  fill.style.width = confPct; fill.style.background = color;
+
+  document.getElementById('popoverExplanation').textContent = ann.explanation || '';
+  const pw = document.getElementById('popoverPassageWrap');
+  if (ann.passage) { document.getElementById('popoverPassage').textContent = ann.passage; pw.style.display = ''; }
+  else { pw.style.display = 'none'; }
+
+  const rect = el.getBoundingClientRect();
+  let left = rect.left + rect.width / 2 - 185;
+  left = Math.max(8, Math.min(left, window.innerWidth - 378));
+  let top = rect.bottom + 8;
+  popover.style.transform = '';
+  if (top + 280 > window.innerHeight) { top = rect.top - 8; popover.style.transform = 'translateY(-100%) scale(1)'; }
+  popover.style.left = left + 'px'; popover.style.top = top + 'px';
+
+  overlay.classList.add('visible');
+  requestAnimationFrame(() => popover.classList.add('visible'));
+
+  document.querySelectorAll('.issue-item').forEach(it => it.classList.remove('active'));
+  const si = document.querySelector(`.issue-item[data-target="${ann.id}"]`);
+  if (si) { si.classList.add('active'); si.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+}
+
+function hidePopover() {
+  popover.classList.remove('visible'); overlay.classList.remove('visible');
+  if (activeHl) { activeHl.classList.remove('active'); activeHl = null; }
+  document.querySelectorAll('.issue-item').forEach(i => i.classList.remove('active'));
+}
+document.getElementById('popoverClose').addEventListener('click', hidePopover);
+overlay.addEventListener('click', hidePopover);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hidePopover(); });
+
+// ── Sidebar click → scroll to highlight ──
+document.querySelectorAll('.issue-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const annId = item.dataset.target;
+    const ann = ANNOTATIONS.find(a => a.id === annId);
+    if (!ann) return;
+
+    const hlEl = document.querySelector(`.hl[data-ann-id="${annId}"]`);
+    if (hlEl) {
+      hlEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      hlEl.style.opacity = '0.55';
+      setTimeout(() => { hlEl.style.opacity = ''; }, 1200);
+      setTimeout(() => showPopover(ann, hlEl), 400);
+    }
+  });
+});
+</script>
+</body>
+</html>

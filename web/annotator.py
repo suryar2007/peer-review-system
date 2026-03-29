@@ -43,6 +43,7 @@ def compute_score(data: dict[str, Any]) -> int:
         "overstated": 30,
         "unverifiable": 50,
         "out_of_scope": 20,
+        "paper_mill_journal": 40,
         "contradicted": 0,
     }
     claim_score = sum(

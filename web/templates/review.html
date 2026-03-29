@@ -105,6 +105,7 @@ body {
 .badge-overstated { background: var(--orange); color: #fff; }
 .badge-unverifiable { background: var(--gray); color: #fff; }
 .badge-out_of_scope { background: var(--purple); color: #fff; }
+.badge-paper_mill_journal { background: #f97316; color: #fff; }
 .badge-supported { background: var(--green); color: #fff; }
 .badge-statistical_issue { background: var(--blue); color: #fff; }
 
@@ -119,6 +120,7 @@ body {
 .issue-item[data-verdict="out_of_scope"] { border-left-color: var(--purple); }
 .issue-item[data-verdict="supported"] { border-left-color: var(--green); }
 .issue-item[data-verdict="statistical_issue"] { border-left-color: var(--blue); }
+.issue-item[data-verdict="paper_mill_journal"] { border-left-color: #f97316; }
 
 /* ── PDF Viewer ── */
 .pdf-toolbar {
@@ -281,7 +283,7 @@ body {
       </div>
     </div>
     <div class="verdict-breakdown">
-      {% set vd = [("contradicted","Contradicted","var(--red)"),("overstated","Overstated","var(--orange)"),("out_of_scope","Out of Scope","var(--purple)"),("unverifiable","Unverifiable","var(--gray)"),("statistical_issue","Statistical","var(--blue)"),("supported","Supported","var(--green)")] %}
+      {% set vd = [("contradicted","Contradicted","var(--red)"),("overstated","Overstated","var(--orange)"),("out_of_scope","Out of Scope","var(--purple)"),("paper_mill_journal","Paper Mill Journal","#f97316"),("unverifiable","Unverifiable","var(--gray)"),("statistical_issue","Statistical","var(--blue)"),("supported","Supported","var(--green)")] %}
       {% for key, label, color in vd %}{% if verdict_counts.get(key, 0) > 0 %}
       <div class="verdict-row"><span class="verdict-dot" style="background:{{ color }}"></span><span>{{ label }}</span><span class="count">{{ verdict_counts[key] }}</span></div>
       {% endif %}{% endfor %}
@@ -350,8 +352,8 @@ body {
 const ANNOTATIONS = {{ annotations_json | safe }};
 const PDF_URL = "{{ pdf_url }}";
 
-const COLORS = {contradicted:'#ef4444',overstated:'#f59e0b',out_of_scope:'#a855f7',unverifiable:'#6b7280',supported:'#22c55e',statistical_issue:'#3b82f6'};
-const LABELS = {contradicted:'Contradicted',overstated:'Overstated',out_of_scope:'Out of Scope',unverifiable:'Unverifiable',supported:'Supported',statistical_issue:'Statistical Issue'};
+const COLORS = {contradicted:'#ef4444',overstated:'#f59e0b',out_of_scope:'#a855f7',paper_mill_journal:'#f97316',unverifiable:'#6b7280',supported:'#22c55e',statistical_issue:'#3b82f6'};
+const LABELS = {contradicted:'Contradicted',overstated:'Overstated',out_of_scope:'Out of Scope',paper_mill_journal:'Paper Mill Journal',unverifiable:'Unverifiable',supported:'Supported',statistical_issue:'Statistical Issue'};
 
 // ── PDF rendering ──
 if (PDF_URL) {

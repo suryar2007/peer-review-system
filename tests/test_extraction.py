@@ -220,25 +220,23 @@ def test_pipeline_state_accumulates_errors() -> None:
 # 5. test_k2_unavailable_graceful_degradation
 # ---------------------------------------------------------------------------
 
-def test_k2_unavailable_graceful_degradation() -> None:
-    """When K2 is unreachable, verify_claim returns verdict='unverifiable' without crashing."""
-    from agents.k2 import K2ReasoningAgent
+def test_reasoning_unavailable_graceful_degradation() -> None:
+    """When the reasoning model is unavailable, verify_claim returns verdict='unverifiable'."""
+    from unittest.mock import patch
+    from agents.hermes import HermesAgent
 
-    agent = K2ReasoningAgent(
-        model_id="test-model",
-        base_url="http://unreachable.invalid:9999",
-        hf_token=None,
-    )
+    agent = HermesAgent.__new__(HermesAgent)
 
-    result = agent.verify_claim(
-        claim_text="Transformers outperform RNNs on all NLP tasks",
-        cited_sources=[{"title": "Test paper", "source_text": "Some text about models."}],
-    )
+    with patch.object(agent, "_chat_json", side_effect=RuntimeError("connection refused")):
+        result = agent.verify_claim(
+            claim_text="Transformers outperform RNNs on all NLP tasks",
+            cited_sources=[{"title": "Test paper", "source_text": "Some text about models."}],
+        )
 
     assert isinstance(result, VerificationResult)
     assert result.verdict == "unverifiable"
     assert result.confidence == 0.0
-    assert "unavailable" in result.explanation.lower() or "error" in result.explanation.lower()
+    assert "unavailable" in result.explanation.lower() or "connection" in result.explanation.lower()
 
 
 # ---------------------------------------------------------------------------
@@ -390,12 +388,12 @@ def test_openalex_abstract_reconstruction() -> None:
 # ---------------------------------------------------------------------------
 
 def test_robust_json_loads() -> None:
-    """K2's robust JSON parser handles markdown fences and invalid escapes."""
-    from agents.k2 import _robust_json_loads
+    """Hermes JSON parser handles markdown fences and invalid escapes."""
+    from agents.hermes import _parse_json_object
 
-    assert _robust_json_loads('{"a": 1}') == {"a": 1}
-    assert _robust_json_loads('```json\n{"a": 1}\n```') == {"a": 1}
-    result = _robust_json_loads('{"verdict": "supported", "confidence": 0.9, "explanation": "test"}')
+    assert _parse_json_object('{"a": 1}')[0] == {"a": 1}
+    assert _parse_json_object('```json\n{"a": 1}\n```')[0] == {"a": 1}
+    result, _ = _parse_json_object('{"verdict": "supported", "confidence": 0.9, "explanation": "test"}')
     assert result["verdict"] == "supported"
 
 

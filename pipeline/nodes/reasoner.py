@@ -1,4 +1,4 @@
-"""Reasoning node: claim verification and statistical audits via Hermes/K2."""
+"""Reasoning node: claim verification and statistical audits via Hermes."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ import logging
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
-from agents.k2 import K2ReasoningAgent
+from agents.hermes import HermesAgent
 from pipeline.state import PipelineState, VerificationResult
 
 logger = logging.getLogger(__name__)
@@ -25,6 +25,14 @@ def reasoner_node(state: PipelineState) -> dict[str, Any]:
 
     Runs claim verification concurrently, then batches statistical assertions.
     """
+    import os
+    if os.getenv("SKIP_REASONING"):
+        return {
+            "verification_results": [],
+            "statistical_audit_results": [],
+            "current_phase": "reasoning_skipped",
+        }
+
     claims = state.get("claims") or []
     resolved_citations = state.get("resolved_citations") or []
     statistical_assertions = state.get("statistical_assertions") or []
@@ -38,7 +46,7 @@ def reasoner_node(state: PipelineState) -> dict[str, Any]:
             "current_phase": "reasoning_complete",
         }
 
-    client = K2ReasoningAgent.from_config()
+    client = HermesAgent()
     errors: list[str] = []
 
     verification_results: list[VerificationResult] = []
@@ -108,10 +116,6 @@ _PAPER_MILL_JOURNALS: set[str] = {
     "journal of personalized medicine",
     "oncology reports",
     "molecular medicine reports",
-    "foundations and trends\u00ae in privacy and security",
-    "foundations and trends in privacy and security",
-    "siam j. comput.",
-    "siam journal on computing",
 }
 
 
@@ -167,7 +171,7 @@ def _build_sources_for_claim(claim, resolved_citations: list) -> tuple[list[dict
 
 
 def _verify_claims_concurrent(
-    client: K2ReasoningAgent,
+    client: HermesAgent,
     claims: list,
     resolved_citations: list,
     paper_text: str,

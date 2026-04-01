@@ -46,9 +46,6 @@ class Settings:
 
     nous_api_key: str
     nous_base_url: str
-    hf_token: str | None
-    k2_model_id: str
-    k2_base_url: str | None
     lava_api_key: str
     langchain_tracing_v2: bool
     langchain_api_key: str | None
@@ -91,10 +88,6 @@ def _load_settings() -> Settings:
     if not nous_base_url:
         nous_base_url = "https://inference-api.nousresearch.com/v1"
 
-    k2_model_id = _strip_or_none(os.getenv("K2_MODEL_ID"))
-    if not k2_model_id:
-        k2_model_id = "LLM360/K2-Think-V2"
-
     langchain_project = _strip_or_none(os.getenv("LANGCHAIN_PROJECT"))
     if not langchain_project:
         langchain_project = "peer-review-pipeline"
@@ -102,9 +95,6 @@ def _load_settings() -> Settings:
     return Settings(
         nous_api_key=nous_api_key,
         nous_base_url=nous_base_url.rstrip("/"),
-        hf_token=_strip_or_none(os.getenv("HF_TOKEN")),
-        k2_model_id=k2_model_id,
-        k2_base_url=_strip_or_none(os.getenv("K2_BASE_URL")),
         lava_api_key=lava_api_key,
         langchain_tracing_v2=tracing,
         langchain_api_key=langchain_api_key,

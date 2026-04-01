@@ -98,7 +98,7 @@ def main() -> None:
     parser.add_argument(
         "--skip-reasoning",
         action="store_true",
-        help="Skip K2 reasoning (faster, useful for testing extraction only)",
+        help="Skip claim verification (faster, useful for testing extraction only)",
     )
     parser.add_argument(
         "--quick-test",
@@ -146,10 +146,8 @@ def main() -> None:
     print()
 
     if args.skip_reasoning:
-        # Force K2 to gracefully degrade by unsetting its endpoints
         import os
-        os.environ.pop("K2_BASE_URL", None)
-        os.environ.pop("HF_TOKEN", None)
+        os.environ["SKIP_REASONING"] = "1"
         get_settings.cache_clear()
 
     final_state = run_pipeline(str(pdf_path))

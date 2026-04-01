@@ -92,7 +92,7 @@ class PipelineState(TypedDict):
     # Phase 2 outputs (Lava retrieval)
     resolved_citations: list[Citation]
 
-    # Phase 3 outputs (K2 reasoning)
+    # Phase 3 outputs (reasoning)
     verification_results: list[VerificationResult]
     statistical_audit_results: list[StatisticalAuditResult]
 

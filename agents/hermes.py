@@ -4,6 +4,9 @@ When a Lava API key is configured, LLM requests are routed through Lava's
 forward proxy (BYOK mode) for usage tracking and cost metering. If the
 Nous endpoint is not in Lava's supported provider list, falls back to
 direct API calls automatically.
+
+This module also provides claim verification and statistical auditing via
+the same Hermes model (previously handled by a separate K2 client).
 """
 
 from __future__ import annotations
@@ -18,6 +21,7 @@ import httpx
 from openai import APIConnectionError, APIStatusError, APITimeoutError, OpenAI, RateLimitError
 
 from config import get_settings
+from pipeline.state import StatisticalAssertion, StatisticalAuditResult, VerificationResult
 
 logger = logging.getLogger(__name__)
 
@@ -552,6 +556,168 @@ class HermesAgent:
                 row["section"] = row["paper_section"]
             normalized.append(row)
         return normalized
+
+
+    _VERIFY_SYSTEM_PROMPT = (
+        "You are a rigorous academic claim verifier. Your job is to determine whether "
+        "the cited sources actually support the claim attributed to them.\n\n"
+        "IMPORTANT — understand the rhetorical role of each citation before judging:\n"
+        "- Contrast citations ('Unlike X...', 'In contrast to X...') reference prior work "
+        "to highlight differences. The cited source is NOT expected to support the new claim; "
+        "it only needs to exist and describe the prior method.\n"
+        "- Background/dataset citations reference a dataset, benchmark, or tool by name. "
+        "The source only needs to be the origin of that artifact.\n"
+        "- Methodological ancestry citations ('inspired by X', 'based on X') reference the "
+        "idea that influenced the work, not a direct replication.\n"
+        "Only direct support citations are expected to substantiate the claim's conclusion.\n\n"
+        "IMPORTANT — allow reasonable academic interpretation:\n"
+        "Citing papers routinely characterize or reframe prior work in their own terms "
+        "(e.g., calling a method 'not deeply bidirectional' even if the source never uses "
+        "that phrase). This is normal scholarly practice, NOT misrepresentation. As long as "
+        "the characterization is a fair reading of what the source describes, mark it "
+        "'supported'. Only flag it if the characterization materially distorts the source.\n\n"
+        "Verdict rules (apply in order):\n"
+        "1. If the source text is missing, only a bibliographic stub, or too short to "
+        "evaluate the claim, mark it 'unverifiable'. Do NOT mark it 'out_of_scope' or "
+        "'contradicted' when you simply lack the source content.\n"
+        "2. If the citation serves a contrast, background, or ancestry role and the source "
+        "correctly describes the referenced prior work/dataset/method, mark it 'supported'.\n"
+        "3. If the source clearly supports the claim's conclusion, mark it 'supported'.\n"
+        "4. If the source supports a weaker version of the claim, mark it 'overstated'.\n"
+        "5. If the source directly contradicts the claim, mark it 'contradicted'.\n"
+        "6. If the source is genuinely about an unrelated topic AND you have sufficient "
+        "source text to be sure, mark it 'out_of_scope'.\n\n"
+        "When in doubt between 'out_of_scope' and 'unverifiable', prefer 'unverifiable'.\n\n"
+        "Return ONLY a JSON object with keys:\n"
+        "- verdict: one of 'supported', 'overstated', 'contradicted', 'out_of_scope', 'unverifiable'\n"
+        "- confidence: float 0.0 to 1.0\n"
+        "- explanation: 2-3 sentences explaining your verdict\n"
+        "- relevant_passage: the most relevant passage from the source (quote it), or null"
+    )
+
+    _AUDIT_SYSTEM_PROMPT = (
+        "You are a statistical auditor for academic papers. For each statistical assertion, check:\n"
+        "- Is the p-value consistent with the reported sample size and effect size?\n"
+        "- Are confidence intervals plausible given n?\n"
+        "- Are there impossible values (p < 0, n < 0, CI where low > high)?\n"
+        "- Does the precision of the p-value suggest rounding or reporting issues?\n\n"
+        "Return ONLY a JSON object with key \"results\" (array). Each item must have:\n"
+        "- assertion_text: string\n"
+        "- is_internally_consistent: boolean\n"
+        "- issues: array of strings describing problems found (empty if consistent)\n"
+        "- severity: 'low', 'medium', or 'high'"
+    )
+
+    _AUDIT_BATCH_SIZE = 20
+
+    def verify_claim(
+        self,
+        claim_text: str,
+        cited_sources: list[dict],
+        paper_context: str = "",
+    ) -> VerificationResult:
+        """Verify whether cited sources support the claim. Returns a VerificationResult."""
+        try:
+            import json as _json
+            sources_json = _json.dumps(cited_sources, ensure_ascii=False, indent=2)
+            context_part = f"\n\nSurrounding context from the paper:\n{paper_context}" if paper_context else ""
+            user = (
+                f"Claim: {claim_text}{context_part}\n\n"
+                f"Cited sources:\n{sources_json}"
+            )
+            data = self._chat_json(
+                operation="verify_claim",
+                system_prompt=self._VERIFY_SYSTEM_PROMPT,
+                user_content=user,
+                max_tokens=4096,
+            )
+            return VerificationResult(
+                claim_text=claim_text,
+                verdict=str(data.get("verdict", "unverifiable")),
+                confidence=max(0.0, min(1.0, float(data.get("confidence", 0.0)))),
+                explanation=str(data.get("explanation", "")),
+                relevant_passage=data.get("relevant_passage"),
+                citation_indices=[],
+            )
+        except Exception as exc:
+            logger.warning("verify_claim failed: %s", exc)
+            return VerificationResult(
+                claim_text=claim_text,
+                verdict="unverifiable",
+                confidence=0.0,
+                explanation=f"Reasoning model unavailable: {exc}",
+                relevant_passage=None,
+                citation_indices=[],
+            )
+
+    def audit_statistical_assertions(
+        self,
+        assertions: list[StatisticalAssertion],
+    ) -> list[StatisticalAuditResult]:
+        """Check internal consistency of reported statistics."""
+        if not assertions:
+            return []
+        import json as _json
+        raw_dicts = [a.model_dump(mode="json") for a in assertions]
+        all_results: list[dict] = []
+        for start in range(0, len(raw_dicts), self._AUDIT_BATCH_SIZE):
+            batch = raw_dicts[start: start + self._AUDIT_BATCH_SIZE]
+            try:
+                user = _json.dumps(batch, ensure_ascii=False, indent=2)
+                data = self._chat_json(
+                    operation=f"audit_stats_batch_{start // self._AUDIT_BATCH_SIZE + 1}",
+                    system_prompt=self._AUDIT_SYSTEM_PROMPT,
+                    user_content=user,
+                    max_tokens=4096,
+                )
+                results = data.get("results")
+                if isinstance(results, list):
+                    all_results.extend(results)
+            except Exception as exc:
+                logger.warning("audit_statistical_assertions batch %d failed: %s", start // self._AUDIT_BATCH_SIZE + 1, exc)
+                all_results.extend(
+                    {
+                        "assertion_text": a.get("text", ""),
+                        "is_internally_consistent": False,
+                        "issues": [f"Audit failed: {exc}"],
+                        "severity": "medium",
+                    }
+                    for a in batch
+                )
+        return _parse_statistical_audit_results_from_dicts(all_results, assertions)
+
+
+def _parse_statistical_audit_results_from_dicts(
+    raw_results: list[dict],
+    assertions: list[StatisticalAssertion],
+) -> list[StatisticalAuditResult]:
+    out: list[StatisticalAuditResult] = []
+    for i, assertion in enumerate(assertions):
+        item = raw_results[i] if i < len(raw_results) else None
+        if not isinstance(item, dict):
+            out.append(
+                StatisticalAuditResult(
+                    assertion_text=assertion.text,
+                    is_internally_consistent=False,
+                    issues=["Missing or invalid audit result."],
+                    severity="medium",
+                )
+            )
+            continue
+        text = str(item.get("assertion_text") or assertion.text)
+        consistent = bool(item.get("is_internally_consistent", True))
+        issues = item.get("issues")
+        issue_list = [str(x) for x in issues] if isinstance(issues, list) else []
+        severity = str(item.get("severity") or "low")
+        out.append(
+            StatisticalAuditResult(
+                assertion_text=text,
+                is_internally_consistent=consistent,
+                issues=issue_list,
+                severity=severity,
+            )
+        )
+    return out
 
 
 if __name__ == "__main__":
